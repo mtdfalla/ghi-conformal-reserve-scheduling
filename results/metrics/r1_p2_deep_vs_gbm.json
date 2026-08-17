@@ -1,0 +1,16 @@
+{
+  "run_id": "paired DM + day-block bootstrap, deep vs post-causal GBM",
+  "finished_utc": "2026-08-15T11:33:25.163695+00:00",
+  "elapsed_s": 1.9,
+  "B_bootstrap": 10000,
+  "seed": 42,
+  "primary_run": "C_full (run C, 30 epochs, all training windows)",
+  "secondary_run": "A (15 epochs, 150,000 windows)",
+  "forbidden_inputs": [
+    "02_data/interim/p2_test_pred_h*.parquet (pre-causal)"
+  ],
+  "note": "Headline Table 2 rows are each model on its own valid set; every paired test here is on the intersection, whose size is in n_common.",
+  "python": "3.11.15",
+  "numpy": "2.4.4",
+  "pandas": "3.0.2"
+}

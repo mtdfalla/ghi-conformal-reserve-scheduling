@@ -1,0 +1,132 @@
+{
+  "overall": {
+    "rows_total_grid": 920451,
+    "span_start": "2016-04-01 23:45:00",
+    "span_end": "2024-12-31 23:55:00",
+    "duplicate_ts_removed": 2197,
+    "missing_slots_inserted": 1623
+  },
+  "per_variable": [
+    {
+      "variable": "ghi",
+      "sentinels": 2428,
+      "out_of_bounds": 28,
+      "missing_before_interp": 60812,
+      "pct_missing_before": 6.607,
+      "interpolated": 13925,
+      "missing_after_interp": 46887,
+      "pct_missing_after": 5.094
+    },
+    {
+      "variable": "ghi_alt",
+      "sentinels": 1199,
+      "out_of_bounds": 1200,
+      "missing_before_interp": 37070,
+      "pct_missing_before": 4.027,
+      "interpolated": 12027,
+      "missing_after_interp": 25043,
+      "pct_missing_after": 2.721
+    },
+    {
+      "variable": "temp_air",
+      "sentinels": 456269,
+      "out_of_bounds": 25746,
+      "missing_before_interp": 516676,
+      "pct_missing_before": 56.133,
+      "interpolated": 11849,
+      "missing_after_interp": 504827,
+      "pct_missing_after": 54.846
+    },
+    {
+      "variable": "wind_spd",
+      "sentinels": 3,
+      "out_of_bounds": 114209,
+      "missing_before_interp": 148883,
+      "pct_missing_before": 16.175,
+      "interpolated": 28939,
+      "missing_after_interp": 119944,
+      "pct_missing_after": 13.031
+    },
+    {
+      "variable": "wind_max",
+      "sentinels": 1,
+      "out_of_bounds": 414942,
+      "missing_before_interp": 452953,
+      "pct_missing_before": 49.21,
+      "interpolated": 40385,
+      "missing_after_interp": 412568,
+      "pct_missing_after": 44.822
+    },
+    {
+      "variable": "wind_dir",
+      "sentinels": 3,
+      "out_of_bounds": 107475,
+      "missing_before_interp": 145488,
+      "pct_missing_before": 15.806,
+      "interpolated": 36888,
+      "missing_after_interp": 108600,
+      "pct_missing_after": 11.799
+    },
+    {
+      "variable": "pressure",
+      "sentinels": 3,
+      "out_of_bounds": 458323,
+      "missing_before_interp": 516682,
+      "pct_missing_before": 56.134,
+      "interpolated": 11853,
+      "missing_after_interp": 504829,
+      "pct_missing_after": 54.846
+    },
+    {
+      "variable": "rain_day",
+      "sentinels": 478684,
+      "out_of_bounds": 0,
+      "missing_before_interp": 516682,
+      "pct_missing_before": 56.134,
+      "interpolated": 11855,
+      "missing_after_interp": 504827,
+      "pct_missing_after": 54.846
+    },
+    {
+      "variable": "temp_mod1",
+      "sentinels": 0,
+      "out_of_bounds": 430010,
+      "missing_before_interp": 488366,
+      "pct_missing_before": 53.057,
+      "interpolated": 54289,
+      "missing_after_interp": 434077,
+      "pct_missing_after": 47.159
+    },
+    {
+      "variable": "temp_mod2",
+      "sentinels": 5,
+      "out_of_bounds": 2,
+      "missing_before_interp": 58363,
+      "pct_missing_before": 6.341,
+      "interpolated": 13849,
+      "missing_after_interp": 44514,
+      "pct_missing_after": 4.836
+    },
+    {
+      "variable": "pv_total",
+      "sentinels": 0,
+      "out_of_bounds": 0,
+      "missing_before_interp": 34452,
+      "pct_missing_before": 3.743,
+      "interpolated": 6296,
+      "missing_after_interp": 28156,
+      "pct_missing_after": 3.059
+    }
+  ],
+  "ghi_complete_pct_by_year": {
+    "2016": 91.86,
+    "2017": 97.22,
+    "2018": 93.78,
+    "2019": 93.04,
+    "2020": 98.51,
+    "2021": 97.56,
+    "2022": 96.07,
+    "2023": 92.2,
+    "2024": 93.15
+  }
+}

@@ -1,0 +1,13 @@
+horizon_min,model_A,model_B,n,DM,p_value,A_better,hac_lag
+5,gbm,smart_persistence,40905,-18.0511,1.481e-72,True,0
+5,gbm,linear_ar,40905,-11.7974,4.537e-32,True,0
+5,smart_persistence,persistence,40905,-9.7151,2.749e-22,True,0
+15,gbm,smart_persistence,40094,-18.3835,3.633e-75,True,2
+15,gbm,linear_ar,40094,-9.8197,9.824e-23,True,2
+15,smart_persistence,persistence,40094,-31.8781,3.065e-220,True,2
+30,gbm,smart_persistence,38960,-15.8805,1.303e-56,True,5
+30,gbm,linear_ar,38960,-7.9176,2.485e-15,True,5
+30,smart_persistence,persistence,38960,-40.6036,0.0,True,5
+60,gbm,smart_persistence,36794,-13.421,5.688e-41,True,11
+60,gbm,linear_ar,36794,-5.6972,1.227e-08,True,11
+60,smart_persistence,persistence,36794,-40.4633,0.0,True,11

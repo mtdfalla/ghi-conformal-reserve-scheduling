@@ -1,0 +1,15 @@
+site,method,method_pretty,ace_rms_5min,ace_rms_pooled_all_horizons,ace_rms_pooled_anticipative,paper_value,n_regime_rows_5min,n_regime_rows_pooled,delta_vs_paper
+asp,icp,ICP,0.1243,0.12,0.12,,3,12,
+asp,icp_norm,ICP-norm,0.122,0.1135,0.1135,,3,12,
+asp,mondrian,Mondrian,0.0114,0.0167,0.0167,,3,12,
+asp,cqr,CQR,0.0133,0.0117,0.0117,,3,12,
+asp,mondrian_cqr,Mondrian-CQR,0.0064,0.008,0.008,,3,12,
+asp,aci,ACI,0.0304,0.0234,0.0298,,3,12,
+asp,aci_regime,ACI-regime,0.0195,0.0187,0.023,,3,12,
+yulara,icp,ICP,0.1233,0.116,0.116,0.114,3,12,0.0093
+yulara,icp_norm,ICP-norm,0.0796,0.0687,0.0687,0.069,3,12,0.0106
+yulara,mondrian,Mondrian,0.0121,0.0093,0.0093,0.01,3,12,0.0021
+yulara,cqr,CQR,0.0308,0.0325,0.0325,0.033,3,12,-0.0022
+yulara,mondrian_cqr,Mondrian-CQR,0.0097,0.0102,0.0102,0.009,3,12,0.0007
+yulara,aci,ACI,0.0262,0.019,0.0252,0.026,3,12,0.0002
+yulara,aci_regime,ACI-regime,0.0158,0.0215,0.0202,0.02,3,12,-0.0042

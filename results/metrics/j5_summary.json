@@ -1,0 +1,78 @@
+{
+  "params": {
+    "C_O": 0.3,
+    "RATIO": 10.0,
+    "ETA": 0.949,
+    "SOC_MIN": 0.1,
+    "CAP": 1332.5120896339502
+  },
+  "soc_feasible": true,
+  "headline": [
+    {
+      "policy": "icp",
+      "horizon_min": 5,
+      "best_rho": 0.9,
+      "mean_daily": 16.37,
+      "cvar95_daily": 183.59,
+      "value_captured_mean": 0.908,
+      "value_captured_cvar": 0.746,
+      "soc_min": 0.1,
+      "soc_max": 0.907
+    },
+    {
+      "policy": "mondrian",
+      "horizon_min": 5,
+      "best_rho": 0.8,
+      "mean_daily": 13.95,
+      "cvar95_daily": 159.09,
+      "value_captured_mean": 0.922,
+      "value_captured_cvar": 0.779,
+      "soc_min": 0.1,
+      "soc_max": 0.981
+    },
+    {
+      "policy": "mondrian_cqr",
+      "horizon_min": 5,
+      "best_rho": 0.8,
+      "mean_daily": 10.52,
+      "cvar95_daily": 97.4,
+      "value_captured_mean": 0.941,
+      "value_captured_cvar": 0.865,
+      "soc_min": 0.1,
+      "soc_max": 1.0
+    },
+    {
+      "policy": "icp",
+      "horizon_min": 30,
+      "best_rho": 0.9,
+      "mean_daily": 87.54,
+      "cvar95_daily": 788.78,
+      "value_captured_mean": 0.805,
+      "value_captured_cvar": 0.688,
+      "soc_min": 0.1,
+      "soc_max": 1.0
+    },
+    {
+      "policy": "mondrian",
+      "horizon_min": 30,
+      "best_rho": 0.8,
+      "mean_daily": 84.06,
+      "cvar95_daily": 767.36,
+      "value_captured_mean": 0.813,
+      "value_captured_cvar": 0.697,
+      "soc_min": 0.1,
+      "soc_max": 1.0
+    },
+    {
+      "policy": "mondrian_cqr",
+      "horizon_min": 30,
+      "best_rho": 0.8,
+      "mean_daily": 60.77,
+      "cvar95_daily": 410.26,
+      "value_captured_mean": 0.865,
+      "value_captured_cvar": 0.838,
+      "soc_min": 0.1,
+      "soc_max": 1.0
+    }
+  ]
+}

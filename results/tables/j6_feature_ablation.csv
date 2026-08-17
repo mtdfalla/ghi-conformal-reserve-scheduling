@@ -1,0 +1,5 @@
+set,n_features,RMSE,PICP_mondrian,PINAW_mondrian,time_s
+full,16,88.54,0.8887,0.138,5.8
+no_roll,14,88.77,0.8887,0.1375,5.9
+lags_only,9,89.42,0.8885,0.1358,4.0
+minimal,3,90.94,0.8973,0.1524,1.8

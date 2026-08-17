@@ -1,0 +1,130 @@
+{
+  "anova": [
+    {
+      "horizon_min": 5,
+      "term": "model",
+      "F": 12.21,
+      "p_value": 5.11e-06
+    },
+    {
+      "horizon_min": 5,
+      "term": "day_class",
+      "F": 166.0,
+      "p_value": 5.25e-71
+    },
+    {
+      "horizon_min": 5,
+      "term": "model:day_class",
+      "F": 0.99,
+      "p_value": 0.412
+    },
+    {
+      "horizon_min": 5,
+      "term": "year",
+      "F": 38.27,
+      "p_value": 7.89e-39
+    },
+    {
+      "horizon_min": 15,
+      "term": "model",
+      "F": 99.7,
+      "p_value": 2.31e-43
+    },
+    {
+      "horizon_min": 15,
+      "term": "day_class",
+      "F": 187.13,
+      "p_value": 1.06e-79
+    },
+    {
+      "horizon_min": 15,
+      "term": "model:day_class",
+      "F": 4.03,
+      "p_value": 0.00291
+    },
+    {
+      "horizon_min": 15,
+      "term": "year",
+      "F": 32.44,
+      "p_value": 8.91e-33
+    },
+    {
+      "horizon_min": 30,
+      "term": "model",
+      "F": 367.6,
+      "p_value": 7.92e-152
+    },
+    {
+      "horizon_min": 30,
+      "term": "day_class",
+      "F": 199.2,
+      "p_value": 1.21e-84
+    },
+    {
+      "horizon_min": 30,
+      "term": "model:day_class",
+      "F": 13.28,
+      "p_value": 8.85e-11
+    },
+    {
+      "horizon_min": 30,
+      "term": "year",
+      "F": 29.85,
+      "p_value": 4.4e-30
+    },
+    {
+      "horizon_min": 60,
+      "term": "model",
+      "F": 1487.55,
+      "p_value": 0.0
+    },
+    {
+      "horizon_min": 60,
+      "term": "day_class",
+      "F": 205.54,
+      "p_value": 3.1e-87
+    },
+    {
+      "horizon_min": 60,
+      "term": "model:day_class",
+      "F": 49.4,
+      "p_value": 5.31e-41
+    },
+    {
+      "horizon_min": 60,
+      "term": "year",
+      "F": 31.74,
+      "p_value": 4.76e-32
+    }
+  ],
+  "gbm_skill_stability": [
+    {
+      "horizon_min": 5,
+      "mean": 7.7,
+      "std": 1.2,
+      "min": 6.6,
+      "max": 9.2
+    },
+    {
+      "horizon_min": 15,
+      "mean": 13.38,
+      "std": 1.3,
+      "min": 11.3,
+      "max": 15.1
+    },
+    {
+      "horizon_min": 30,
+      "mean": 14.8,
+      "std": 1.79,
+      "min": 11.5,
+      "max": 16.1
+    },
+    {
+      "horizon_min": 60,
+      "mean": 15.72,
+      "std": 2.32,
+      "min": 12.1,
+      "max": 18.0
+    }
+  ]
+}

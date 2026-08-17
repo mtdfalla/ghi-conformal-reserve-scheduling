@@ -1,0 +1,489 @@
+{
+  "generated": "2026-06-22T15:04:32",
+  "rule_set": {
+    "ranges": {
+      "GHI": [
+        -50,
+        1600
+      ],
+      "Pyranometer": [
+        -50,
+        1600
+      ],
+      "AirTemp": [
+        -20,
+        60
+      ],
+      "WindSpeed": [
+        0,
+        70
+      ],
+      "AirPressure": [
+        850,
+        1050
+      ],
+      "PV_power": [
+        -5,
+        2000
+      ]
+    },
+    "max_interp_steps": 6,
+    "clip_neg_zero": [
+      "GHI",
+      "Pyranometer",
+      "PV_power"
+    ]
+  },
+  "years": [
+    {
+      "year": 2016,
+      "grid_rows": 79203,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 79185,
+          "valid_pct": 99.98,
+          "implausible_to_nan": 13,
+          "raw_present_rows": 79198
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 72676,
+          "valid_pct": 91.76,
+          "implausible_to_nan": 2453,
+          "raw_present_rows": 75129
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 26783,
+          "valid_pct": 33.82,
+          "implausible_to_nan": 52415,
+          "raw_present_rows": 79198
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 66681,
+          "valid_pct": 84.19,
+          "implausible_to_nan": 12517,
+          "raw_present_rows": 79198
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 26776,
+          "valid_pct": 33.81,
+          "implausible_to_nan": 48353,
+          "raw_present_rows": 75129
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 73280,
+          "valid_pct": 92.52,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 73280
+        }
+      },
+      "ghi_short_gaps_interpolated": 18,
+      "ghi_long_gap_nan_remaining": 0
+    },
+    {
+      "year": 2017,
+      "grid_rows": 105408,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 105352,
+          "valid_pct": 99.95,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 105352
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 102451,
+          "valid_pct": 97.19,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102451
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 33116,
+          "valid_pct": 31.42,
+          "implausible_to_nan": 72236,
+          "raw_present_rows": 105352
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 87479,
+          "valid_pct": 82.99,
+          "implausible_to_nan": 17873,
+          "raw_present_rows": 105352
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 33116,
+          "valid_pct": 31.42,
+          "implausible_to_nan": 69335,
+          "raw_present_rows": 102451
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 102451,
+          "valid_pct": 97.19,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102451
+        }
+      },
+      "ghi_short_gaps_interpolated": 23,
+      "ghi_long_gap_nan_remaining": 33
+    },
+    {
+      "year": 2018,
+      "grid_rows": 105408,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 105239,
+          "valid_pct": 99.84,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 105239
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 98727,
+          "valid_pct": 93.66,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 98727
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 32954,
+          "valid_pct": 31.26,
+          "implausible_to_nan": 72285,
+          "raw_present_rows": 105239
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 87157,
+          "valid_pct": 82.69,
+          "implausible_to_nan": 18082,
+          "raw_present_rows": 105239
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 32954,
+          "valid_pct": 31.26,
+          "implausible_to_nan": 65773,
+          "raw_present_rows": 98727
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 98892,
+          "valid_pct": 93.82,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 98892
+        }
+      },
+      "ghi_short_gaps_interpolated": 16,
+      "ghi_long_gap_nan_remaining": 153
+    },
+    {
+      "year": 2019,
+      "grid_rows": 105408,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 102499,
+          "valid_pct": 97.24,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102499
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 96968,
+          "valid_pct": 91.99,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 96968
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 30220,
+          "valid_pct": 28.67,
+          "implausible_to_nan": 72279,
+          "raw_present_rows": 102499
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 83695,
+          "valid_pct": 79.4,
+          "implausible_to_nan": 18804,
+          "raw_present_rows": 102499
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 30220,
+          "valid_pct": 28.67,
+          "implausible_to_nan": 66748,
+          "raw_present_rows": 96968
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 99585,
+          "valid_pct": 94.48,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 99585
+        }
+      },
+      "ghi_short_gaps_interpolated": 229,
+      "ghi_long_gap_nan_remaining": 2680
+    },
+    {
+      "year": 2020,
+      "grid_rows": 105696,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 103525,
+          "valid_pct": 97.95,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 103525
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 102885,
+          "valid_pct": 97.34,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102885
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 32437,
+          "valid_pct": 30.69,
+          "implausible_to_nan": 71089,
+          "raw_present_rows": 103526
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 101250,
+          "valid_pct": 95.79,
+          "implausible_to_nan": 2275,
+          "raw_present_rows": 103525
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 32437,
+          "valid_pct": 30.69,
+          "implausible_to_nan": 70448,
+          "raw_present_rows": 102885
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 103562,
+          "valid_pct": 97.98,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 103562
+        }
+      },
+      "ghi_short_gaps_interpolated": 540,
+      "ghi_long_gap_nan_remaining": 1631
+    },
+    {
+      "year": 2021,
+      "grid_rows": 105408,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 102995,
+          "valid_pct": 97.71,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102995
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 101435,
+          "valid_pct": 96.23,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 101435
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 31937,
+          "valid_pct": 30.3,
+          "implausible_to_nan": 71059,
+          "raw_present_rows": 102996
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 85544,
+          "valid_pct": 81.16,
+          "implausible_to_nan": 17451,
+          "raw_present_rows": 102995
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 31937,
+          "valid_pct": 30.3,
+          "implausible_to_nan": 69498,
+          "raw_present_rows": 101435
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 102607,
+          "valid_pct": 97.34,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102607
+        }
+      },
+      "ghi_short_gaps_interpolated": 827,
+      "ghi_long_gap_nan_remaining": 1586
+    },
+    {
+      "year": 2022,
+      "grid_rows": 105408,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 101872,
+          "valid_pct": 96.65,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 101872
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 99252,
+          "valid_pct": 94.16,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 99252
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 30191,
+          "valid_pct": 28.64,
+          "implausible_to_nan": 71697,
+          "raw_present_rows": 101888
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 86155,
+          "valid_pct": 81.73,
+          "implausible_to_nan": 15717,
+          "raw_present_rows": 101872
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 30191,
+          "valid_pct": 28.64,
+          "implausible_to_nan": 69061,
+          "raw_present_rows": 99252
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 102180,
+          "valid_pct": 96.94,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102180
+        }
+      },
+      "ghi_short_gaps_interpolated": 757,
+      "ghi_long_gap_nan_remaining": 2779
+    },
+    {
+      "year": 2023,
+      "grid_rows": 105120,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 92200,
+          "valid_pct": 87.71,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 92200
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 92200,
+          "valid_pct": 87.71,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 92200
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 92199,
+          "valid_pct": 87.71,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 92199
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 92200,
+          "valid_pct": 87.71,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 92200
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 92200,
+          "valid_pct": 87.71,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 92200
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 102058,
+          "valid_pct": 97.09,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 102058
+        }
+      },
+      "ghi_short_gaps_interpolated": 3506,
+      "ghi_long_gap_nan_remaining": 9414
+    },
+    {
+      "year": 2024,
+      "grid_rows": 105408,
+      "columns": {
+        "GHI": {
+          "present": true,
+          "valid_rows": 92410,
+          "valid_pct": 87.67,
+          "implausible_to_nan": 2324,
+          "raw_present_rows": 94734
+        },
+        "Pyranometer": {
+          "present": true,
+          "valid_rows": 94731,
+          "valid_pct": 89.87,
+          "implausible_to_nan": 3,
+          "raw_present_rows": 94734
+        },
+        "AirTemp": {
+          "present": true,
+          "valid_rows": 94734,
+          "valid_pct": 89.87,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 94734
+        },
+        "WindSpeed": {
+          "present": true,
+          "valid_rows": 94734,
+          "valid_pct": 89.87,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 94734
+        },
+        "AirPressure": {
+          "present": true,
+          "valid_rows": 94734,
+          "valid_pct": 89.87,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 94734
+        },
+        "PV_power": {
+          "present": true,
+          "valid_rows": 103218,
+          "valid_pct": 97.92,
+          "implausible_to_nan": 0,
+          "raw_present_rows": 103218
+        }
+      },
+      "ghi_short_gaps_interpolated": 2343,
+      "ghi_long_gap_nan_remaining": 10656
+    }
+  ]
+}

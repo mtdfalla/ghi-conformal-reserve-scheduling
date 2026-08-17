@@ -1,0 +1,289 @@
+{
+  "run_id": "classical point benchmark under causal regimes",
+  "finished_utc": "2026-08-15T11:32:37.907346+00:00",
+  "elapsed_s": 567.7,
+  "python": "3.11.15",
+  "sklearn": "1.8.0",
+  "pandas": "3.0.2",
+  "numpy": "2.4.4",
+  "gbm_config": {
+    "max_iter": 150,
+    "learning_rate": 0.08,
+    "max_leaf_nodes": 31,
+    "early_stopping": true,
+    "validation_fraction": 0.1,
+    "n_iter_no_change": 10,
+    "random_state": 42,
+    "note": "the configuration the article states; the first pass used max_iter=400 / lr=0.05 / 63 leaves"
+  },
+  "inputs": {
+    "02_data/regime_labels/yulara_regimes_5min.parquet": {
+      "sha256": "13d9659d90dab8242049e8858523e46fd0dad708eb29ca32138e0d9070c57e6b",
+      "expected_sha256": "13d9659d90dab8242049e8858523e46fd0dad708eb29ca32138e0d9070c57e6b",
+      "match": true
+    },
+    "02_data/cleaned/yulara_clean_5min.parquet": {
+      "sha256": "5dfe4445c8ab12b0a5ea889dfe7921c6496d2e79fb37dad421feeccfdec7bf39",
+      "expected_sha256": "5dfe4445c8ab12b0a5ea889dfe7921c6496d2e79fb37dad421feeccfdec7bf39",
+      "match": true
+    },
+    "02_data/cleaned/yulara_quality_flags.parquet": {
+      "sha256": "4e9e40a96f99d1b9e2510d569d1ce7524830e97fc0171b9675782310cfdfc275",
+      "expected_sha256": "4e9e40a96f99d1b9e2510d569d1ce7524830e97fc0171b9675782310cfdfc275",
+      "match": true
+    }
+  },
+  "s0_cache_crosscheck": [
+    {
+      "horizon_min": 5,
+      "cache_file": "/tmp/r1cache/yulara_h1_point_t.npy",
+      "cache_present": true,
+      "same_length": true,
+      "max_abs_diff": 0.0,
+      "allclose_1e-6": true,
+      "cache_RMSE": 87.33391343035449,
+      "refit_RMSE": 87.33391343035449
+    },
+    {
+      "horizon_min": 15,
+      "cache_file": "/tmp/r1cache/yulara_h3_point_t.npy",
+      "cache_present": true,
+      "same_length": true,
+      "max_abs_diff": 0.0,
+      "allclose_1e-6": true,
+      "cache_RMSE": 113.11274705242225,
+      "refit_RMSE": 113.11274705242225
+    },
+    {
+      "horizon_min": 30,
+      "cache_file": "/tmp/r1cache/yulara_h6_point_t.npy",
+      "cache_present": true,
+      "same_length": true,
+      "max_abs_diff": 0.0,
+      "allclose_1e-6": true,
+      "cache_RMSE": 125.32950805538673,
+      "refit_RMSE": 125.32950805538673
+    },
+    {
+      "horizon_min": 60,
+      "cache_file": "/tmp/r1cache/yulara_h12_point_t.npy",
+      "cache_present": true,
+      "same_length": true,
+      "max_abs_diff": 0.0,
+      "allclose_1e-6": true,
+      "cache_RMSE": 138.42291149073816,
+      "refit_RMSE": 138.42291149073816
+    }
+  ],
+  "r0_vs_r1": [
+    {
+      "model": "persistence",
+      "horizon_min": 5,
+      "R0_MAE": 45.4713,
+      "R1_MAE": 44.4568,
+      "d_MAE": -1.0145,
+      "R0_RMSE": 98.4738,
+      "R1_RMSE": 96.9219,
+      "d_RMSE": -1.5519,
+      "R0_R2": 0.9035,
+      "R1_R2": 0.9064,
+      "d_R2": 0.0029
+    },
+    {
+      "model": "smart_persistence",
+      "horizon_min": 5,
+      "R0_MAE": 40.7985,
+      "R1_MAE": 39.9349,
+      "d_MAE": -0.8636,
+      "R0_RMSE": 97.8294,
+      "R1_RMSE": 96.2944,
+      "d_RMSE": -1.535,
+      "R0_R2": 0.9048,
+      "R1_R2": 0.9076,
+      "d_R2": 0.0028
+    },
+    {
+      "model": "linear_ar",
+      "horizon_min": 5,
+      "R0_MAE": 44.5013,
+      "R1_MAE": 43.7239,
+      "d_MAE": -0.7774,
+      "R0_RMSE": 91.8287,
+      "R1_RMSE": 90.4747,
+      "d_RMSE": -1.354,
+      "R0_R2": 0.9161,
+      "R1_R2": 0.9185,
+      "d_R2": 0.0024
+    },
+    {
+      "model": "gbm",
+      "horizon_min": 5,
+      "R0_MAE": 41.6346,
+      "R1_MAE": 41.1705,
+      "d_MAE": -0.4641,
+      "R0_RMSE": 88.5871,
+      "R1_RMSE": 87.3339,
+      "d_RMSE": -1.2532,
+      "R0_R2": 0.9219,
+      "R1_R2": 0.924,
+      "d_R2": 0.0021
+    },
+    {
+      "model": "persistence",
+      "horizon_min": 15,
+      "R0_MAE": 82.3072,
+      "R1_MAE": 81.3933,
+      "d_MAE": -0.9139,
+      "R0_RMSE": 141.326,
+      "R1_RMSE": 140.1635,
+      "d_RMSE": -1.1625,
+      "R0_R2": 0.7994,
+      "R1_R2": 0.8023,
+      "d_R2": 0.0029
+    },
+    {
+      "model": "smart_persistence",
+      "horizon_min": 15,
+      "R0_MAE": 62.3391,
+      "R1_MAE": 61.8384,
+      "d_MAE": -0.5007,
+      "R0_RMSE": 133.8908,
+      "R1_RMSE": 132.8192,
+      "d_RMSE": -1.0716,
+      "R0_R2": 0.8199,
+      "R1_R2": 0.8225,
+      "d_R2": 0.0026
+    },
+    {
+      "model": "linear_ar",
+      "horizon_min": 15,
+      "R0_MAE": 65.9885,
+      "R1_MAE": 65.5824,
+      "d_MAE": -0.4061,
+      "R0_RMSE": 117.9597,
+      "R1_RMSE": 117.2495,
+      "d_RMSE": -0.7102,
+      "R0_R2": 0.8602,
+      "R1_R2": 0.8617,
+      "d_R2": 0.0015
+    },
+    {
+      "model": "gbm",
+      "horizon_min": 15,
+      "R0_MAE": 60.4569,
+      "R1_MAE": 59.8615,
+      "d_MAE": -0.5954,
+      "R0_RMSE": 113.7534,
+      "R1_RMSE": 113.1127,
+      "d_RMSE": -0.6407,
+      "R0_R2": 0.87,
+      "R1_R2": 0.8712,
+      "d_R2": 0.0012
+    },
+    {
+      "model": "persistence",
+      "horizon_min": 30,
+      "R0_MAE": 118.6774,
+      "R1_MAE": 118.0443,
+      "d_MAE": -0.6331,
+      "R0_RMSE": 171.7383,
+      "R1_RMSE": 171.2613,
+      "d_RMSE": -0.477,
+      "R0_R2": 0.7023,
+      "R1_R2": 0.7032,
+      "d_R2": 0.0009
+    },
+    {
+      "model": "smart_persistence",
+      "horizon_min": 30,
+      "R0_MAE": 75.059,
+      "R1_MAE": 75.0022,
+      "d_MAE": -0.0568,
+      "R0_RMSE": 148.3545,
+      "R1_RMSE": 148.1124,
+      "d_RMSE": -0.2421,
+      "R0_R2": 0.7779,
+      "R1_R2": 0.778,
+      "d_R2": 0.0001
+    },
+    {
+      "model": "linear_ar",
+      "horizon_min": 30,
+      "R0_MAE": 78.4329,
+      "R1_MAE": 78.3001,
+      "d_MAE": -0.1328,
+      "R0_RMSE": 129.91,
+      "R1_RMSE": 129.7327,
+      "d_RMSE": -0.1773,
+      "R0_R2": 0.8297,
+      "R1_R2": 0.8297,
+      "d_R2": 0.0
+    },
+    {
+      "model": "gbm",
+      "horizon_min": 30,
+      "R0_MAE": 70.462,
+      "R1_MAE": 70.4292,
+      "d_MAE": -0.0328,
+      "R0_RMSE": 125.228,
+      "R1_RMSE": 125.3295,
+      "d_RMSE": 0.1015,
+      "R0_R2": 0.8417,
+      "R1_R2": 0.841,
+      "d_R2": -0.0007
+    },
+    {
+      "model": "persistence",
+      "horizon_min": 60,
+      "R0_MAE": 181.5562,
+      "R1_MAE": 181.0586,
+      "d_MAE": -0.4976,
+      "R0_RMSE": 230.0487,
+      "R1_RMSE": 229.665,
+      "d_RMSE": -0.3837,
+      "R0_R2": 0.4721,
+      "R1_R2": 0.4716,
+      "d_R2": -0.0005
+    },
+    {
+      "model": "smart_persistence",
+      "horizon_min": 60,
+      "R0_MAE": 90.18,
+      "R1_MAE": 90.3907,
+      "d_MAE": 0.2107,
+      "R0_RMSE": 162.3155,
+      "R1_RMSE": 162.5811,
+      "d_RMSE": 0.2656,
+      "R0_R2": 0.7372,
+      "R1_R2": 0.7352,
+      "d_R2": -0.002
+    },
+    {
+      "model": "linear_ar",
+      "horizon_min": 60,
+      "R0_MAE": 93.0329,
+      "R1_MAE": 93.109,
+      "d_MAE": 0.0761,
+      "R0_RMSE": 142.9333,
+      "R1_RMSE": 143.0277,
+      "d_RMSE": 0.0944,
+      "R0_R2": 0.7962,
+      "R1_R2": 0.795,
+      "d_R2": -0.0012
+    },
+    {
+      "model": "gbm",
+      "horizon_min": 60,
+      "R0_MAE": 82.6528,
+      "R1_MAE": 84.1081,
+      "d_MAE": 1.4553,
+      "R0_RMSE": 138.2119,
+      "R1_RMSE": 138.4229,
+      "d_RMSE": 0.211,
+      "R0_R2": 0.8094,
+      "R1_R2": 0.808,
+      "d_R2": -0.0014
+    }
+  ],
+  "note": "Deep rows for Table 2 come from run C (r1_p2_deep_causal_full.csv), not from this file. Paired DM vs the deep models is r1_p2_deep_vs_gbm.py."
+}

@@ -1,0 +1,90 @@
+{
+  "generated": "2026-06-22T15:06:22",
+  "location": {
+    "lat": -25.2406,
+    "lon": 130.9889,
+    "alt_m": 492,
+    "tz": "Australia/Darwin"
+  },
+  "rule": {
+    "kt_clear": 0.85,
+    "kt_cloudy": 0.5,
+    "var_stable": 0.08,
+    "var_win": 13,
+    "day_min_clearsky": 20.0
+  },
+  "years": [
+    {
+      "year": 2016,
+      "day_steps": 36605,
+      "clear_pct": 13.81,
+      "transitional_pct": 13.45,
+      "cloudy_pct": 72.74,
+      "kt_median": 0.095
+    },
+    {
+      "year": 2017,
+      "day_steps": 49790,
+      "clear_pct": 16.22,
+      "transitional_pct": 14.82,
+      "cloudy_pct": 68.91,
+      "kt_median": 0.103
+    },
+    {
+      "year": 2018,
+      "day_steps": 49794,
+      "clear_pct": 18.32,
+      "transitional_pct": 13.16,
+      "cloudy_pct": 68.38,
+      "kt_median": 0.105
+    },
+    {
+      "year": 2019,
+      "day_steps": 49787,
+      "clear_pct": 19.62,
+      "transitional_pct": 9.85,
+      "cloudy_pct": 67.82,
+      "kt_median": 0.105
+    },
+    {
+      "year": 2020,
+      "day_steps": 49943,
+      "clear_pct": 17.55,
+      "transitional_pct": 13.01,
+      "cloudy_pct": 68.91,
+      "kt_median": 0.002
+    },
+    {
+      "year": 2021,
+      "day_steps": 49789,
+      "clear_pct": 16.12,
+      "transitional_pct": 13.5,
+      "cloudy_pct": 69.33,
+      "kt_median": 0.104
+    },
+    {
+      "year": 2022,
+      "day_steps": 49791,
+      "clear_pct": 15.72,
+      "transitional_pct": 12.93,
+      "cloudy_pct": 68.43,
+      "kt_median": 0.101
+    },
+    {
+      "year": 2023,
+      "day_steps": 49634,
+      "clear_pct": 51.65,
+      "transitional_pct": 35.11,
+      "cloudy_pct": 3.99,
+      "kt_median": 1.034
+    },
+    {
+      "year": 2024,
+      "day_steps": 49790,
+      "clear_pct": 44.86,
+      "transitional_pct": 39.86,
+      "cloudy_pct": 4.72,
+      "kt_median": 1.156
+    }
+  ]
+}

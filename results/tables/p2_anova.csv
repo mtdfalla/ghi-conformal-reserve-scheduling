@@ -1,0 +1,17 @@
+horizon_min,term,F,p_value
+5,model,12.21,5.11e-06
+5,day_class,166.0,5.25e-71
+5,model:day_class,0.99,0.412
+5,year,38.27,7.89e-39
+15,model,99.7,2.31e-43
+15,day_class,187.13,1.06e-79
+15,model:day_class,4.03,0.00291
+15,year,32.44,8.91e-33
+30,model,367.6,7.92e-152
+30,day_class,199.2,1.21e-84
+30,model:day_class,13.28,8.85e-11
+30,year,29.85,4.4e-30
+60,model,1487.55,0.0
+60,day_class,205.54,3.1e-87
+60,model:day_class,49.4,5.31e-41
+60,year,31.74,4.76e-32

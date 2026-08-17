@@ -1,0 +1,44 @@
+{
+  "dkasc_rmse_all": {
+    "5": 83.88,
+    "60": 138.36,
+    "15": 110.26,
+    "30": 123.93
+  },
+  "dkasc_picp90_5min_regime": {
+    "all": {
+      "icp": 0.876,
+      "mondrian": 0.891,
+      "cqr": 0.904,
+      "mondrian_cqr": 0.904,
+      "aci": 0.926
+    },
+    "clear": {
+      "icp": 0.978,
+      "mondrian": 0.888,
+      "cqr": 0.912,
+      "mondrian_cqr": 0.905,
+      "aci": 0.939
+    },
+    "transitional": {
+      "icp": 0.708,
+      "mondrian": 0.898,
+      "cqr": 0.886,
+      "mondrian_cqr": 0.899,
+      "aci": 0.904
+    },
+    "cloudy": {
+      "icp": 0.964,
+      "mondrian": 0.885,
+      "cqr": 0.923,
+      "mondrian_cqr": 0.916,
+      "aci": 0.936
+    }
+  },
+  "dkasc_value_captured": {
+    "5": 0.3863,
+    "60": 0.5292,
+    "15": 0.4727,
+    "30": 0.5022
+  }
+}

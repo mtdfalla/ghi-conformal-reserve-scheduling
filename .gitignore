@@ -1,0 +1,19 @@
+# Raw / large data (third-party; obtain via data/README.md — do NOT commit)
+data/raw/
+data/cleaned/
+data/regime_labels/
+data/DKASC/
+*.parquet
+*.csv.gz
+Alice_Springs_*.csv
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

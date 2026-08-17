@@ -1,0 +1,10 @@
+{
+  "note": "Goodness of fit of f(G) excluding daytime records with site PV output == 0 (inverter offline / curtailment). Reported alongside, never instead of, r1_ghi_pv_fit.json, which uses every daytime record.",
+  "n_points_all": 45191,
+  "n_points_pv_zero": 1007,
+  "pct_daytime_pv_zero": 2.23,
+  "R2_all": 0.6716,
+  "R2_excl_zero_output": 0.7394,
+  "RMSE_kW_excl_zero_output": 159.5,
+  "MAE_kW_excl_zero_output": 119.47
+}

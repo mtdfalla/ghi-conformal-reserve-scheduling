@@ -1,0 +1,26 @@
+{
+  "clearsky_model": "ineichen_clearband_calibrated_causal_trainonly",
+  "calibration_factor": 1.0507,
+  "median_per_day_corr": 0.9816,
+  "median_kt_clearband": 1.0,
+  "thresholds": {
+    "KT_CLEAR": 0.85,
+    "KT_OVERCAST": 0.5,
+    "VAR_WIN_steps": 12,
+    "VAR_STABLE": 0.1,
+    "CS_DAY_MIN": 20.0
+  },
+  "daytime_steps": 433845,
+  "regime_daytime_pct": {
+    "clear": 52.49,
+    "transitional": 34.99,
+    "cloudy": 7.48,
+    "night": 5.04
+  },
+  "day_class_counts": {
+    "mixed": 2736,
+    "clear": 254,
+    "overcast": 206
+  },
+  "n_days": 3196
+}

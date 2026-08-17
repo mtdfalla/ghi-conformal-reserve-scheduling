@@ -1,0 +1,34 @@
+{
+  "run_id": "expanding-window CV + ANOVA, post-causal",
+  "finished_utc": "2026-08-15T11:37:14.859231+00:00",
+  "elapsed_s": 61.3,
+  "gbm_config": {
+    "max_iter": 150,
+    "learning_rate": 0.08,
+    "max_leaf_nodes": 31,
+    "note": "the configuration the article states"
+  },
+  "test_years": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "n_perday_records": 25584,
+  "day_class_F_range": [
+    165.74,
+    204.72
+  ],
+  "day_class_p_max": 6.74e-71,
+  "gbm_skill_pct_range": [
+    6.18,
+    17.67
+  ],
+  "gbm_skill_positive_in_every_cell": true,
+  "model_F_range": [
+    11.33,
+    1470.7
+  ]
+}

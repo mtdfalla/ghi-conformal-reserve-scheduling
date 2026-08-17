@@ -1,0 +1,17 @@
+set,horizon_min,scope,CRPS
+uni,5,all,24.528
++temp,5,all,24.592
++wind,5,all,24.399
+all,5,all,24.709
+uni,60,all,49.542
++temp,60,all,47.172
++wind,60,all,49.093
+all,60,all,48.421
+uni,15,all,33.412
++temp,15,all,33.339
++wind,15,all,33.322
+all,15,all,33.27
+uni,30,all,39.316
++temp,30,all,39.636
++wind,30,all,39.346
+all,30,all,39.28

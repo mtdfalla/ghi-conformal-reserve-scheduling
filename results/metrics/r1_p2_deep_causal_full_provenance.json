@@ -1,0 +1,63 @@
+{
+  "run_id": "deep_causal",
+  "purpose": "GRU / GRU-TCN under causal regimes, for point-forecast-table consistency",
+  "finished_utc": "2026-08-15T10:54:12.713970+00:00",
+  "elapsed_s": 3585.1,
+  "smoke": false,
+  "args": {
+    "epochs": 30,
+    "subsample": 0,
+    "horizons": [
+      1,
+      3,
+      6,
+      12
+    ],
+    "smoke": false,
+    "tag": "full",
+    "force": false,
+    "allow_provenance_mismatch": false
+  },
+  "python": "3.11.9",
+  "platform": "Windows 10 AMD64",
+  "torch": "2.12.1+cpu",
+  "numpy": "2.3.4",
+  "pandas": "3.0.3",
+  "reference_module": {
+    "path": "03_code/models/deep_gru_tcn.py",
+    "sha256": "5186c37c6f5cc5d68175c2a58bb092daec0d05259e9a1151b90798481d0ebb8a",
+    "edited": false,
+    "window_steps": 12
+  },
+  "inputs": {
+    "02_data/regime_labels/yulara_regimes_5min.parquet": {
+      "sha256": "13d9659d90dab8242049e8858523e46fd0dad708eb29ca32138e0d9070c57e6b",
+      "expected_sha256": "13d9659d90dab8242049e8858523e46fd0dad708eb29ca32138e0d9070c57e6b",
+      "match": true,
+      "bytes": 37683416,
+      "mtime_utc": "2026-06-26T13:16:03.013398170+00:00"
+    },
+    "02_data/cleaned/yulara_clean_5min.parquet": {
+      "sha256": "5dfe4445c8ab12b0a5ea889dfe7921c6496d2e79fb37dad421feeccfdec7bf39",
+      "expected_sha256": "5dfe4445c8ab12b0a5ea889dfe7921c6496d2e79fb37dad421feeccfdec7bf39",
+      "match": true,
+      "bytes": 35417765,
+      "mtime_utc": "2026-06-22T16:08:54.098214865+00:00"
+    },
+    "02_data/cleaned/yulara_quality_flags.parquet": {
+      "sha256": "4e9e40a96f99d1b9e2510d569d1ce7524830e97fc0171b9675782310cfdfc275",
+      "expected_sha256": "4e9e40a96f99d1b9e2510d569d1ce7524830e97fc0171b9675782310cfdfc275",
+      "match": true,
+      "bytes": 7017926,
+      "mtime_utc": "2026-06-22T16:08:55.456768274+00:00"
+    }
+  },
+  "outputs": [
+    "04_results\\tables\\r1_p2_deep_causal_full.csv",
+    "04_results\\tables\\r1_p2_deep_pred_h1_full.parquet",
+    "04_results\\tables\\r1_p2_deep_pred_h3_full.parquet",
+    "04_results\\tables\\r1_p2_deep_pred_h6_full.parquet",
+    "04_results\\tables\\r1_p2_deep_pred_h12_full.parquet"
+  ],
+  "dm_tests": "NOT run here - the in-repo GBM test predictions are pre-causal. Paired DM vs the post-causal GBM is run separately."
+}

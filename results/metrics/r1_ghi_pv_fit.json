@@ -1,0 +1,11 @@
+{
+  "bin_width_Wm2": 25.0,
+  "fit_year": 2023,
+  "n_points": 45191,
+  "n_bins": 55,
+  "P_max_kW": 1046.3,
+  "R2_vs_measured_PV": 0.6716,
+  "RMSE_kW": 184.46,
+  "MAE_kW": 129.66,
+  "note": "Residual scatter beyond f(G) is non-forecastable operational noise; it is excluded and biases all policies identically."
+}

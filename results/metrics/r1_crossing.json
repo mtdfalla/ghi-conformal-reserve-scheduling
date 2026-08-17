@@ -1,0 +1,1165 @@
+{
+  "crossing": {
+    "asp_h1": {
+      "test_quantiles_only": {
+        "n": 44221,
+        "n_crossing": 11356,
+        "rate": 0.256801,
+        "mean_violation_Wm2": 4.6699,
+        "median_violation_Wm2": 1.7016,
+        "p99_violation_Wm2": 42.1391,
+        "max_violation_Wm2": 112.6783,
+        "mean_violation_pct_of_mean_GHI": 0.7905,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 4361,
+            "rate": 0.098618,
+            "mean_violation_Wm2": 4.5886
+          },
+          "0.05->0.1": {
+            "n": 2484,
+            "rate": 0.056172,
+            "mean_violation_Wm2": 2.5908
+          },
+          "0.1->0.9": {
+            "n": 17,
+            "rate": 0.000384,
+            "mean_violation_Wm2": 1.7292
+          },
+          "0.9->0.95": {
+            "n": 3025,
+            "rate": 0.068406,
+            "mean_violation_Wm2": 3.8079
+          },
+          "0.95->0.975": {
+            "n": 3259,
+            "rate": 0.073698,
+            "mean_violation_Wm2": 5.4018
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 44221,
+        "n_crossing": 12744,
+        "rate": 0.288189,
+        "mean_violation_Wm2": 4.544,
+        "median_violation_Wm2": 1.7164,
+        "p99_violation_Wm2": 40.2619,
+        "max_violation_Wm2": 112.6783,
+        "mean_violation_pct_of_mean_GHI": 0.7692,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 4361,
+            "rate": 0.098618,
+            "mean_violation_Wm2": 4.5886
+          },
+          "0.05->0.1": {
+            "n": 2484,
+            "rate": 0.056172,
+            "mean_violation_Wm2": 2.5908
+          },
+          "0.1->0.5": {
+            "n": 1148,
+            "rate": 0.025961,
+            "mean_violation_Wm2": 3.7875
+          },
+          "0.5->0.9": {
+            "n": 1004,
+            "rate": 0.022704,
+            "mean_violation_Wm2": 1.408
+          },
+          "0.9->0.95": {
+            "n": 3025,
+            "rate": 0.068406,
+            "mean_violation_Wm2": 3.8079
+          },
+          "0.95->0.975": {
+            "n": 3259,
+            "rate": 0.073698,
+            "mean_violation_Wm2": 5.4018
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 43296,
+        "n_crossing": 11454,
+        "rate": 0.264551,
+        "mean_violation_Wm2": 4.1505,
+        "median_violation_Wm2": 1.5026,
+        "p99_violation_Wm2": 36.7911,
+        "max_violation_Wm2": 144.103,
+        "mean_violation_pct_of_mean_GHI": 0.7026,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3605,
+            "rate": 0.083264,
+            "mean_violation_Wm2": 4.4253
+          },
+          "0.05->0.1": {
+            "n": 2587,
+            "rate": 0.059751,
+            "mean_violation_Wm2": 2.4688
+          },
+          "0.1->0.9": {
+            "n": 29,
+            "rate": 0.00067,
+            "mean_violation_Wm2": 0.9005
+          },
+          "0.9->0.95": {
+            "n": 3241,
+            "rate": 0.074857,
+            "mean_violation_Wm2": 3.6933
+          },
+          "0.95->0.975": {
+            "n": 3605,
+            "rate": 0.083264,
+            "mean_violation_Wm2": 4.2157
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 44221,
+        "n_crossing": 17,
+        "rate": 0.000384,
+        "mean_violation_Wm2": 1.7292,
+        "max_violation_Wm2": 7.8988
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 44221,
+        "n_crossing": 1,
+        "rate": 2.3e-05,
+        "mean_violation_Wm2": 1.3289,
+        "max_violation_Wm2": 1.3289
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 44221,
+        "n_crossing": 1,
+        "rate": 2.3e-05,
+        "mean_violation_Wm2": 0.1264,
+        "max_violation_Wm2": 0.1264
+      }
+    },
+    "asp_h12": {
+      "test_quantiles_only": {
+        "n": 40239,
+        "n_crossing": 7932,
+        "rate": 0.197122,
+        "mean_violation_Wm2": 7.3285,
+        "median_violation_Wm2": 2.8221,
+        "p99_violation_Wm2": 64.1241,
+        "max_violation_Wm2": 364.2407,
+        "mean_violation_pct_of_mean_GHI": 1.1922,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2435,
+            "rate": 0.060513,
+            "mean_violation_Wm2": 9.1135
+          },
+          "0.05->0.1": {
+            "n": 2360,
+            "rate": 0.05865,
+            "mean_violation_Wm2": 6.206
+          },
+          "0.1->0.9": {
+            "n": 16,
+            "rate": 0.000398,
+            "mean_violation_Wm2": 4.6824
+          },
+          "0.9->0.95": {
+            "n": 2411,
+            "rate": 0.059917,
+            "mean_violation_Wm2": 4.7762
+          },
+          "0.95->0.975": {
+            "n": 1631,
+            "rate": 0.040533,
+            "mean_violation_Wm2": 7.2636
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 40239,
+        "n_crossing": 9133,
+        "rate": 0.226969,
+        "mean_violation_Wm2": 7.5677,
+        "median_violation_Wm2": 3.0376,
+        "p99_violation_Wm2": 64.0976,
+        "max_violation_Wm2": 364.2407,
+        "mean_violation_pct_of_mean_GHI": 1.2311,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2435,
+            "rate": 0.060513,
+            "mean_violation_Wm2": 9.1135
+          },
+          "0.05->0.1": {
+            "n": 2360,
+            "rate": 0.05865,
+            "mean_violation_Wm2": 6.206
+          },
+          "0.1->0.5": {
+            "n": 1257,
+            "rate": 0.031238,
+            "mean_violation_Wm2": 8.7372
+          },
+          "0.5->0.9": {
+            "n": 789,
+            "rate": 0.019608,
+            "mean_violation_Wm2": 3.91
+          },
+          "0.9->0.95": {
+            "n": 2411,
+            "rate": 0.059917,
+            "mean_violation_Wm2": 4.7762
+          },
+          "0.95->0.975": {
+            "n": 1631,
+            "rate": 0.040533,
+            "mean_violation_Wm2": 7.2636
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 39317,
+        "n_crossing": 8511,
+        "rate": 0.216471,
+        "mean_violation_Wm2": 5.7158,
+        "median_violation_Wm2": 2.6225,
+        "p99_violation_Wm2": 46.8083,
+        "max_violation_Wm2": 152.2112,
+        "mean_violation_pct_of_mean_GHI": 0.9299,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2533,
+            "rate": 0.064425,
+            "mean_violation_Wm2": 7.6281
+          },
+          "0.05->0.1": {
+            "n": 2568,
+            "rate": 0.065315,
+            "mean_violation_Wm2": 5.2931
+          },
+          "0.1->0.9": {
+            "n": 11,
+            "rate": 0.00028,
+            "mean_violation_Wm2": 7.3497
+          },
+          "0.9->0.95": {
+            "n": 2476,
+            "rate": 0.062975,
+            "mean_violation_Wm2": 4.004
+          },
+          "0.95->0.975": {
+            "n": 1966,
+            "rate": 0.050004,
+            "mean_violation_Wm2": 4.2959
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 40239,
+        "n_crossing": 16,
+        "rate": 0.000398,
+        "mean_violation_Wm2": 4.6824,
+        "max_violation_Wm2": 12.6575
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 40239,
+        "n_crossing": 34,
+        "rate": 0.000845,
+        "mean_violation_Wm2": 26.1215,
+        "max_violation_Wm2": 62.4321
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 40239,
+        "n_crossing": 0,
+        "rate": 0.0,
+        "mean_violation_Wm2": 0.0,
+        "max_violation_Wm2": 0.0
+      }
+    },
+    "asp_h3": {
+      "test_quantiles_only": {
+        "n": 43497,
+        "n_crossing": 9598,
+        "rate": 0.220659,
+        "mean_violation_Wm2": 5.6463,
+        "median_violation_Wm2": 2.0884,
+        "p99_violation_Wm2": 49.2865,
+        "max_violation_Wm2": 228.8808,
+        "mean_violation_pct_of_mean_GHI": 0.9466,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3019,
+            "rate": 0.069407,
+            "mean_violation_Wm2": 5.509
+          },
+          "0.05->0.1": {
+            "n": 3029,
+            "rate": 0.069637,
+            "mean_violation_Wm2": 4.4215
+          },
+          "0.1->0.9": {
+            "n": 17,
+            "rate": 0.000391,
+            "mean_violation_Wm2": 2.8512
+          },
+          "0.9->0.95": {
+            "n": 2485,
+            "rate": 0.05713,
+            "mean_violation_Wm2": 6.0441
+          },
+          "0.95->0.975": {
+            "n": 2441,
+            "rate": 0.056119,
+            "mean_violation_Wm2": 5.1915
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 43497,
+        "n_crossing": 10975,
+        "rate": 0.252316,
+        "mean_violation_Wm2": 7.2434,
+        "median_violation_Wm2": 2.2635,
+        "p99_violation_Wm2": 76.239,
+        "max_violation_Wm2": 228.8808,
+        "mean_violation_pct_of_mean_GHI": 1.2143,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3019,
+            "rate": 0.069407,
+            "mean_violation_Wm2": 5.509
+          },
+          "0.05->0.1": {
+            "n": 3029,
+            "rate": 0.069637,
+            "mean_violation_Wm2": 4.4215
+          },
+          "0.1->0.5": {
+            "n": 1460,
+            "rate": 0.033566,
+            "mean_violation_Wm2": 17.4328
+          },
+          "0.5->0.9": {
+            "n": 1047,
+            "rate": 0.024071,
+            "mean_violation_Wm2": 2.5018
+          },
+          "0.9->0.95": {
+            "n": 2485,
+            "rate": 0.05713,
+            "mean_violation_Wm2": 6.0441
+          },
+          "0.95->0.975": {
+            "n": 2441,
+            "rate": 0.056119,
+            "mean_violation_Wm2": 5.1915
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 42567,
+        "n_crossing": 10210,
+        "rate": 0.239857,
+        "mean_violation_Wm2": 4.8409,
+        "median_violation_Wm2": 1.9605,
+        "p99_violation_Wm2": 40.9132,
+        "max_violation_Wm2": 168.7804,
+        "mean_violation_pct_of_mean_GHI": 0.8116,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3349,
+            "rate": 0.078676,
+            "mean_violation_Wm2": 5.664
+          },
+          "0.05->0.1": {
+            "n": 3117,
+            "rate": 0.073226,
+            "mean_violation_Wm2": 3.4972
+          },
+          "0.1->0.9": {
+            "n": 26,
+            "rate": 0.000611,
+            "mean_violation_Wm2": 3.1449
+          },
+          "0.9->0.95": {
+            "n": 2782,
+            "rate": 0.065356,
+            "mean_violation_Wm2": 4.0829
+          },
+          "0.95->0.975": {
+            "n": 2237,
+            "rate": 0.052552,
+            "mean_violation_Wm2": 4.7599
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 43497,
+        "n_crossing": 17,
+        "rate": 0.000391,
+        "mean_violation_Wm2": 2.8512,
+        "max_violation_Wm2": 9.9324
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 43497,
+        "n_crossing": 4,
+        "rate": 9.2e-05,
+        "mean_violation_Wm2": 3.1002,
+        "max_violation_Wm2": 5.3519
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 43497,
+        "n_crossing": 6,
+        "rate": 0.000138,
+        "mean_violation_Wm2": 9.2709,
+        "max_violation_Wm2": 37.428
+      }
+    },
+    "asp_h6": {
+      "test_quantiles_only": {
+        "n": 42411,
+        "n_crossing": 9458,
+        "rate": 0.223008,
+        "mean_violation_Wm2": 5.7994,
+        "median_violation_Wm2": 2.5095,
+        "p99_violation_Wm2": 50.8188,
+        "max_violation_Wm2": 185.853,
+        "mean_violation_pct_of_mean_GHI": 0.9603,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3191,
+            "rate": 0.07524,
+            "mean_violation_Wm2": 6.7693
+          },
+          "0.05->0.1": {
+            "n": 2995,
+            "rate": 0.070618,
+            "mean_violation_Wm2": 5.6247
+          },
+          "0.1->0.9": {
+            "n": 21,
+            "rate": 0.000495,
+            "mean_violation_Wm2": 3.0147
+          },
+          "0.9->0.95": {
+            "n": 2541,
+            "rate": 0.059914,
+            "mean_violation_Wm2": 3.5522
+          },
+          "0.95->0.975": {
+            "n": 2045,
+            "rate": 0.048219,
+            "mean_violation_Wm2": 5.2577
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 42411,
+        "n_crossing": 10984,
+        "rate": 0.258989,
+        "mean_violation_Wm2": 6.85,
+        "median_violation_Wm2": 2.8137,
+        "p99_violation_Wm2": 55.7164,
+        "max_violation_Wm2": 185.853,
+        "mean_violation_pct_of_mean_GHI": 1.1342,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3191,
+            "rate": 0.07524,
+            "mean_violation_Wm2": 6.7693
+          },
+          "0.05->0.1": {
+            "n": 2995,
+            "rate": 0.070618,
+            "mean_violation_Wm2": 5.6247
+          },
+          "0.1->0.5": {
+            "n": 1909,
+            "rate": 0.045012,
+            "mean_violation_Wm2": 10.8241
+          },
+          "0.5->0.9": {
+            "n": 784,
+            "rate": 0.018486,
+            "mean_violation_Wm2": 3.3037
+          },
+          "0.9->0.95": {
+            "n": 2541,
+            "rate": 0.059914,
+            "mean_violation_Wm2": 3.5522
+          },
+          "0.95->0.975": {
+            "n": 2045,
+            "rate": 0.048219,
+            "mean_violation_Wm2": 5.2577
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 41480,
+        "n_crossing": 9788,
+        "rate": 0.235969,
+        "mean_violation_Wm2": 5.7594,
+        "median_violation_Wm2": 2.4315,
+        "p99_violation_Wm2": 56.1441,
+        "max_violation_Wm2": 127.426,
+        "mean_violation_pct_of_mean_GHI": 0.9537,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3008,
+            "rate": 0.072517,
+            "mean_violation_Wm2": 7.3317
+          },
+          "0.05->0.1": {
+            "n": 3243,
+            "rate": 0.078182,
+            "mean_violation_Wm2": 6.1164
+          },
+          "0.1->0.9": {
+            "n": 17,
+            "rate": 0.00041,
+            "mean_violation_Wm2": 1.4765
+          },
+          "0.9->0.95": {
+            "n": 2751,
+            "rate": 0.066321,
+            "mean_violation_Wm2": 3.066
+          },
+          "0.95->0.975": {
+            "n": 2194,
+            "rate": 0.052893,
+            "mean_violation_Wm2": 4.3056
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 42411,
+        "n_crossing": 21,
+        "rate": 0.000495,
+        "mean_violation_Wm2": 3.0147,
+        "max_violation_Wm2": 5.9701
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 42411,
+        "n_crossing": 0,
+        "rate": 0.0,
+        "mean_violation_Wm2": 0.0,
+        "max_violation_Wm2": 0.0
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 42411,
+        "n_crossing": 0,
+        "rate": 0.0,
+        "mean_violation_Wm2": 0.0,
+        "max_violation_Wm2": 0.0
+      }
+    },
+    "yulara_h1": {
+      "test_quantiles_only": {
+        "n": 40905,
+        "n_crossing": 14419,
+        "rate": 0.3525,
+        "mean_violation_Wm2": 6.2847,
+        "median_violation_Wm2": 3.5143,
+        "p99_violation_Wm2": 32.8686,
+        "max_violation_Wm2": 125.2483,
+        "mean_violation_pct_of_mean_GHI": 1.055,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3549,
+            "rate": 0.086762,
+            "mean_violation_Wm2": 5.6356
+          },
+          "0.05->0.1": {
+            "n": 4008,
+            "rate": 0.097983,
+            "mean_violation_Wm2": 9.6478
+          },
+          "0.1->0.9": {
+            "n": 49,
+            "rate": 0.001198,
+            "mean_violation_Wm2": 0.9119
+          },
+          "0.9->0.95": {
+            "n": 5551,
+            "rate": 0.135705,
+            "mean_violation_Wm2": 3.6837
+          },
+          "0.95->0.975": {
+            "n": 4465,
+            "rate": 0.109155,
+            "mean_violation_Wm2": 4.3253
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 40905,
+        "n_crossing": 16466,
+        "rate": 0.402542,
+        "mean_violation_Wm2": 5.7914,
+        "median_violation_Wm2": 3.0843,
+        "p99_violation_Wm2": 32.3035,
+        "max_violation_Wm2": 125.2483,
+        "mean_violation_pct_of_mean_GHI": 0.9722,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3549,
+            "rate": 0.086762,
+            "mean_violation_Wm2": 5.6356
+          },
+          "0.05->0.1": {
+            "n": 4008,
+            "rate": 0.097983,
+            "mean_violation_Wm2": 9.6478
+          },
+          "0.1->0.5": {
+            "n": 2221,
+            "rate": 0.054297,
+            "mean_violation_Wm2": 1.8715
+          },
+          "0.5->0.9": {
+            "n": 645,
+            "rate": 0.015768,
+            "mean_violation_Wm2": 2.1212
+          },
+          "0.9->0.95": {
+            "n": 5551,
+            "rate": 0.135705,
+            "mean_violation_Wm2": 3.6837
+          },
+          "0.95->0.975": {
+            "n": 4465,
+            "rate": 0.109155,
+            "mean_violation_Wm2": 4.3253
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 40131,
+        "n_crossing": 14745,
+        "rate": 0.367422,
+        "mean_violation_Wm2": 6.0175,
+        "median_violation_Wm2": 3.3069,
+        "p99_violation_Wm2": 31.1065,
+        "max_violation_Wm2": 83.0944,
+        "mean_violation_pct_of_mean_GHI": 1.0102,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3354,
+            "rate": 0.083576,
+            "mean_violation_Wm2": 5.7219
+          },
+          "0.05->0.1": {
+            "n": 3943,
+            "rate": 0.098253,
+            "mean_violation_Wm2": 9.8286
+          },
+          "0.1->0.9": {
+            "n": 35,
+            "rate": 0.000872,
+            "mean_violation_Wm2": 0.9943
+          },
+          "0.9->0.95": {
+            "n": 5860,
+            "rate": 0.146022,
+            "mean_violation_Wm2": 3.2438
+          },
+          "0.95->0.975": {
+            "n": 4796,
+            "rate": 0.119509,
+            "mean_violation_Wm2": 4.157
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 40905,
+        "n_crossing": 49,
+        "rate": 0.001198,
+        "mean_violation_Wm2": 0.9119,
+        "max_violation_Wm2": 3.3673
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 40905,
+        "n_crossing": 2,
+        "rate": 4.9e-05,
+        "mean_violation_Wm2": 2.9458,
+        "max_violation_Wm2": 3.2798
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 40905,
+        "n_crossing": 0,
+        "rate": 0.0,
+        "mean_violation_Wm2": 0.0,
+        "max_violation_Wm2": 0.0
+      }
+    },
+    "yulara_h12": {
+      "test_quantiles_only": {
+        "n": 36794,
+        "n_crossing": 10162,
+        "rate": 0.276186,
+        "mean_violation_Wm2": 9.1418,
+        "median_violation_Wm2": 6.1511,
+        "p99_violation_Wm2": 47.6952,
+        "max_violation_Wm2": 101.2114,
+        "mean_violation_pct_of_mean_GHI": 1.4689,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2197,
+            "rate": 0.059711,
+            "mean_violation_Wm2": 9.0502
+          },
+          "0.05->0.1": {
+            "n": 1334,
+            "rate": 0.036256,
+            "mean_violation_Wm2": 10.1187
+          },
+          "0.1->0.9": {
+            "n": 81,
+            "rate": 0.002201,
+            "mean_violation_Wm2": 4.6557
+          },
+          "0.9->0.95": {
+            "n": 4077,
+            "rate": 0.110806,
+            "mean_violation_Wm2": 5.9767
+          },
+          "0.95->0.975": {
+            "n": 4141,
+            "rate": 0.112546,
+            "mean_violation_Wm2": 10.5917
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 36794,
+        "n_crossing": 12268,
+        "rate": 0.333424,
+        "mean_violation_Wm2": 9.22,
+        "median_violation_Wm2": 6.4158,
+        "p99_violation_Wm2": 45.242,
+        "max_violation_Wm2": 101.2114,
+        "mean_violation_pct_of_mean_GHI": 1.4815,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2197,
+            "rate": 0.059711,
+            "mean_violation_Wm2": 9.0502
+          },
+          "0.05->0.1": {
+            "n": 1334,
+            "rate": 0.036256,
+            "mean_violation_Wm2": 10.1187
+          },
+          "0.1->0.5": {
+            "n": 3237,
+            "rate": 0.087976,
+            "mean_violation_Wm2": 8.207
+          },
+          "0.5->0.9": {
+            "n": 500,
+            "rate": 0.013589,
+            "mean_violation_Wm2": 3.5206
+          },
+          "0.9->0.95": {
+            "n": 4077,
+            "rate": 0.110806,
+            "mean_violation_Wm2": 5.9767
+          },
+          "0.95->0.975": {
+            "n": 4141,
+            "rate": 0.112546,
+            "mean_violation_Wm2": 10.5917
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 36168,
+        "n_crossing": 10329,
+        "rate": 0.285584,
+        "mean_violation_Wm2": 8.8127,
+        "median_violation_Wm2": 5.653,
+        "p99_violation_Wm2": 46.7202,
+        "max_violation_Wm2": 159.7034,
+        "mean_violation_pct_of_mean_GHI": 1.416,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 1786,
+            "rate": 0.049381,
+            "mean_violation_Wm2": 10.9773
+          },
+          "0.05->0.1": {
+            "n": 1384,
+            "rate": 0.038266,
+            "mean_violation_Wm2": 10.1348
+          },
+          "0.1->0.9": {
+            "n": 43,
+            "rate": 0.001189,
+            "mean_violation_Wm2": 3.9685
+          },
+          "0.9->0.95": {
+            "n": 4497,
+            "rate": 0.124336,
+            "mean_violation_Wm2": 5.5615
+          },
+          "0.95->0.975": {
+            "n": 4156,
+            "rate": 0.114908,
+            "mean_violation_Wm2": 9.7295
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 36794,
+        "n_crossing": 81,
+        "rate": 0.002201,
+        "mean_violation_Wm2": 4.6557,
+        "max_violation_Wm2": 17.4892
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 36794,
+        "n_crossing": 1,
+        "rate": 2.7e-05,
+        "mean_violation_Wm2": 0.4399,
+        "max_violation_Wm2": 0.4399
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 36794,
+        "n_crossing": 0,
+        "rate": 0.0,
+        "mean_violation_Wm2": 0.0,
+        "max_violation_Wm2": 0.0
+      }
+    },
+    "yulara_h3": {
+      "test_quantiles_only": {
+        "n": 40094,
+        "n_crossing": 12297,
+        "rate": 0.306704,
+        "mean_violation_Wm2": 9.4719,
+        "median_violation_Wm2": 5.1068,
+        "p99_violation_Wm2": 50.0527,
+        "max_violation_Wm2": 150.7991,
+        "mean_violation_pct_of_mean_GHI": 1.5739,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2863,
+            "rate": 0.071407,
+            "mean_violation_Wm2": 10.2664
+          },
+          "0.05->0.1": {
+            "n": 3685,
+            "rate": 0.091909,
+            "mean_violation_Wm2": 13.8695
+          },
+          "0.1->0.9": {
+            "n": 127,
+            "rate": 0.003168,
+            "mean_violation_Wm2": 4.2313
+          },
+          "0.9->0.95": {
+            "n": 4221,
+            "rate": 0.105278,
+            "mean_violation_Wm2": 4.3237
+          },
+          "0.95->0.975": {
+            "n": 4097,
+            "rate": 0.102185,
+            "mean_violation_Wm2": 6.8537
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 40094,
+        "n_crossing": 14988,
+        "rate": 0.373822,
+        "mean_violation_Wm2": 8.4267,
+        "median_violation_Wm2": 4.3066,
+        "p99_violation_Wm2": 48.8668,
+        "max_violation_Wm2": 150.7991,
+        "mean_violation_pct_of_mean_GHI": 1.4002,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 2863,
+            "rate": 0.071407,
+            "mean_violation_Wm2": 10.2664
+          },
+          "0.05->0.1": {
+            "n": 3685,
+            "rate": 0.091909,
+            "mean_violation_Wm2": 13.8695
+          },
+          "0.1->0.5": {
+            "n": 3061,
+            "rate": 0.076346,
+            "mean_violation_Wm2": 3.2085
+          },
+          "0.5->0.9": {
+            "n": 777,
+            "rate": 0.019379,
+            "mean_violation_Wm2": 3.362
+          },
+          "0.9->0.95": {
+            "n": 4221,
+            "rate": 0.105278,
+            "mean_violation_Wm2": 4.3237
+          },
+          "0.95->0.975": {
+            "n": 4097,
+            "rate": 0.102185,
+            "mean_violation_Wm2": 6.8537
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 39343,
+        "n_crossing": 12896,
+        "rate": 0.327784,
+        "mean_violation_Wm2": 10.2624,
+        "median_violation_Wm2": 5.259,
+        "p99_violation_Wm2": 56.1171,
+        "max_violation_Wm2": 150.8369,
+        "mean_violation_pct_of_mean_GHI": 1.7053,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 3138,
+            "rate": 0.07976,
+            "mean_violation_Wm2": 11.9776
+          },
+          "0.05->0.1": {
+            "n": 3821,
+            "rate": 0.09712,
+            "mean_violation_Wm2": 15.2795
+          },
+          "0.1->0.9": {
+            "n": 122,
+            "rate": 0.003101,
+            "mean_violation_Wm2": 3.9425
+          },
+          "0.9->0.95": {
+            "n": 3999,
+            "rate": 0.101645,
+            "mean_violation_Wm2": 3.9816
+          },
+          "0.95->0.975": {
+            "n": 4424,
+            "rate": 0.112447,
+            "mean_violation_Wm2": 6.8864
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 40094,
+        "n_crossing": 127,
+        "rate": 0.003168,
+        "mean_violation_Wm2": 4.2313,
+        "max_violation_Wm2": 29.4245
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 40094,
+        "n_crossing": 2,
+        "rate": 5e-05,
+        "mean_violation_Wm2": 1.7969,
+        "max_violation_Wm2": 2.7871
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 40094,
+        "n_crossing": 0,
+        "rate": 0.0,
+        "mean_violation_Wm2": 0.0,
+        "max_violation_Wm2": 0.0
+      }
+    },
+    "yulara_h6": {
+      "test_quantiles_only": {
+        "n": 38960,
+        "n_crossing": 13725,
+        "rate": 0.352284,
+        "mean_violation_Wm2": 14.0637,
+        "median_violation_Wm2": 7.7157,
+        "p99_violation_Wm2": 61.0881,
+        "max_violation_Wm2": 156.0369,
+        "mean_violation_pct_of_mean_GHI": 2.3066,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 4152,
+            "rate": 0.106571,
+            "mean_violation_Wm2": 5.9781
+          },
+          "0.05->0.1": {
+            "n": 3224,
+            "rate": 0.082752,
+            "mean_violation_Wm2": 11.5394
+          },
+          "0.1->0.9": {
+            "n": 91,
+            "rate": 0.002336,
+            "mean_violation_Wm2": 4.1095
+          },
+          "0.9->0.95": {
+            "n": 3344,
+            "rate": 0.085832,
+            "mean_violation_Wm2": 4.4112
+          },
+          "0.95->0.975": {
+            "n": 7040,
+            "rate": 0.180698,
+            "mean_violation_Wm2": 19.7504
+          }
+        }
+      },
+      "test_with_point_as_median": {
+        "n": 38960,
+        "n_crossing": 15689,
+        "rate": 0.402695,
+        "mean_violation_Wm2": 13.0667,
+        "median_violation_Wm2": 7.2281,
+        "p99_violation_Wm2": 60.2095,
+        "max_violation_Wm2": 156.0369,
+        "mean_violation_pct_of_mean_GHI": 2.1431,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 4152,
+            "rate": 0.106571,
+            "mean_violation_Wm2": 5.9781
+          },
+          "0.05->0.1": {
+            "n": 3224,
+            "rate": 0.082752,
+            "mean_violation_Wm2": 11.5394
+          },
+          "0.1->0.5": {
+            "n": 2968,
+            "rate": 0.076181,
+            "mean_violation_Wm2": 5.1996
+          },
+          "0.5->0.9": {
+            "n": 504,
+            "rate": 0.012936,
+            "mean_violation_Wm2": 2.5619
+          },
+          "0.9->0.95": {
+            "n": 3344,
+            "rate": 0.085832,
+            "mean_violation_Wm2": 4.4112
+          },
+          "0.95->0.975": {
+            "n": 7040,
+            "rate": 0.180698,
+            "mean_violation_Wm2": 19.7504
+          }
+        }
+      },
+      "calib_quantiles_only": {
+        "n": 38241,
+        "n_crossing": 14933,
+        "rate": 0.390497,
+        "mean_violation_Wm2": 13.7824,
+        "median_violation_Wm2": 7.7831,
+        "p99_violation_Wm2": 61.5195,
+        "max_violation_Wm2": 155.618,
+        "mean_violation_pct_of_mean_GHI": 2.2605,
+        "by_adjacent_pair": {
+          "0.025->0.05": {
+            "n": 4445,
+            "rate": 0.116237,
+            "mean_violation_Wm2": 7.0542
+          },
+          "0.05->0.1": {
+            "n": 3697,
+            "rate": 0.096676,
+            "mean_violation_Wm2": 13.3879
+          },
+          "0.1->0.9": {
+            "n": 92,
+            "rate": 0.002406,
+            "mean_violation_Wm2": 6.7793
+          },
+          "0.9->0.95": {
+            "n": 4034,
+            "rate": 0.105489,
+            "mean_violation_Wm2": 4.3713
+          },
+          "0.95->0.975": {
+            "n": 7340,
+            "rate": 0.191941,
+            "mean_violation_Wm2": 18.2322
+          }
+        }
+      },
+      "band_edges_80": {
+        "tau_lo": 0.1,
+        "tau_hi": 0.9,
+        "n": 38960,
+        "n_crossing": 91,
+        "rate": 0.002336,
+        "mean_violation_Wm2": 4.1095,
+        "max_violation_Wm2": 18.759
+      },
+      "band_edges_90": {
+        "tau_lo": 0.05,
+        "tau_hi": 0.95,
+        "n": 38960,
+        "n_crossing": 2,
+        "rate": 5.1e-05,
+        "mean_violation_Wm2": 0.335,
+        "max_violation_Wm2": 0.6228
+      },
+      "band_edges_95": {
+        "tau_lo": 0.025,
+        "tau_hi": 0.975,
+        "n": 38960,
+        "n_crossing": 1,
+        "rate": 2.6e-05,
+        "mean_violation_Wm2": 3.1712,
+        "max_violation_Wm2": 3.1712
+      }
+    }
+  },
+  "note": "rate = fraction of test points whose quantile sequence is non-monotone in tau"
+}

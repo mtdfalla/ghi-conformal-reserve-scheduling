@@ -1,0 +1,12 @@
+# Core (CPU-only) — sufficient for the full pipeline except the optional deep models
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+pyarrow>=12.0
+pvlib>=0.10
+matplotlib>=3.7
+statsmodels>=0.14
+
+# Optional: compact GRU / GRU-TCN baselines (see code/models/HOW_TO_RUN_DEEP_MODEL.md)
+# torch>=2.0

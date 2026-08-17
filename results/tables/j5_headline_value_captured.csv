@@ -1,0 +1,7 @@
+policy,horizon_min,best_rho,mean_daily,cvar95_daily,value_captured_mean,value_captured_cvar,soc_min,soc_max
+icp,5,0.9,16.37,183.59,0.908,0.746,0.1,0.907
+mondrian,5,0.8,13.95,159.09,0.922,0.779,0.1,0.981
+mondrian_cqr,5,0.8,10.52,97.4,0.941,0.865,0.1,1.0
+icp,30,0.9,87.54,788.78,0.805,0.688,0.1,1.0
+mondrian,30,0.8,84.06,767.36,0.813,0.697,0.1,1.0
+mondrian_cqr,30,0.8,60.77,410.26,0.865,0.838,0.1,1.0

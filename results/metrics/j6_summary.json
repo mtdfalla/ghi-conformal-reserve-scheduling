@@ -1,0 +1,80 @@
+{
+  "drift_all": {
+    "mean": {
+      "aci": 0.9196,
+      "icp": 0.8935,
+      "mondrian": 0.8897
+    },
+    "std": {
+      "aci": 0.0031,
+      "icp": 0.0184,
+      "mondrian": 0.0108
+    },
+    "min": {
+      "aci": 0.9157,
+      "icp": 0.8774,
+      "mondrian": 0.8693
+    },
+    "max": {
+      "aci": 0.9238,
+      "icp": 0.921,
+      "mondrian": 0.8987
+    }
+  },
+  "drift_transitional": {
+    "mean": {
+      "aci": 0.8877,
+      "icp": 0.7276,
+      "mondrian": 0.8956
+    },
+    "std": {
+      "aci": 0.0158,
+      "icp": 0.0371,
+      "mondrian": 0.015
+    },
+    "min": {
+      "aci": 0.8658,
+      "icp": 0.6755,
+      "mondrian": 0.8793
+    },
+    "max": {
+      "aci": 0.9073,
+      "icp": 0.7623,
+      "mondrian": 0.9134
+    }
+  },
+  "feature_ablation": [
+    {
+      "set": "full",
+      "n_features": 16,
+      "RMSE": 88.54,
+      "PICP_mondrian": 0.8887,
+      "PINAW_mondrian": 0.138,
+      "time_s": 5.8
+    },
+    {
+      "set": "no_roll",
+      "n_features": 14,
+      "RMSE": 88.77,
+      "PICP_mondrian": 0.8887,
+      "PINAW_mondrian": 0.1375,
+      "time_s": 5.9
+    },
+    {
+      "set": "lags_only",
+      "n_features": 9,
+      "RMSE": 89.42,
+      "PICP_mondrian": 0.8885,
+      "PINAW_mondrian": 0.1358,
+      "time_s": 4.0
+    },
+    {
+      "set": "minimal",
+      "n_features": 3,
+      "RMSE": 90.94,
+      "PICP_mondrian": 0.8973,
+      "PINAW_mondrian": 0.1524,
+      "time_s": 1.8
+    }
+  ]
+}

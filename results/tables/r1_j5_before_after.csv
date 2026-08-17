@@ -1,0 +1,193 @@
+site,horizon_min,policy,protocol,protocol_label,theta,mean_daily,cvar95_daily,value_captured_mean,value_captured_cvar,vc_mean_ci_lo,vc_mean_ci_hi,vc_cvar_ci_lo,vc_cvar_ci_hi,cvar_ci_lo,cvar_ci_hi
+asp,5,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,13.66,137.17,0.9247,0.7943,0.9023,0.9442,0.7114,0.8662,88.2408,194.0565
+asp,5,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.8,13.66,137.17,0.9247,0.7943,,,,,,
+asp,5,cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,14.1,132.13,0.9222,0.8018,0.9005,0.9411,0.7264,0.8661,88.9526,184.3697
+asp,5,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.775,14.13,140.26,0.9221,0.7897,,,,,,
+asp,5,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,14.1,132.13,0.9222,0.8018,0.9005,0.9411,0.7264,0.8661,88.9526,184.3697
+asp,5,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,35.26,194.06,0.8056,0.709,0.7748,0.8341,0.6673,0.7485,168.6658,222.7605
+asp,5,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,18.26,192.92,0.8993,0.7107,0.8703,0.9245,0.6106,0.7945,134.3452,263.4777
+asp,5,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.925,11.79,121.12,0.935,0.8184,,,,,,
+asp,5,icp,A,A: theta selected on 2023-H2 (mean cost),0.9,18.26,192.92,0.8993,0.7107,0.8703,0.9245,0.6106,0.7945,134.3452,263.4777
+asp,5,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,11.79,121.12,0.935,0.8184,,,,,,
+asp,5,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.9,18.26,192.92,0.8993,0.7107,0.8703,0.9245,0.6106,0.7945,134.3452,263.4777
+asp,5,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,13.66,159.59,0.9247,0.7607,0.899,0.9466,0.6641,0.8446,102.2739,226.7665
+asp,5,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,15.83,190.38,0.9127,0.7145,0.8821,0.9389,0.5964,0.8187,119.5047,270.9949
+asp,5,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,11.87,158.83,0.9345,0.7618,,,,,,
+asp,5,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.825,11.87,158.83,0.9345,0.7618,0.9069,0.9575,0.6456,0.8633,90.1414,238.7889
+asp,5,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.85,11.97,138.25,0.934,0.7927,,,,,,
+asp,5,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.85,11.97,138.25,0.934,0.7927,0.909,0.9543,0.6894,0.8774,81.4672,209.6923
+asp,5,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,44.48,204.29,0.7547,0.6936,0.7269,0.7816,0.6383,0.7349,177.0425,242.4924
+asp,5,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,13.66,137.23,0.9247,0.7942,0.9023,0.9441,0.7115,0.8661,88.3156,193.9385
+asp,5,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.8,13.66,137.23,0.9247,0.7942,,,,,,
+asp,5,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,14.13,132.11,0.9221,0.8019,0.9003,0.9409,0.7263,0.8659,88.9354,184.4543
+asp,5,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.775,14.07,139.96,0.9224,0.7901,,,,,,
+asp,5,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,14.13,132.11,0.9221,0.8019,0.9003,0.9409,0.7263,0.8659,88.9354,184.4543
+asp,5,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,36.52,197.82,0.7986,0.7033,0.7672,0.8278,0.6619,0.7427,172.5727,226.5118
+asp,15,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,47.95,291.53,0.8611,0.8063,0.8359,0.8831,0.7511,0.8538,223.5576,363.3236
+asp,15,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.775,45.89,297.39,0.867,0.8024,,,,,,
+asp,15,cqr,A,A: theta selected on 2023-H2 (mean cost),0.775,45.89,297.39,0.867,0.8024,0.8421,0.8886,0.7445,0.8514,226.32,374.4851
+asp,15,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.75,46.44,312.32,0.8655,0.7925,,,,,,
+asp,15,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.8,47.95,291.53,0.8611,0.8063,0.8359,0.8831,0.7511,0.8538,223.5576,363.3236
+asp,15,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,98.92,392.09,0.7134,0.7395,0.6749,0.7474,0.7072,0.7689,362.5921,411.2374
+asp,15,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,50.34,407.12,0.8542,0.7295,0.8276,0.8791,0.6748,0.7889,304.2279,494.7169
+asp,15,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.9,50.34,407.12,0.8542,0.7295,,,,,,
+asp,15,icp,A,A: theta selected on 2023-H2 (mean cost),0.875,88.49,621.88,0.7436,0.5869,0.7132,0.7748,0.5464,0.633,520.1732,709.0058
+asp,15,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,69.23,262.23,0.7994,0.8258,,,,,,
+asp,15,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.9,50.34,407.12,0.8542,0.7295,0.8276,0.8791,0.6748,0.7889,304.2279,494.7169
+asp,15,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,49.08,332.26,0.8578,0.7793,0.8325,0.8805,0.722,0.834,240.1796,420.8792
+asp,15,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,44.36,420.33,0.8715,0.7208,0.8436,0.8975,0.6554,0.7911,306.1649,524.096
+asp,15,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,39.34,328.82,0.886,0.7816,,,,,,
+asp,15,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.825,39.34,328.82,0.886,0.7816,0.8612,0.9086,0.7067,0.8504,221.7742,440.205
+asp,15,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.825,39.34,328.82,0.886,0.7816,,,,,,
+asp,15,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,39.34,328.82,0.886,0.7816,0.8612,0.9086,0.7067,0.8504,221.7742,440.205
+asp,15,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,94.08,341.56,0.7274,0.7731,0.6964,0.7561,0.7367,0.8012,309.1819,381.8019
+asp,15,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,48.09,291.51,0.8607,0.8063,0.8355,0.8826,0.7512,0.8536,223.7832,363.2642
+asp,15,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.775,45.98,297.16,0.8668,0.8026,,,,,,
+asp,15,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.775,45.98,297.16,0.8668,0.8026,0.8419,0.8884,0.7446,0.8517,226.2367,374.2357
+asp,15,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.75,46.32,311.68,0.8658,0.7929,,,,,,
+asp,15,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.775,45.98,297.16,0.8668,0.8026,0.8419,0.8884,0.7446,0.8517,226.2367,374.2357
+asp,15,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,98.9,392.25,0.7135,0.7394,0.675,0.7475,0.707,0.7689,362.7136,411.4987
+asp,30,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,76.44,524.85,0.8316,0.7758,0.8024,0.8578,0.7226,0.8262,405.899,632.0933
+asp,30,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.8,76.44,524.85,0.8316,0.7758,,,,,,
+asp,30,cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,81.44,498.04,0.8206,0.7873,0.7907,0.8468,0.736,0.8315,395.147,598.8541
+asp,30,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.75,80.11,583.33,0.8235,0.7509,,,,,,
+asp,30,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,81.44,498.04,0.8206,0.7873,0.7907,0.8468,0.736,0.8315,395.147,598.8541
+asp,30,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,132.38,527.16,0.7084,0.7748,0.6661,0.7452,0.7378,0.8071,480.0941,574.7342
+asp,30,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,103.86,821.3,0.7712,0.6492,0.7389,0.8027,0.6052,0.7046,641.3822,981.8501
+asp,30,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.9,103.86,821.3,0.7712,0.6492,,,,,,
+asp,30,icp,A,A: theta selected on 2023-H2 (mean cost),0.875,148.78,1168.49,0.6723,0.5009,0.6375,0.7099,0.4651,0.5478,969.9689,1354.0445
+asp,30,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,115.28,488.97,0.7461,0.7912,,,,,,
+asp,30,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.925,115.28,488.97,0.7461,0.7912,0.7051,0.7788,0.754,0.8303,375.2976,597.9339
+asp,30,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,97.99,687.44,0.7842,0.7064,0.752,0.8134,0.6645,0.7596,525.3123,835.4228
+asp,30,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,92.15,849.72,0.797,0.6371,0.762,0.8315,0.5694,0.7123,627.0142,1055.1039
+asp,30,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,79.81,723.85,0.8242,0.6908,,,,,,
+asp,30,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.85,80.89,621.03,0.8218,0.7348,0.7902,0.851,0.6566,0.8083,427.3331,828.3867
+asp,30,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.825,79.81,723.85,0.8242,0.6908,,,,,,
+asp,30,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.875,91.97,535.06,0.7974,0.7715,0.7667,0.8258,0.6968,0.8332,377.8541,722.7488
+asp,30,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,126.05,507.45,0.7223,0.7833,0.6845,0.7557,0.73,0.8266,414.119,627.7874
+asp,30,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,76.46,526.34,0.8316,0.7752,0.8024,0.8577,0.722,0.8255,407.721,634.4935
+asp,30,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.8,76.46,526.34,0.8316,0.7752,,,,,,
+asp,30,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,80.99,498.39,0.8216,0.7871,0.7919,0.8479,0.7354,0.831,396.3107,600.4015
+asp,30,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.75,80.47,585.76,0.8227,0.7498,,,,,,
+asp,30,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,80.99,498.39,0.8216,0.7871,0.7919,0.8479,0.7354,0.831,396.3107,600.4015
+asp,30,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,133.14,528.62,0.7067,0.7742,0.6642,0.7436,0.7372,0.8065,481.7465,576.0066
+asp,60,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,143.26,1035.59,0.7457,0.6864,0.7056,0.7831,0.6042,0.7561,785.6447,1308.4939
+asp,60,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,140.09,976.89,0.7513,0.7042,,,,,,
+asp,60,cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,140.09,976.89,0.7513,0.7042,0.7118,0.7879,0.6261,0.7696,743.4002,1230.575
+asp,60,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.8,143.26,1035.59,0.7457,0.6864,,,,,,
+asp,60,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.875,148.59,813.21,0.7362,0.7537,0.6949,0.7726,0.687,0.804,651.2814,1010.9355
+asp,60,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,169.03,769.87,0.6999,0.7668,0.6532,0.7398,0.7151,0.8053,662.4924,904.9492
+asp,60,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,200.12,1577.76,0.6447,0.5222,0.6057,0.6841,0.4827,0.5743,1291.2336,1791.4977
+asp,60,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.925,196.97,1114.07,0.6503,0.6626,,,,,,
+asp,60,icp,A,A: theta selected on 2023-H2 (mean cost),0.875,247.5,1986.46,0.5606,0.3984,0.5233,0.6026,0.3658,0.4383,1690.0873,2255.1171
+asp,60,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,196.97,1114.07,0.6503,0.6626,,,,,,
+asp,60,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.95,267.98,778.62,0.5243,0.7642,0.4402,0.5892,0.7188,0.8069,622.8571,924.5611
+asp,60,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,191.91,1418.42,0.6593,0.5704,0.6187,0.6974,0.5266,0.6254,1145.325,1614.9449
+asp,60,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,154.03,936.7,0.7266,0.7163,0.6847,0.765,0.634,0.7879,686.7229,1215.9881
+asp,60,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.875,146.9,1112.51,0.7392,0.6631,,,,,,
+asp,60,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.875,146.9,1112.51,0.7392,0.6631,0.6996,0.7761,0.5792,0.7404,816.1128,1417.294
+asp,60,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.85,150.44,1274.55,0.7329,0.614,,,,,,
+asp,60,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.925,176.87,827.15,0.686,0.7495,0.6374,0.7284,0.676,0.8095,629.78,1069.8856
+asp,60,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,160.03,887.38,0.7159,0.7313,0.6725,0.7555,0.6508,0.8001,655.2405,1153.6791
+asp,60,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,143.15,1034.91,0.7459,0.6866,0.7059,0.7833,0.6045,0.7563,785.2733,1307.2688
+asp,60,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,140.15,975.36,0.7512,0.7046,,,,,,
+asp,60,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,140.15,975.36,0.7512,0.7046,0.7115,0.7878,0.6267,0.77,742.2496,1228.6203
+asp,60,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.8,143.15,1034.91,0.7459,0.6866,,,,,,
+asp,60,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.875,148.32,812.7,0.7367,0.7539,0.6955,0.7729,0.6873,0.8042,651.1648,1009.9605
+asp,60,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,170.63,771.94,0.6971,0.7662,0.6499,0.7372,0.7145,0.8045,665.8032,905.4271
+yulara,5,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,7.0,68.78,0.9591,0.9043,0.9477,0.9689,0.877,0.9285,51.9031,86.6124
+yulara,5,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.8,7.0,68.78,0.9591,0.9043,,,,,,
+yulara,5,cqr,A,A: theta selected on 2023-H2 (mean cost),0.8,7.0,68.78,0.9591,0.9043,0.9477,0.9689,0.877,0.9285,51.9031,86.6124
+yulara,5,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.8,7.0,68.78,0.9591,0.9043,,,,,,
+yulara,5,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.8,7.0,68.78,0.9591,0.9043,0.9477,0.9689,0.877,0.9285,51.9031,86.6124
+yulara,5,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,33.25,188.73,0.8058,0.7375,0.7722,0.8368,0.7014,0.7698,169.2572,205.5792
+yulara,5,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,12.76,170.27,0.9255,0.7632,0.8993,0.9485,0.6778,0.8472,104.3472,243.4507
+yulara,5,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.925,7.12,80.64,0.9584,0.8879,,,,,,
+yulara,5,icp,A,A: theta selected on 2023-H2 (mean cost),0.9,12.76,170.27,0.9255,0.7632,0.8993,0.9485,0.6778,0.8472,104.3472,243.4507
+yulara,5,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,7.12,80.64,0.9584,0.8879,,,,,,
+yulara,5,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.9,12.76,170.27,0.9255,0.7632,0.8993,0.9485,0.6778,0.8472,104.3472,243.4507
+yulara,5,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,8.92,125.48,0.9479,0.8255,0.9267,0.9661,0.7509,0.8939,73.0225,185.8401
+yulara,5,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,11.4,143.84,0.9334,0.8,0.9102,0.9535,0.721,0.8746,85.6554,207.7203
+yulara,5,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.85,7.43,87.03,0.9566,0.879,,,,,,
+yulara,5,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.825,8.04,103.34,0.9531,0.8563,0.9344,0.9686,0.791,0.9134,60.7406,151.185
+yulara,5,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.875,11.97,105.04,0.9301,0.8539,,,,,,
+yulara,5,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,8.04,103.34,0.9531,0.8563,0.9344,0.9686,0.791,0.9134,60.7406,151.185
+yulara,5,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,31.86,170.35,0.8139,0.7631,0.7884,0.8377,0.7314,0.7941,151.3089,186.2412
+yulara,5,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,6.92,68.93,0.9596,0.9041,0.9482,0.9694,0.8767,0.9282,52.0426,86.774
+yulara,5,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.8,6.92,68.93,0.9596,0.9041,,,,,,
+yulara,5,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.8,6.92,68.93,0.9596,0.9041,0.9482,0.9694,0.8767,0.9282,52.0426,86.774
+yulara,5,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.8,6.92,68.93,0.9596,0.9041,,,,,,
+yulara,5,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.8,6.92,68.93,0.9596,0.9041,0.9482,0.9694,0.8767,0.9282,52.0426,86.774
+yulara,5,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,34.93,193.14,0.796,0.7314,0.7616,0.8275,0.6948,0.7637,173.9996,209.9703
+yulara,15,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,31.73,228.37,0.9071,0.8617,0.8875,0.924,0.8258,0.8935,175.6559,283.4356
+yulara,15,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.775,29.4,247.66,0.9139,0.85,,,,,,
+yulara,15,cqr,A,A: theta selected on 2023-H2 (mean cost),0.8,31.73,228.37,0.9071,0.8617,0.8875,0.924,0.8258,0.8935,175.6559,283.4356
+yulara,15,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.775,29.4,247.66,0.9139,0.85,,,,,,
+yulara,15,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.8,31.73,228.37,0.9071,0.8617,0.8875,0.924,0.8258,0.8935,175.6559,283.4356
+yulara,15,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,90.87,374.05,0.734,0.7734,0.6902,0.7717,0.7387,0.8016,337.9796,414.1613
+yulara,15,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,44.46,440.03,0.8699,0.7335,0.8415,0.8963,0.6588,0.8007,319.7722,574.9055
+yulara,15,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.9,44.46,440.03,0.8699,0.7335,,,,,,
+yulara,15,icp,A,A: theta selected on 2023-H2 (mean cost),0.875,99.9,794.99,0.7076,0.5184,0.6718,0.7442,0.4572,0.5818,657.0627,917.4615
+yulara,15,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,52.12,233.81,0.8474,0.8584,,,,,,
+yulara,15,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.9,44.46,440.03,0.8699,0.7335,0.8415,0.8963,0.6588,0.8007,319.7722,574.9055
+yulara,15,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,35.65,328.78,0.8956,0.8008,0.8703,0.9177,0.7271,0.8657,217.6605,456.6492
+yulara,15,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,36.28,382.27,0.8938,0.7684,0.8671,0.9178,0.7018,0.8311,269.1151,500.5139
+yulara,15,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,27.91,272.29,0.9183,0.8351,,,,,,
+yulara,15,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.8,36.28,382.27,0.8938,0.7684,0.8671,0.9178,0.7018,0.8311,269.1151,500.5139
+yulara,15,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.85,34.47,245.75,0.8991,0.8511,,,,,,
+yulara,15,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.825,27.91,272.29,0.9183,0.8351,0.8962,0.9374,0.7764,0.8871,183.7406,373.3748
+yulara,15,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,91.05,369.61,0.7335,0.7761,0.6955,0.7665,0.7452,0.8051,328.0729,405.905
+yulara,15,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,31.96,227.97,0.9064,0.8619,0.8869,0.9234,0.8264,0.8937,175.8071,282.205
+yulara,15,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.775,29.46,247.46,0.9138,0.8501,,,,,,
+yulara,15,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.8,31.96,227.97,0.9064,0.8619,0.8869,0.9234,0.8264,0.8937,175.8071,282.205
+yulara,15,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.775,29.46,247.46,0.9138,0.8501,,,,,,
+yulara,15,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.8,31.96,227.97,0.9064,0.8619,0.8869,0.9234,0.8264,0.8937,175.8071,282.205
+yulara,15,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,95.7,383.54,0.7199,0.7677,0.6752,0.7583,0.7324,0.7961,347.7268,423.5695
+yulara,30,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,57.54,431.79,0.8758,0.8329,0.8513,0.8973,0.7937,0.8726,333.163,512.9022
+yulara,30,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.775,57.02,468.43,0.8769,0.8188,,,,,,
+yulara,30,cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,62.99,397.62,0.864,0.8462,0.8376,0.8868,0.8074,0.881,313.7968,476.4442
+yulara,30,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.775,57.02,468.43,0.8769,0.8188,,,,,,
+yulara,30,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.85,72.81,386.98,0.8428,0.8503,0.8134,0.8679,0.8131,0.8824,316.4101,461.6674
+yulara,30,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,117.36,485.31,0.7466,0.8122,0.7011,0.7852,0.7743,0.8457,421.9097,550.61
+yulara,30,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,95.68,855.57,0.7934,0.669,0.7604,0.8248,0.61,0.7216,693.3951,1009.6776
+yulara,30,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.9,95.68,855.57,0.7934,0.669,,,,,,
+yulara,30,icp,A,A: theta selected on 2023-H2 (mean cost),0.875,166.85,1370.76,0.6397,0.4697,0.6037,0.6772,0.4168,0.5249,1153.2762,1563.2481
+yulara,30,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,98.82,463.27,0.7866,0.8208,,,,,,
+yulara,30,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.925,98.82,463.27,0.7866,0.8208,0.7478,0.8179,0.7622,0.8715,338.0696,597.9191
+yulara,30,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,87.78,690.41,0.8105,0.7329,0.7783,0.8388,0.6725,0.7851,546.7621,836.8688
+yulara,30,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,84.99,809.37,0.8165,0.6869,0.7857,0.8456,0.6347,0.7379,645.4562,953.0285
+yulara,30,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.85,61.42,434.83,0.8674,0.8318,,,,,,
+yulara,30,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.85,61.42,434.83,0.8674,0.8318,0.8409,0.8897,0.7801,0.8736,324.0116,560.174
+yulara,30,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.875,72.32,403.57,0.8438,0.8439,,,,,,
+yulara,30,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.85,61.42,434.83,0.8674,0.8318,0.8409,0.8897,0.7801,0.8736,324.0116,560.174
+yulara,30,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,115.99,485.89,0.7495,0.812,0.7063,0.786,0.7712,0.8479,411.8544,564.8597
+yulara,30,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,57.37,428.51,0.8761,0.8342,0.8517,0.8977,0.7935,0.8738,329.2821,513.2751
+yulara,30,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.775,56.6,462.98,0.8778,0.8209,,,,,,
+yulara,30,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.825,64.09,396.28,0.8616,0.8467,0.8351,0.8845,0.8079,0.8812,314.269,474.5689
+yulara,30,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.8,57.37,428.51,0.8761,0.8342,,,,,,
+yulara,30,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.85,75.2,390.57,0.8376,0.8489,0.8077,0.8631,0.8119,0.8811,319.6212,464.3231
+yulara,30,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,126.0,505.14,0.7279,0.8046,0.6802,0.7683,0.7659,0.8383,442.8356,570.2806
+yulara,60,cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,109.87,831.08,0.8151,0.7846,0.7843,0.8429,0.7396,0.8257,665.4512,979.4106
+yulara,60,cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,104.8,745.07,0.8236,0.8069,,,,,,
+yulara,60,cqr,A,A: theta selected on 2023-H2 (mean cost),0.875,113.0,623.46,0.8098,0.8384,0.7738,0.8403,0.8026,0.8711,503.8489,726.4355
+yulara,60,cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.825,104.8,745.07,0.8236,0.8069,,,,,,
+yulara,60,cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.9,130.04,595.65,0.7811,0.8456,0.7381,0.817,0.8115,0.8734,509.6762,679.2091
+yulara,60,cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,138.61,595.03,0.7667,0.8458,0.7199,0.8051,0.8126,0.8729,521.2444,666.3337
+yulara,60,icp,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,192.95,1732.94,0.6752,0.5508,0.633,0.716,0.4955,0.6209,1338.8786,2083.1747
+yulara,60,icp,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.925,181.8,1067.72,0.694,0.7232,,,,,,
+yulara,60,icp,A,A: theta selected on 2023-H2 (mean cost),0.9,192.95,1732.94,0.6752,0.5508,0.633,0.716,0.4955,0.6209,1338.8786,2083.1747
+yulara,60,icp,A_swapped,A-swapped: theta selected on 2023-H1,0.925,181.8,1067.72,0.694,0.7232,,,,,,
+yulara,60,icp,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.95,250.36,591.24,0.5786,0.8467,0.4895,0.6456,0.8132,0.877,504.9902,675.9699
+yulara,60,icp,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,181.5,1499.93,0.6945,0.6112,0.6518,0.7338,0.5536,0.6748,1154.1512,1833.6782
+yulara,60,mondrian,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.9,131.88,706.0,0.778,0.817,0.7373,0.8115,0.7772,0.853,546.6199,877.5543
+yulara,60,mondrian,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.875,123.86,896.67,0.7915,0.7676,,,,,,
+yulara,60,mondrian,A,A: theta selected on 2023-H2 (mean cost),0.875,123.86,896.67,0.7915,0.7676,0.7577,0.8215,0.7163,0.8179,650.0511,1158.6859
+yulara,60,mondrian,A_swapped,A-swapped: theta selected on 2023-H1,0.875,123.86,896.67,0.7915,0.7676,,,,,,
+yulara,60,mondrian,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.925,162.32,650.27,0.7268,0.8314,0.6729,0.7693,0.7934,0.8631,567.3314,736.0392
+yulara,60,mondrian,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,138.03,686.82,0.7677,0.822,0.7236,0.8036,0.785,0.854,552.0586,827.0531
+yulara,60,mondrian_cqr,R0_test_argmin_coarse,"R0 (theta = argmin on TEST 2024, R0 grid)",0.8,108.09,813.3,0.8181,0.7892,0.7871,0.846,0.7447,0.8298,652.3092,955.7688
+yulara,60,mondrian_cqr,R0_test_argmin_fine,R0 protocol on the fine grid (still TEST-tuned),0.825,104.39,730.08,0.8243,0.8108,,,,,,
+yulara,60,mondrian_cqr,A,A: theta selected on 2023-H2 (mean cost),0.875,116.07,610.23,0.8046,0.8418,0.7676,0.8357,0.8063,0.8725,500.8296,708.9693
+yulara,60,mondrian_cqr,A_swapped,A-swapped: theta selected on 2023-H1,0.825,104.39,730.08,0.8243,0.8108,,,,,,
+yulara,60,mondrian_cqr,A_meancvar_lam0.5,"A: theta selected on 2023-H2 (mean-CVaR, lambda=0.5)",0.9,135.1,593.7,0.7726,0.8461,0.7279,0.8093,0.8128,0.8727,517.8664,668.2186
+yulara,60,mondrian_cqr,B_critical_fractile,"B: theta = c_u/(c_u+c_o) = 0.909, zero tuning",0.909,146.13,602.15,0.754,0.8439,0.7048,0.7939,0.8109,0.8719,534.5452,667.2752

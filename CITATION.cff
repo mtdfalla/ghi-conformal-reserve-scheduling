@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software or the reproduction pipeline, please cite the article below."
+title: "Calibrated, Adaptive, and Risk-Aware Probabilistic Ultra-Short-Term Solar Forecasting for Reserve Scheduling in Hybrid PV Systems"
+authors:
+  - family-names: Abdelmagid
+    given-names: Mohamed
+  - family-names: El-Fouly
+    given-names: Tarek H. M.
+  - family-names: Maalouf
+    given-names: Maher
+year: 2026
+repository-code: "https://github.com/mtdfalla/ghi-conformal-reserve-scheduling"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20956895
+    description: "Concept DOI - resolves to the latest archived version of this software."
+  - type: doi
+    value: 10.5281/zenodo.21970201
+    description: "Version DOI of the first archived release."
+license: MIT
+keywords:
+  - solar forecasting
+  - conformal prediction
+  - uncertainty quantification
+  - reserve scheduling
+  - conditional value-at-risk
+preferred-citation:
+  type: article
+  title: "Calibrated, Adaptive, and Risk-Aware Probabilistic Ultra-Short-Term Solar Forecasting for Reserve Scheduling in Hybrid PV Systems"
+  authors:
+    - family-names: Abdelmagid
+      given-names: Mohamed
+    - family-names: El-Fouly
+      given-names: Tarek H. M.
+    - family-names: Maalouf
+      given-names: Maher
+  journal: "IEEE Access"
+  year: 2026
+  notes: "Article DOI to be added upon publication. The software archive has DOI 10.5281/zenodo.20956895 (concept DOI, all versions)."

@@ -1,0 +1,9 @@
+horizon_min,model_A,model_B,DM,p_value,A_better
+5,gbm,smart_persistence,-18.174,1.67e-73,True
+5,smart_persistence,persistence,-9.799,1.21e-22,True
+60,gbm,smart_persistence,-13.323,2.14e-40,True
+60,smart_persistence,persistence,-40.404,0.0,True
+15,gbm,smart_persistence,-18.419,1.93e-75,True
+15,smart_persistence,persistence,-32.106,3.16e-223,True
+30,gbm,smart_persistence,-15.839,2.56e-56,True
+30,smart_persistence,persistence,-40.915,0.0,True

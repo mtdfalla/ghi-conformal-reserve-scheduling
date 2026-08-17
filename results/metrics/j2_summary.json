@@ -1,0 +1,44 @@
+{
+  "icp": {
+    "picp90_all_5min": 0.878,
+    "pinaw90_all_5min": 0.1444,
+    "regime_ACE_rms_90": 0.1143,
+    "crps_5min": 26.386
+  },
+  "icp_norm": {
+    "picp90_all_5min": 0.8901,
+    "pinaw90_all_5min": 0.2154,
+    "regime_ACE_rms_90": 0.0685,
+    "crps_5min": 26.447
+  },
+  "mondrian": {
+    "picp90_all_5min": 0.8887,
+    "pinaw90_all_5min": 0.138,
+    "regime_ACE_rms_90": 0.01,
+    "crps_5min": 22.292
+  },
+  "cqr": {
+    "picp90_all_5min": 0.8982,
+    "pinaw90_all_5min": 0.1454,
+    "regime_ACE_rms_90": 0.0329,
+    "crps_5min": 19.888
+  },
+  "mondrian_cqr": {
+    "picp90_all_5min": 0.899,
+    "pinaw90_all_5min": 0.1465,
+    "regime_ACE_rms_90": 0.0092,
+    "crps_5min": 19.831
+  },
+  "aci": {
+    "picp90_all_5min": 0.9157,
+    "pinaw90_all_5min": 0.175,
+    "regime_ACE_rms_90": 0.0264,
+    "crps_5min": null
+  },
+  "aci_regime": {
+    "picp90_all_5min": 0.9083,
+    "pinaw90_all_5min": 0.1659,
+    "regime_ACE_rms_90": 0.0198,
+    "crps_5min": null
+  }
+}

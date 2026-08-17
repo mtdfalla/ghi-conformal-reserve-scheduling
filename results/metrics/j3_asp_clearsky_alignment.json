@@ -1,0 +1,15 @@
+{
+  "site": "DKASC_AliceSprings",
+  "clearsky_model": "ineichen_clearband_calibrated_causal_trainonly",
+  "calibration_factor": 1.0907,
+  "median_per_day_corr": 0.9834,
+  "daytime_steps": 248988,
+  "regime_daytime_pct": {
+    "clear": 54.53,
+    "transitional": 34.57,
+    "cloudy": 8.53,
+    "night": 2.37
+  },
+  "years": "2020-2024",
+  "n_rows": 526176
+}
