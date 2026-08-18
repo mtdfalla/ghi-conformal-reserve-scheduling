@@ -3,7 +3,15 @@
 # sessions. This rebuilds everything S1-S3 need in ~8 minutes on 2 CPUs.
 #   bash 03_code/r1/r1_restore_env.sh
 set -e
-pip install pyarrow statsmodels --break-system-packages -q 2>/dev/null || true
+# Install the exact pinned environment. This MUST NOT be allowed to fail silently:
+# a partial install produces numbers that look fine and are not reproducible.
+LOCK="$(cd "$(dirname "$0")/../.." && pwd)/requirements.lock.txt"
+if [ -f "$LOCK" ]; then
+  pip install -r "$LOCK" --break-system-packages -q
+else
+  echo "requirements.lock.txt not found at $LOCK" >&2
+  exit 1
+fi
 cd "$(dirname "$0")/.."                      # -> the code directory (03_code, or code/ in a release checkout)
 python3 - <<'PY'
 import sys; sys.path.insert(0,'utils')

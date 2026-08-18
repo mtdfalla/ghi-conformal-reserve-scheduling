@@ -75,4 +75,18 @@ python r1/r1_j5_vc_stats.py
 python r1/r1_regen_phase_reports.py
 python r1/r1_regen_phase_reports.py --verify
 
+# 8f. the analyses that run entirely from the tables written above: one denominator for the
+#     regime split (and Figure 1), multiplicity control, selection regret, the multi-day block
+#     bootstrap, the repeated-measures refit, the external-site mirror table, the robustness
+#     layer under r1_ names, and the measurement of the interpolated-input exposure.
+python r1/r1_s9_regimes.py
+python r1/r1_s9_stats.py
+python r1/r1_s9_dkasc_mirror.py
+python r1/r1_j6_aggregate.py
+python r1/r1_s9_causal_rescore.py
+
+# 8g. check the cleaner's run-length guard, and the count of long-run interpolated cells it
+#     withholds, against the shipped data.
+python r1/r1_s10_verify_runlength_guard.py
+
 echo "Done. See../results/ for tables and figures."

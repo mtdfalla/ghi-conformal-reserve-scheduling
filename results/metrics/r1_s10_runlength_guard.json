@@ -1,0 +1,93 @@
+{
+  "unit_proofs": [
+    {
+      "case": "interior gap of 20 (the defect)",
+      "old_filled": 6,
+      "new_filled": 0,
+      "expected_old": 6,
+      "expected_new": 0,
+      "pass_": true
+    },
+    {
+      "case": "interior gap of 6 (at the limit)",
+      "old_filled": 6,
+      "new_filled": 6,
+      "expected_old": 6,
+      "expected_new": 6,
+      "pass_": true
+    },
+    {
+      "case": "interior gap of 7 (one over)",
+      "old_filled": 6,
+      "new_filled": 0,
+      "expected_old": 6,
+      "expected_new": 0,
+      "pass_": true
+    },
+    {
+      "case": "interior gap of 1",
+      "old_filled": 1,
+      "new_filled": 1,
+      "expected_old": 1,
+      "expected_new": 1,
+      "pass_": true
+    },
+    {
+      "case": "leading gap of 3 (no left anchor)",
+      "old_filled": 0,
+      "new_filled": 0,
+      "expected_old": 0,
+      "expected_new": 0,
+      "pass_": true
+    },
+    {
+      "case": "trailing gap of 3 (no right anchor)",
+      "old_filled": 0,
+      "new_filled": 0,
+      "expected_old": 0,
+      "expected_new": 0,
+      "pass_": true
+    },
+    {
+      "case": "short and long gap in one series",
+      "old_filled": null,
+      "new_filled": 3,
+      "expected_old": null,
+      "expected_new": 3,
+      "pass_": true
+    },
+    {
+      "case": "200 random series: new fills are a subset of old",
+      "old_filled": null,
+      "new_filled": null,
+      "expected_old": null,
+      "expected_new": null,
+      "pass_": true
+    },
+    {
+      "case": "200 random series: shared fills and observations identical",
+      "old_filled": null,
+      "new_filled": null,
+      "expected_old": null,
+      "expected_new": null,
+      "pass_": true
+    }
+  ],
+  "reproduction": {
+    "available": true,
+    "rows": 920451,
+    "imputed_ghi_cells": 13925,
+    "imputed_cells_inside_runs_longer_than_limit": 4014,
+    "pct_of_imputed": 28.83,
+    "longest_original_nan_run_steps": 3025,
+    "short_gap_steps": 6,
+    "expected": {
+      "inside_long": 4014,
+      "n_imputed": 13925,
+      "pct": 28.8,
+      "longest": 3025
+    }
+  },
+  "all_unit_proofs_pass": true,
+  "expected_values_confirmed": true
+}

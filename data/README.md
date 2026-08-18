@@ -32,8 +32,19 @@ you see a `04_results/` directory appear, you are running an older copy of `conf
 ## Notes
 - Timestamps are ACST (UTC+9:30) for both sites.
 - The cleaning pipeline removes overlap duplicates, hardware sentinels, and out-of-bounds
-  values, builds a regular 5-min grid, clips night to zero, and interpolates gaps ≤30 min
-  (flagged and excluded from training/eval). See `code/preprocessing/` and the article
+  values, builds a regular 5-min grid, clips night to zero, and interpolates gaps ≤30 min.
+  **"≤30 min" is measured on the full length of each missing run**, so no part of a longer
+  gap is filled; `code/preprocessing/p2_clean.py` computes run lengths before interpolating.
+  Every interpolated cell is flagged in `data/cleaned/yulara_quality_flags.parquet`.
+- **What the flags are and are not used for, stated precisely.** A sample is dropped from
+  training and evaluation when its **target** was interpolated (`code/utils/datasets.py`,
+  `make_xy`). Interpolated values are **not** excluded from the **issue-time inputs**: a
+  lagged or rolling feature may still read one. The article quantifies that exposure and
+  reports what correcting for it does; `code/r1/r1_s9_causal_rescore.py` is the measurement.
+  Earlier versions of this file said interpolated values were "excluded from training/eval"
+  without that distinction, which was true of targets only.
+- **The results shipped in `results/` predate the run-length guard** described above. See
+  the provenance note at the end of `MANIFEST.md`. See `code/preprocessing/` and the article
   Appendix for exact rules.
 - Please cite DKASC when using the data, e.g.: *Desert Knowledge Australia Centre,
   "Download Data," Alice Springs / Yulara, https://dkasolarcentre.com.au/download,

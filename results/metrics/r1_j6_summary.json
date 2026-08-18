@@ -1,0 +1,84 @@
+{
+  "drift_all": {
+    "mean": {
+      "aci": 0.9184,
+      "icp": 0.8936,
+      "mondrian": 0.8903
+    },
+    "std": {
+      "aci": 0.0036,
+      "icp": 0.019,
+      "mondrian": 0.0101
+    },
+    "min": {
+      "aci": 0.9137,
+      "icp": 0.8763,
+      "mondrian": 0.872
+    },
+    "max": {
+      "aci": 0.9222,
+      "icp": 0.9213,
+      "mondrian": 0.901
+    }
+  },
+  "drift_transitional": {
+    "mean": {
+      "aci": 0.888,
+      "icp": 0.7284,
+      "mondrian": 0.8967
+    },
+    "std": {
+      "aci": 0.0153,
+      "icp": 0.0377,
+      "mondrian": 0.0149
+    },
+    "min": {
+      "aci": 0.8669,
+      "icp": 0.675,
+      "mondrian": 0.8816
+    },
+    "max": {
+      "aci": 0.907,
+      "icp": 0.7632,
+      "mondrian": 0.9147
+    }
+  },
+  "feature_ablation": [
+    {
+      "set": "full",
+      "n_features": 16,
+      "RMSE": 87.33,
+      "PICP_mondrian": 0.8878,
+      "PINAW_mondrian": 0.1355,
+      "time_s": 14.3,
+      "delta_vs_full_pct": 0.0
+    },
+    {
+      "set": "no_roll",
+      "n_features": 14,
+      "RMSE": 87.45,
+      "PICP_mondrian": 0.8881,
+      "PINAW_mondrian": 0.1351,
+      "time_s": 19.5,
+      "delta_vs_full_pct": 0.14
+    },
+    {
+      "set": "lags_only",
+      "n_features": 9,
+      "RMSE": 88.08,
+      "PICP_mondrian": 0.8877,
+      "PINAW_mondrian": 0.1335,
+      "time_s": 14.4,
+      "delta_vs_full_pct": 0.86
+    },
+    {
+      "set": "minimal",
+      "n_features": 3,
+      "RMSE": 89.61,
+      "PICP_mondrian": 0.8978,
+      "PINAW_mondrian": 0.1485,
+      "time_s": 8.8,
+      "delta_vs_full_pct": 2.61
+    }
+  ]
+}

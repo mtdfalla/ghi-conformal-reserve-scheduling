@@ -79,8 +79,13 @@ data/              instructions to obtain the raw data (NOT redistributed here)
 Python 3.10+.
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.lock.txt      # exact pins; what was actually run
+# pip install -r requirements.txt        # the dependency list, without versions
 ```
+
+[`MANIFEST.md`](MANIFEST.md) maps every table and figure in the article to the script
+that generates it, the result file it is read from, and that file's SHA-256, so any
+exhibit can be traced without running anything.
 
 ## Data
 

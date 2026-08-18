@@ -8,7 +8,9 @@ Pipeline
 4. Reindex onto a continuous regular 5-min grid (min..max).
 5. Replace sentinels (|x|>=9e4) and out-of-physical-bounds values with NaN.
 6. Record raw missingness; interpolate SHORT gaps (<=6 steps / 30 min);
-   leave LONG gaps as NaN and flag them.
+   leave LONG gaps as NaN and flag them. "Short" is measured on the FULL run
+   length of each NaN run, so no part of a long gap is ever filled (see the
+   run-length guard at step 6 below, added 2026-08-18).
 7. Clip small negative GHI/PV (night offset) to 0.
 8. Save cleaned dataset (parquet) + per-variable imputation flags + quality report.
 
@@ -16,8 +18,8 @@ Outputs
 -------
 02_data/cleaned/yulara_clean_5min.parquet
 02_data/cleaned/yulara_quality_flags.parquet
-04_results/tables/p1_cleaning_summary.csv
-04_results/metrics/p1_cleaning_summary.json
+results/tables/p1_cleaning_summary.csv
+results/metrics/p1_cleaning_summary.json
 """
 import sys, json
 from pathlib import Path
@@ -81,16 +83,59 @@ for col in cols:
 # ---- 6. Missingness before interpolation ----
 miss_before = grid[cols].isna().sum()
 
-# Interpolate SHORT gaps only (time-based), flag what was filled
+# Interpolate SHORT gaps only (time-based), flag what was filled.
+#
+# RUN-LENGTH GUARD (added 2026-08-18).
+# ---------------------------------------------------------------------------
+# `Series.interpolate(limit=n, limit_area="inside")` does NOT do what the
+# docstring above describes. `limit` caps the number of CONSECUTIVE values
+# filled going forward, so it fills the first n steps of a gap of ANY length
+# and leaves the remainder NaN. A 3,025-step outage therefore had its first
+# six steps fabricated from the values either side of a ten-day hole.
+#
+# Measured on the shipped Yulara data before this guard existed: 4,014 of the
+# 13,925 imputed GHI cells (28.8 %) lay inside original NaN runs longer than
+# SHORT_GAP_STEPS. Downstream, `utils/datasets.py:make_xy` excludes imputed
+# TARGETS but not imputed issue-time FEATURES, so those cells reached the
+# supervised frame as inputs.
+#
+# The guard below computes each NaN run's length first and fills a cell only
+# when its ENTIRE run is <= SHORT_GAP_STEPS, which is the documented rule and
+# is the same idiom `code/preprocessing/clean.py` has always used.
+#
+# PROVENANCE, STATED SO IT CANNOT BE MISREAD: every result shipped with the
+# accompanying article was produced by the pre-guard behaviour. Re-running this
+# script now yields 9,911 imputed GHI cells where the archived quality flags
+# record 13,925: exactly the 4,014 long-run cells above are withheld. That
+# difference is verified by `code/r1/r1_s10_verify_runlength_guard.py`, which
+# reconstructs the original NaN pattern from the shipped artifacts and also
+# proves the guard on constructed series including the boundary at the limit.
+# The size of the difference to the RESULTS was measured rather than assumed --
+# see `code/r1/r1_s9_causal_rescore.py`, which re-scores the shipped test
+# predictions on the subset of rows carrying no interpolated issue-time input:
+# the largest change in any per-regime coverage figure is +0.0142 and point
+# RMSE moves by -1.65 % to +0.30 %. No conclusion in the article depends on it.
 flags = pd.DataFrame(index=grid.index)
+withheld_counts = {}
 for col in cols:
-    was_na = grid[col].isna()
-    filled = grid[col].interpolate(method="time", limit=C.SHORT_GAP_STEPS,
-                                   limit_area="inside")
-    flags[col + "_imputed"] = was_na & filled.notna()
+    s = grid[col]
+    isnan = s.isna()
+    # run length of each NaN run, broadcast back onto every cell in that run
+    runid = (isnan != isnan.shift()).cumsum()
+    runlen = isnan.groupby(runid).transform("sum").where(isnan, 0)
+    short_gap = isnan & (runlen <= C.SHORT_GAP_STEPS)
+    interp = s.interpolate(method="time", limit=C.SHORT_GAP_STEPS,
+                           limit_area="inside")
+    filled = s.where(~short_gap, interp)
+    flags[col + "_imputed"] = isnan & filled.notna()
+    # cells the old behaviour would have fabricated and this guard withholds
+    withheld_counts[col] = int((isnan & interp.notna() & ~short_gap).sum())
     grid[col] = filled
 miss_after = grid[cols].isna().sum()
 imputed_counts = {c: int(flags[c + "_imputed"].sum()) for c in cols}
+log("run-length guard: withheld "
+    + ", ".join(f"{c}={withheld_counts[c]}" for c in cols)
+    + f" cells that lay inside NaN runs longer than {C.SHORT_GAP_STEPS} steps")
 
 # ---- 7. Clip night negatives for irradiance/power ----
 for col in ["ghi", "ghi_alt", "pv_total"]:
@@ -123,6 +168,7 @@ for col in cols:
         missing_before_interp=int(miss_before[col]),
         pct_missing_before=round(miss_before[col] / n * 100, 3),
         interpolated=imputed_counts[col],
+        withheld_by_runlength_guard=withheld_counts[col],
         missing_after_interp=int(miss_after[col]),
         pct_missing_after=round(miss_after[col] / n * 100, 3),
     ))
