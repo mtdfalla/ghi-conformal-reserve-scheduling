@@ -43,7 +43,10 @@ you see a `04_results/` directory appear, you are running an older copy of `conf
   reports what correcting for it does; `code/r1/r1_s9_causal_rescore.py` is the measurement.
   Earlier versions of this file said interpolated values were "excluded from training/eval"
   without that distinction, which was true of targets only.
-- **The results shipped in `results/` predate the run-length guard** described above. See
+- **The results shipped in `results/` predate the run-length guard** described above;
+  `p2_clean.py --legacy-gapfill` reproduces that pre-guard behaviour bit-for-bit and is
+  what `reproduce.sh` uses for article reproduction, while the guarded cleaner (no flag)
+  is the default for new work. See
   the provenance note at the end of `MANIFEST.md`. See `code/preprocessing/` and the article
   Appendix for exact rules.
 - Please cite DKASC when using the data, e.g.: *Desert Knowledge Australia Centre,

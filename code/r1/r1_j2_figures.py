@@ -20,15 +20,16 @@ OUTPUTS (r1_-prefixed, nothing overwritten)
     04_results/figures/r1_j2_picp_by_regime_5min.png
     04_results/figures/r1_j3_crosssite_calibration.png
 
-Run from 03_code:  python3 r1/r1_j2_figures.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_j2_figures.py
 """
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(REPO / "03_code" / "utils"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "utils"))   # 03_code/ or code/
 
 import matplotlib                        # noqa: E402
 matplotlib.use("Agg")
@@ -71,7 +72,7 @@ def pick(iv, site, method, variant, scope):
 
 
 def main() -> None:
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     iv = pd.read_csv(CFG.TAB / f"{R1_PREFIX}j2_interval_metrics.csv")
 
     # ---- Fig. picp: per-regime coverage at Yulara -----------------------------

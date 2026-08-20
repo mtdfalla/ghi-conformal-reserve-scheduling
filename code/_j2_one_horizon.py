@@ -3,7 +3,7 @@
 Adds to the P3 method set: ACI (online, day-reset), regime-conditional ACI, and
 Mondrian-CQR; plus reliability-over-time (monthly coverage) and ACI alpha traces.
 
-Run from 03_code with: python3 _j2_one_horizon.py <h_steps>   (h in 1,3,6,12)
+Run from the code directory (03_code/ or code/) with: python3 _j2_one_horizon.py <h_steps>   (h in 1,3,6,12)
 Reads /tmp/base.parquet, writes /tmp/j2out/h{h}.json (+ bands/alpha for h==1).
 """
 import sys, json, time, warnings; warnings.filterwarnings("ignore")

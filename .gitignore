@@ -4,6 +4,10 @@ data/cleaned/
 data/regime_labels/
 data/DKASC/
 *.parquet
+# EXCEPT the shipped deep-baseline prediction parquets: these are OUR OWN model
+# outputs (not third-party data) and code/r1/r1_p2_deep_vs_gbm.py reads them, so
+# reproduce.sh step 8b needs them present in a clean checkout.
+!results/tables/r1_p2_deep_pred_h*.parquet
 *.csv.gz
 Alice_Springs_*.csv
 

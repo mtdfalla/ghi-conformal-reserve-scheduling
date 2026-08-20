@@ -19,7 +19,7 @@ in every case the file the named script writes.
 | Exhibit | What it is | Generating script | Result file | SHA-256 |
 |---|---|---|---|---|
 | **Table 1** | Structured gap analysis of the recent literature | assembled by hand from the cited sources | — | — |
-| **Table 2** | Dataset summary and weather-regime composition | `code/r1/r1_s9_regimes.py` | `results/tables/r1_s9_regime_distribution.csv` | `348c478a6770a2bef31e8956138f8a0359f1e381ce32ed29e6afac960397a9c4` |
+| **Table 2** | Dataset summary and weather-regime composition | `code/r1/r1_s9_regimes.py` | `results/tables/r1_s9_regime_distribution.csv` | `788cf8589c1671b81be850f5ec972c44c7f89345e4b7c824c9a22e9f89605b46` |
 | **Table 3** | Point-forecast error on test 2024 | `code/r1/r1_p2_table2_build.py` | `results/tables/r1_p2_table2.csv` | `d1a9f83297f4bbc74f1eca5385ea97014dd489efd5976a8ae85c0af0aa055c83` |
 | **Table 4** | Boosted model against the compact deep baselines, paired tests | `code/r1/r1_p2_deep_vs_gbm.py` | `results/tables/r1_p2_deep_vs_gbm.csv` | `7740e4aa6fb1f9b392b93c2edd9065739ba2035a14b7ceecdff37b9be7cf42f4` |
 | **Table 5** | Per-regime coverage and sharpness at 90 % nominal | `code/r1/r1_j2_aggregate.py` | `results/tables/r1_j2_interval_metrics.csv` | `af1b429109ff4b8984cac461544841ab4c8160cb3e7bb1240b3382013462f174` |
@@ -30,7 +30,7 @@ in every case the file the named script writes.
 | **Table 10** | Calibration-set-size ablation | `code/r1/r1_j6_aggregate.py` | `results/tables/r1_j6_calib_size.csv` | `519f3e054583a080f40d943071abd9da00e0e73b537abf6c21e78eb61b83b3e4` |
 | **Table 11** | Feature ablation | `code/r1/r1_j6_aggregate.py` | `results/tables/r1_j6_feature_ablation.csv` | `d938c162ee5b0c9aee34af0fb0175bce03e072f38d08d1f9b908c7375c35527d` |
 | **Table 12** | Effect of capping the upper interval bound (computed per horizon by `code/r1/r1_j2_delayed.py`) | `code/r1/r1_j2_aggregate.py` | `results/tables/r1_j2_bound_cap.csv` | `3ca2cb7085b34900a42b7455477823bed896cb2f8324dac084d1169f56c4550e` |
-| **Figure 1** | Weather-regime distribution, overall and by month | `code/r1/r1_s9_regimes.py` | `results/figures/r1_s9_regime_distribution.png` | `20af6404deb188b5e95917101aa305df39191e915d6bb0fe8689b5aded2ad1a7` |
+| **Figure 1** | Weather-regime distribution, overall and by month | `code/r1/r1_s9_regimes.py` | `results/figures/r1_s9_regime_distribution.png` | `1c5a72691c8c142805c481f0d41efc0db5d856c31e2d8191c163790afe95d2db` |
 | **Figure 2** | The GHI-to-PV mapping and its fit | `code/r1/r1_build_ghi_pv_map.py` | `results/figures/r1_ghi_pv_map.png` | `23487abb218e11ddf726f3e480bf54b35dedfc7b169023db419f015d2104a455` |
 | **Figure 3** | Point-forecast RMSE by horizon | `code/r1/r1_p2_table2_build.py` | `results/figures/r1_p2_all_models_rmse.png` | `4e5ac8e2a4faffee4c2a1c5a2d423fc32ff15094dd6654b2417647377344d355` |
 | **Figure 4** | Coverage by weather regime, all seven methods | `code/r1/r1_j2_figures.py` | `results/figures/r1_j2_picp_by_regime_5min.png` | `7fad5a06cbe872722b03c936f91a555172a38c8d34eda74ba4b80c2aab981370` |
@@ -106,6 +106,8 @@ d626829d63f931b6a2c09274a56102daf385f780e158c98b66ed5d9f9c2ce3d4  results/tables
 6daa521062faabd51380d4db789d087e9203afd4fa2dc26246bc5c49ccc08ee1  results/tables/p3_crps.csv
 51fe610d7ec472bfd59235bf16e552bbed77996e4434804932cea90ab041c185  results/tables/p3_interval_metrics.csv
 d8fb5e6a05d79f846bd5a24633f3f808c54bb7a34f1a038e0ed677e5a109d2a0  results/tables/p4_costofuncertainty.csv
+3bfbb6f137d13dcb1fdae515161449b1d97bced5728a6400ca28d42544359c52  results/tables/r1_b07_quantile_rules.csv
+15316cc783f682fcd0875638a70b0f90271911b2f228dcb50acdb12eb7adf614  results/tables/r1_b07_theta_stability.csv
 3eb285f1be5ac3eea757a0f364f9a879b3403e94b198abb490878b13da3d1d31  results/tables/r1_j2_ace_rms_5min.csv
 86f4b65b66a3ee81cda424e560fb40b7be6b5fa577326d1c128c074e66cb7b90  results/tables/r1_j2_aci_delayed.csv
 ef69e354999c95c77bd1ef770bec17527fafcee4f4afb688a654d761faf36250  results/tables/r1_j2_aci_gamma.csv
@@ -116,7 +118,7 @@ b37c095e80d93935d555d075e5dc8f01c5acd554ee44dd6c884b5585cef1ef31  results/tables
 b52a49680b9b63d7a341fe31dbe7191d8979f789eedef12fc87b358f8c214400  results/tables/r1_j2_crps.csv
 af1b429109ff4b8984cac461544841ab4c8160cb3e7bb1240b3382013462f174  results/tables/r1_j2_interval_metrics.csv
 ead7b8b51dfefefe5f2213ed2f5284bdf071583a4bbea432490e33b5c220e131  results/tables/r1_j2_reliability.csv
-c3c45811f0d1215231842d7d88bcf6f2c4da1d40a0af0ba56eab8421d6e8e019  results/tables/r1_j2_stats.csv
+1852663ef775a54262f18102fb42d10f7ac61d75dda3a0f62afb8ab393237a3c  results/tables/r1_j2_stats.csv
 99b4eb75ae2f1cddc6d49d9318939eac9c2f4a0e0cdf8a246014e39e0e68f227  results/tables/r1_j3_dispatch.csv
 51832d81cdd265d588809b652111ef13ce86dd0e7e6b7f68e91ca532f57c9615  results/tables/r1_j3_point_causal.csv
 4ba1a762da1304ccc4f48e294b86bf5b1106b83b1d98b6bf0f7e4e60a256611e  results/tables/r1_j5_battery.csv
@@ -129,7 +131,7 @@ afef6f3654fbd1e468d9239c01146bff9ff7cbf3736bb9f4fce569345513cd90  results/tables
 ec4b32c63ebec346fc935312e4d32038bb40483e0aae0093994bae2af8459af7  results/tables/r1_j5_protocols.csv
 10b2a52712d2ede276a8a4177ba45fcf7c8f01ba63b9e501ccd22a56c979ab79  results/tables/r1_j5_r0_reproduction.csv
 ade62a12dc25ea0e3697077bf8615b8a9e5c1bb32f11e5a15b53049c88ef0474  results/tables/r1_j5_theta_selection.csv
-d8164216b65d454e77cacf937c8088d169e1c1fbc638dc07734a8f0addd8b764  results/tables/r1_j5_vc_diff_ci.csv
+d5229d5f481c989066b3b958384ca665c8de938d3dfbab7c4f1cc2e97b5f71c8  results/tables/r1_j5_vc_diff_ci.csv
 519f3e054583a080f40d943071abd9da00e0e73b537abf6c21e78eb61b83b3e4  results/tables/r1_j6_calib_size.csv
 bfb9b9622df7330d28f0b06fbf904d8d10f3c24dcb9cdd7286d50694375ec36e  results/tables/r1_j6_drift_coverage.csv
 bba5d80c4d90aada20690e440090753e14c76b3d3c114101a7a47937a41bcce4  results/tables/r1_j6_drift_summary_all.csv
@@ -141,6 +143,14 @@ d938c162ee5b0c9aee34af0fb0175bce03e072f38d08d1f9b908c7375c35527d  results/tables
 8312643453ed94680dd89b0ac7313febea2571e458770ad9dd6e794a93f10293  results/tables/r1_p2_cv_summary_by_year.csv
 1e40d51a1eedde242e4763c64afac192e51a74f2d3cdc5447e64119109e30d27  results/tables/r1_p2_deep_causal.csv
 1847ac0e5b0408316786ef97d81a12e30bb8f86cfeb5e55dc8ffcb03fd3cbcdd  results/tables/r1_p2_deep_causal_full.csv
+7dae0fe5f02b40b3d0d8cfe564d64c8f49dbf4b3d474fa386062e46ede008678  results/tables/r1_p2_deep_pred_h1.parquet
+0535c729f36d596d50d39fd37358c4a08225474055d29eff38465280ee4f2297  results/tables/r1_p2_deep_pred_h12.parquet
+530be346e0c6f084d4a7cad7b7a830f9ee0cc6d9f6aff8590553b1e346483eb9  results/tables/r1_p2_deep_pred_h12_full.parquet
+4c6cb02723b84cb0e6626d5b40cce1df22e3d541841357a1697f6b4df50c71d7  results/tables/r1_p2_deep_pred_h1_full.parquet
+787561e1cae3ddadb65741cb291b5bad751fb48725f9d2cc845d7ea5f1ae98db  results/tables/r1_p2_deep_pred_h3.parquet
+1990864edd5d66e5ddb7f5d690e984f419cd8a4465e0572349478ca1a1939b79  results/tables/r1_p2_deep_pred_h3_full.parquet
+35da0086b15f5fb0fd791a97a29180aa28d16e18edbb14f009b1b08a487f5807  results/tables/r1_p2_deep_pred_h6.parquet
+fca4b62977f31124f2b48d32e9ab4d78d01bd157b6fad8615838990c91527b47  results/tables/r1_p2_deep_pred_h6_full.parquet
 7740e4aa6fb1f9b392b93c2edd9065739ba2035a14b7ceecdff37b9be7cf42f4  results/tables/r1_p2_deep_vs_gbm.csv
 5f9428075bb2d1e750d8ef585c4a7bc16f1cbc02017d2c7396b4b7b8be21afeb  results/tables/r1_p2_point_causal.csv
 1e77c4b28e990cbc14c3571ab4d1213d264631485199cfa30969800636d7bfbf  results/tables/r1_p2_point_causal_by_regime.csv
@@ -152,8 +162,8 @@ d1a9f83297f4bbc74f1eca5385ea97014dd489efd5976a8ae85c0af0aa055c83  results/tables
 4a788930845f2f5da566cf9ef63868f2d6150aea11bc7b3085099cee14551d7c  results/tables/r1_s9_causal_exposure.csv
 616886729b9d9ad794d7a0644233f6851822c6e8fb1477a00f6d267c815c17e6  results/tables/r1_s9_causal_rescore.csv
 d368eeba8546a4cac86876faf366207c80ff7ef6b98b0c511746d7f9bc0993cf  results/tables/r1_s9_dkasc_mirror.csv
-a59354841f96269fbf49edd2bb0e7e9bab0878936c9465cf5f938d857ae15f2e  results/tables/r1_s9_multiplicity.csv
-348c478a6770a2bef31e8956138f8a0359f1e381ce32ed29e6afac960397a9c4  results/tables/r1_s9_regime_distribution.csv
+46dba664c74863c4abd04862f256caa15062dee968a3eafd4512a1d4fdfa7eba  results/tables/r1_s9_multiplicity.csv
+788cf8589c1671b81be850f5ec972c44c7f89345e4b7c824c9a22e9f89605b46  results/tables/r1_s9_regime_distribution.csv
 974592b83506f94c4bae1f724f856aa7c72b42fe77b9c163cbdde08628a1151f  results/tables/r1_s9_selection_regret.csv
 dabba86059b8abd083bc98f682ae883e3930c8d62b4d4031e121b361008f496e  results/metrics/2026-06-22-clean-manifest.json
 edaaccfd2ea4856159fdb63c2d218967e47536f2d00f115c2c939a8e4ec34a1e  results/metrics/2026-06-22-raw-profile.json
@@ -234,7 +244,7 @@ a61b1e62fe9d81a3f75caae2c9c772939cb171252057462d9785c0e039bb7414  results/figure
 95f4970a96f2d0a32fbbda82499a36dde0cd449953eb9ce18cc89cda8ec1fb97  results/figures/r1_j6_drift_picp_by_year.png
 4e5ac8e2a4faffee4c2a1c5a2d423fc32ff15094dd6654b2417647377344d355  results/figures/r1_p2_all_models_rmse.png
 0865f9b537d6c9aa0eeb0d4ee8719434edc2e9b24882683da0182441016d5604  results/figures/r1_p2_skill_vs_horizon.png
-20af6404deb188b5e95917101aa305df39191e915d6bb0fe8689b5aded2ad1a7  results/figures/r1_s9_regime_distribution.png
+1c5a72691c8c142805c481f0d41efc0db5d856c31e2d8191c163790afe95d2db  results/figures/r1_s9_regime_distribution.png
 95980d981e796b9fd74a077f6d22852e3f1f6ffedd76a043b5dc945f90d1e03f  results/reports/2026-06-22-Phase1-Data-Report.md
 f8f0172db7676f40811e461a3fde2ffe8c795949147a39d0c60416e7b1dad890  results/reports/2026-06-22-Phase2-Baselines-Note.md
 c3c62f854f985850329f85d773a11f4b566668241725f0d661e4ac30c0289f1d  results/reports/2026-06-22-Phase2-Summary-Report.md
@@ -269,4 +279,6 @@ of rows carrying no interpolated issue-time input, and
 `code/r1/r1_s10_verify_runlength_guard.py` reproduces the cell counts from the shipped
 artifacts and proves the guard on constructed series. Re-running the pipeline from raw
 data with the guard in place therefore yields slightly different absolute levels and
-the same conclusions; the article states this.
+the same conclusions. This provenance is recorded here rather than in the article:
+the article discloses the interpolation rule and the measured exposure, but says
+nothing about the run-length guard, which was added after the reported runs.

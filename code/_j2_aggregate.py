@@ -1,5 +1,5 @@
 """J2 aggregation: per-horizon JSON -> tables, figures, and a headline summary.
-Run from 03_code: python3 _j2_aggregate.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout): python3 _j2_aggregate.py
 """
 import sys, json, glob; sys.path.insert(0, "utils")
 import config as CFG

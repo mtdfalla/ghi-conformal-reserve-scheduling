@@ -44,13 +44,14 @@ OUTPUTS (r1_-prefixed, nothing overwritten)
                                                  the common index, per horizon+run
     04_results/metrics/r1_p2_deep_vs_gbm.json    settings + provenance
 
-Run from 03_code:  python3 r1/r1_p2_deep_vs_gbm.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_p2_deep_vs_gbm.py
 Requires r1_p2_point_causal.py to have run first.
 """
 from __future__ import annotations
 
 import json
 import platform
+import os
 import sys
 import time
 import warnings
@@ -59,7 +60,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 REPO = Path(__file__).resolve().parents[2]
-CODE = REPO / "03_code"
+CODE = Path(__file__).resolve().parents[1]   # 03_code/ in the working tree, code/ in a release checkout
 sys.path.insert(0, str(CODE / "utils"))
 sys.path.insert(0, str(CODE / "evaluation"))
 
@@ -98,20 +99,22 @@ def read_pred(path: Path) -> pd.DataFrame:
     return pd.read_parquet(path)
 
 
-def dm_hln(d: np.ndarray, hac_lag: int) -> tuple[float, float]:
-    """Diebold-Mariano on a pre-formed loss differential d, HLN small-sample
-    correction at the given HAC truncation lag. Negative statistic => model A better.
+def dm_hln(d: np.ndarray, hac_lag: int, h_forecast: int) -> tuple[float, float]:
+    """Diebold-Mariano on a pre-formed loss differential d. Long-run variance by a
+    Newey-West (Bartlett-kernel) estimator at the given HAC truncation lag (PSD by
+    construction); HLN small-sample correction at the true forecast horizon. Negative statistic => model A better.
     Identical machinery to evaluation/metrics.diebold_mariano, but taking d directly
     so the same differential feeds the bootstrap."""
     n = len(d)
     dbar = float(d.mean())
     var = float(np.mean((d - dbar) ** 2))
-    for k in range(1, max(hac_lag, 1)):
+    L = max(hac_lag, 1)
+    for k in range(1, L):
         ck = float(np.mean((d[k:] - dbar) * (d[:-k] - dbar)))
-        var += 2 * ck
+        var += 2 * (1.0 - k / L) * ck        # Bartlett weight: PSD by construction
     if var <= 0 or n < 3:
         return float("nan"), float("nan")
-    hh = max(hac_lag, 1)
+    hh = int(max(h_forecast, 1))             # HLN uses the TRUE forecast horizon
     DM = dbar / np.sqrt(var / n)
     corr = (n + 1 - 2 * hh + hh * (hh - 1) / n) / n
     if corr <= 0:
@@ -147,7 +150,7 @@ def day_block_bootstrap(y, pa, pb, days, B=B_BOOT, seed=SEED):
 
 
 def main() -> None:
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     t0 = time.time()
     print(f"python : {platform.python_version()}   numpy {np.__version__}   pandas {pd.__version__}")
 
@@ -199,8 +202,8 @@ def main() -> None:
 
             for a, b in [("gbm", "gru"), ("gbm", "gru_tcn")]:
                 dd = (y - preds[a]) ** 2 - (y - preds[b]) ** 2
-                dm_h, p_h = dm_hln(dd, hac_lag=h - 1)
-                dm_day, p_day = dm_hln(dd, hac_lag=med_obs_per_day)
+                dm_h, p_h = dm_hln(dd, hac_lag=h - 1, h_forecast=h)
+                dm_day, p_day = dm_hln(dd, hac_lag=med_obs_per_day, h_forecast=h)
                 obs, lo, hi, p_boot, n_days = day_block_bootstrap(y, preds[a], preds[b], days)
                 rmse_a = M.rmse(y, preds[a])
                 rmse_b = M.rmse(y, preds[b])

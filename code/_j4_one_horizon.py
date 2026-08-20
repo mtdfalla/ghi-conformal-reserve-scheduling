@@ -8,7 +8,7 @@ Window: aux met sensors are reliable only 2023-24 (P1 finding). So:
   train = 2023 first 80% (chronological), calib = 2023 last 20%, test = 2024.
 This isolates the *feature-set* effect (not the training-period effect).
 
-Run from 03_code: python3 _j4_one_horizon.py <h_steps>   (h in 1,3,6,12)
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout): python3 _j4_one_horizon.py <h_steps>   (h in 1,3,6,12)
 Writes /tmp/j4out/h{h}.json. Aggregated by _j4_aggregate.py.
 """
 import sys, json, time, os, warnings; warnings.filterwarnings("ignore")

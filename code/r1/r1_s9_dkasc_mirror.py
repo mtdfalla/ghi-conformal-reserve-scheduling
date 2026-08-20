@@ -18,6 +18,7 @@ Usage (from the repository root):  python3 code/r1/r1_s9_dkasc_mirror.py [--forc
 """
 from __future__ import annotations
 
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -53,7 +54,7 @@ def ci(s):
 
 
 def main():
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     pr = pd.read_csv(CFG.TAB / "r1_j5_protocols.csv")
     ic = pd.read_csv(CFG.TAB / "r1_j5_cvar_ci.csv")
     site = "asp"

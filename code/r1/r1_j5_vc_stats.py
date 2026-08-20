@@ -11,7 +11,7 @@ anchor) and reports the CI of VC_A - VC_B directly.
 VC = 1 - cost / cost_deterministic, exactly as in `r1_dispatch.py:row`.
 Each policy is evaluated at its Protocol-A theta, i.e. the selection that excludes the test year.
 
-Usage (from 03_code):  python3 r1/r1_j5_vc_stats.py [B]
+Usage (from the code directory, 03_code/ or code/):  python3 r1/r1_j5_vc_stats.py [B]
 Writes 04_results/tables/r1_j5_vc_diff_ci.csv
 """
 import sys, itertools; sys.path.insert(0, "utils")
@@ -34,6 +34,35 @@ def cvar_rows(X, alpha=CVAR_ALPHA):
     return part.mean(axis=1)
 
 
+
+
+def perm_p(ca, cb, det, rng, B, alpha=CVAR_ALPHA):
+    """Paired label-swap (sign-flip) permutation test on VC_a - VC_b, two-sided.
+
+    Under H0 the two policies are exchangeable within a day, so each day's pair of
+    daily costs may be swapped independently. The statistic is the value-captured
+    difference itself; the common deterministic denominator is unchanged by swaps.
+    This is a null-centred test; the reported p is floored at 1/(B+1) by
+    construction, so exactly 0 can never be reported. (The percentile-CI
+    inversion this replaces reported 0.0000 whenever no bootstrap draw crossed
+    zero, which is impossible to interpret as a p-value at finite B.)
+    """
+    n = ca.size
+    k = max(1, int(np.ceil((1 - alpha) * n)))
+    cv1 = lambda x: np.sort(x)[n - k:].mean()
+    det_mean, det_cvar = det.mean(), cv1(det)
+    t_mean = (cb.mean() - ca.mean()) / det_mean
+    t_cvar = (cv1(cb) - cv1(ca)) / det_cvar
+    S = rng.integers(0, 2, size=(B, n)).astype(bool)
+    A = np.where(S, cb, ca); Bm = np.where(S, ca, cb)
+    tm = (Bm.mean(axis=1) - A.mean(axis=1)) / det_mean
+    Acv = np.partition(A, n - k, axis=1)[:, n - k:].mean(axis=1)
+    Bcv = np.partition(Bm, n - k, axis=1)[:, n - k:].mean(axis=1)
+    tc = (Bcv - Acv) / det_cvar
+    return {"VC_mean": float((1 + np.sum(np.abs(tm) >= abs(t_mean))) / (B + 1)),
+            "VC_cvar": float((1 + np.sum(np.abs(tc) >= abs(t_cvar))) / (B + 1))}
+
+
 rows = []
 for (site, hm), g in A.groupby(["site", "horizon_min"]):
     tag = f"{site}_h{hm // 5}"
@@ -44,7 +73,7 @@ for (site, hm), g in A.groupby(["site", "horizon_min"]):
     detB = det[idx]
     det_mean_b = detB.mean(axis=1); det_cvar_b = cvar_rows(detB)
 
-    vcm = {}; vcc = {}; theta = {}
+    vcm = {}; vcc = {}; theta = {}; raw = {}
     for _, r in g.iterrows():
         pol = r["policy"]
         if pol not in POLS:
@@ -53,12 +82,14 @@ for (site, hm), g in A.groupby(["site", "horizon_min"]):
         key = f"{tag}|{pol}|{th:g}"
         if key not in z.files:
             print("missing", key); continue
+        raw[pol] = z[key].astype(float)
         dc = z[key][idx]
         vcm[pol] = 1 - dc.mean(axis=1) / det_mean_b
         vcc[pol] = 1 - cvar_rows(dc) / det_cvar_b
         theta[pol] = th
 
     for a, b in itertools.combinations([p for p in POLS if p in vcm], 2):
+        pp = perm_p(raw[a], raw[b], det.astype(float), rng, B)
         for name, dd in (("VC_mean", vcm[a] - vcm[b]), ("VC_cvar", vcc[a] - vcc[b])):
             lo, hi = np.percentile(dd, [2.5, 97.5])
             rows.append(dict(site=site, horizon_min=hm, metric=name,
@@ -66,7 +97,8 @@ for (site, hm), g in A.groupby(["site", "horizon_min"]):
                              theta_a=theta[a], theta_b=theta[b],
                              diff_point=round(float(dd.mean()), 4),
                              ci_lo=round(float(lo), 4), ci_hi=round(float(hi), 4),
-                             p_two_sided=round(float(2 * min((dd <= 0).mean(), (dd >= 0).mean())), 5),
+                             p_two_sided=round(pp[name], 6),
+                             p_method="paired_signflip_permutation", n_perm=B,
                              significant_95="yes" if (lo > 0) == (hi > 0) else "no",
                              n_days=nd, B=B))
 

@@ -73,7 +73,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 REPO = Path(__file__).resolve().parents[2]          #.../GHI Forecasting
-CODE = REPO / "03_code"
+CODE = Path(__file__).resolve().parents[1]   # 03_code/ in the working tree, code/ in a release checkout
 sys.path.insert(0, str(CODE / "utils"))
 sys.path.insert(0, str(CODE / "evaluation"))
 
@@ -96,6 +96,16 @@ EXPECTED_SHA256 = {
     "02_data/cleaned/yulara_quality_flags.parquet":
         "4e9e40a96f99d1b9e2510d569d1ce7524830e97fc0171b9675782310cfdfc275",
 }
+
+
+def _data_path(rel: str) -> Path:
+    """Resolve an authors'-tree data path ("02_data/...") in either layout.
+    In a release checkout the same file lives under data/; config.py detects
+    which layout is present, so route the lookup through it."""
+    p = REPO / rel
+    if p.exists():
+        return p
+    return CFG.DATA_CLEAN.parent / Path(rel).relative_to("02_data")
 # The PRE- file, kept only as a backup. Running against it is the exact error
 # this run exists to prevent, so it is named here and rejected explicitly.
 FORBIDDEN_SHA256 = {
@@ -172,10 +182,14 @@ def load_reference_module():
 
 
 def check_provenance(allow_mismatch: bool) -> dict:
+    # a release checkout reconstructs the data, which can never byte-match the
+    # pinned originals (pandas interpolation arithmetic differs at ~1e-13 in
+    # imputed cells); the pin stays fatal only in the authors' tree
+    allow_mismatch = allow_mismatch or CFG.LAYOUT == "release-checkout"
     prov = {}
     problems = []
     for rel, expected in EXPECTED_SHA256.items():
-        p = REPO / rel
+        p = _data_path(rel)
         if not p.exists():
             problems.append(f"MISSING: {rel}")
             continue

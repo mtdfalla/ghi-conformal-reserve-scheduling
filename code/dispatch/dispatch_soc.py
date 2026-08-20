@@ -38,7 +38,7 @@ selected on a set that excludes 2024, and every dispatch number in the article
 comes from that module, not from this one. This file is kept unchanged in
 substance as the record of what was originally submitted.
 
-Run from 03_code: python3 dispatch/dispatch_soc.py <h_steps>   (1 or 6)
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout): python3 dispatch/dispatch_soc.py <h_steps>   (1 or 6)
 Needs /tmp/base.parquet and /tmp/ghi_pv_map.npz. Writes /tmp/j5out/h{h}.json.
 """
 import sys, json, time, os, warnings; warnings.filterwarnings("ignore")

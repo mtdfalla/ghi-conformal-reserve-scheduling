@@ -11,6 +11,13 @@ Pipeline
    leave LONG gaps as NaN and flag them. "Short" is measured on the FULL run
    length of each NaN run, so no part of a long gap is ever filled (see the
    run-length guard at step 6 below, added 2026-08-18).
+   TWO GAP-FILL MODES ship, and they must never be mixed within one run:
+     * default (guarded)       - a cell is filled only when its ENTIRE NaN run is
+                                 <= 6 steps. The documented rule; use for new work.
+     * --legacy-gapfill        - the pre-guard behaviour: the first 6 steps of a gap
+                                 of ANY length are filled. This is the exact behaviour
+                                 that produced the shipped article artifacts, so
+                                 reproduce.sh passes it for article reproduction.
 7. Clip small negative GHI/PV (night offset) to 0.
 8. Save cleaned dataset (parquet) + per-variable imputation flags + quality report.
 
@@ -26,6 +33,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "utils"))
 import config as C
 import numpy as np, pandas as pd
+
+LEGACY_GAPFILL = "--legacy-gapfill" in sys.argv   # article-reproduction mode; see docstring
 
 def log(m): print(f"[clean] {m}", flush=True)
 
@@ -126,13 +135,23 @@ for col in cols:
     short_gap = isnan & (runlen <= C.SHORT_GAP_STEPS)
     interp = s.interpolate(method="time", limit=C.SHORT_GAP_STEPS,
                            limit_area="inside")
-    filled = s.where(~short_gap, interp)
+    if LEGACY_GAPFILL:
+        # pre-guard behaviour, bit-for-bit: `interp` IS the old fill (limit caps
+        # consecutive fills, so the first 6 steps of any gap are fabricated)
+        filled = interp
+    else:
+        filled = s.where(~short_gap, interp)
     flags[col + "_imputed"] = isnan & filled.notna()
     # cells the old behaviour would have fabricated and this guard withholds
-    withheld_counts[col] = int((isnan & interp.notna() & ~short_gap).sum())
+    would_withhold = int((isnan & interp.notna() & ~short_gap).sum())
+    withheld_counts[col] = 0 if LEGACY_GAPFILL else would_withhold
     grid[col] = filled
 miss_after = grid[cols].isna().sum()
 imputed_counts = {c: int(flags[c + "_imputed"].sum()) for c in cols}
+if LEGACY_GAPFILL:
+    log("LEGACY GAP-FILL MODE: run-length guard DISABLED; gaps filled exactly as the "
+        "shipped article artifacts were produced (first "
+        f"{C.SHORT_GAP_STEPS} steps of any gap)")
 log("run-length guard: withheld "
     + ", ".join(f"{c}={withheld_counts[c]}" for c in cols)
     + f" cells that lay inside NaN runs longer than {C.SHORT_GAP_STEPS} steps")
@@ -158,6 +177,7 @@ overall = {
     "span_end": str(grid.index.max()),
     "duplicate_ts_removed": int(dup),
     "missing_slots_inserted": int(n_inserted),
+    "gapfill_mode": "legacy" if LEGACY_GAPFILL else "guarded",
 }
 per_var = []
 for col in cols:

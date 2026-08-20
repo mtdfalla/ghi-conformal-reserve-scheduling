@@ -23,11 +23,12 @@ OUTPUTS
     04_results/figures/r1_p2_all_models_rmse.png
     04_results/figures/r1_p2_skill_vs_horizon.png
 
-Run from 03_code:  python3 r1/r1_p2_table2_build.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_p2_table2_build.py
 """
 from __future__ import annotations
 
 import json
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -35,7 +36,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 REPO = Path(__file__).resolve().parents[2]
-CODE = REPO / "03_code"
+CODE = Path(__file__).resolve().parents[1]   # 03_code/ in the working tree, code/ in a release checkout
 sys.path.insert(0, str(CODE / "utils"))
 sys.path.insert(0, str(CODE / "evaluation"))
 
@@ -69,7 +70,7 @@ def guarded(path: Path, force: bool = False) -> Path:
 
 
 def main() -> None:
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     cls = pd.read_csv(CFG.TAB / f"{R1_PREFIX}p2_point_causal.csv")
     runC = pd.read_csv(CFG.TAB / f"{R1_PREFIX}p2_deep_causal_full.csv")
     runA = pd.read_csv(CFG.TAB / f"{R1_PREFIX}p2_deep_causal.csv")

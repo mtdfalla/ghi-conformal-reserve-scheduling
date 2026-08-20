@@ -44,6 +44,20 @@ Run with `bash reproduce.sh r1` if phases 1–3 have already run.
 | 8e | `r1_regen_phase_reports.py [--verify]` | generates the J2 and J5 phase reports from the current tables and machine-checks all 390 numbers |
 | 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
 | 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
+| 8f | `r1_s9_regimes.py`, `r1_s9_stats.py`, `r1_s9_dkasc_mirror.py`, `r1_j6_aggregate.py`, `r1_s9_causal_rescore.py` | the weather-regime split on one stated denominator (and Figure 1), multiplicity control on pre-declared families, selection regret, the multi-day block bootstrap, the repeated-measures refit, the external-site mirror table, the regenerated robustness layer, and the measurement of how much the interpolated-input exposure is worth |
+| 8g | `r1_s10_verify_runlength_guard.py` | checks the cleaner's run-length guard, and the count of long-run interpolated cells it withholds, against the shipped data |
 
 `code/r1/r1_deep_causal.py` requires PyTorch and is the only step that is not CPU-cheap; it
 is optional, and its outputs are shipped in `results/tables/r1_p2_deep_causal*.csv`. See
@@ -63,8 +77,11 @@ is optional, and its outputs are shipped in `results/tables/r1_p2_deep_causal*.c
   said the tables had not been regenerated; that was true when written and is not now.
 - **The shipped results predate the cleaner's run-length guard.** They were produced when
   `code/preprocessing/p2_clean.py` filled the first six steps of a gap of any length,
-  which affected 4,014 of 13,925 imputed GHI cells. The guard is in place now, so a fresh
-  run from raw data yields slightly different absolute levels. That difference was
+  which affected 4,014 of 13,925 imputed GHI cells. The guard is the default now, so a fresh
+  run from raw data yields slightly different absolute levels; for bit-for-bit
+  article reproduction, `reproduce.sh` passes `--legacy-gapfill` to
+  `code/preprocessing/p2_clean.py`, which applies the exact pre-guard fill that
+  produced the shipped artifacts. The two modes must never be mixed in one run. That difference was
   measured, not assumed: see the provenance note at the end of `MANIFEST.md`,
   `code/r1/r1_s9_causal_rescore.py` and `code/r1/r1_s10_verify_runlength_guard.py`.
 - **One figure has no generating script here.** Figure 7 of the article is an

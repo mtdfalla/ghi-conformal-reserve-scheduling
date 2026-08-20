@@ -11,7 +11,7 @@ Produces, from the S0 prediction cache (`/tmp/r1cache/`), for one site and horiz
          bootstrap and the Diebold-Mariano tests in `r1_j2_stats.py`.
    per-horizon records so ACE-RMS can be computed at 5 min only.
 
-Usage (from 03_code):  python3 r1/r1_j2_delayed.py <yulara|asp> <h_steps>
+Usage (from the code directory, 03_code/ or code/):  python3 r1/r1_j2_delayed.py <yulara|asp> <h_steps>
 Writes /tmp/r1j2/<site>_h<h>.json  and  /tmp/r1j2/<site>_h<h>_obs.npz
 """
 import sys, os, json, time, warnings; warnings.filterwarnings("ignore")

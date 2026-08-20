@@ -24,6 +24,7 @@ Usage (from the repository root):  python3 code/r1/r1_s9_stats.py [--force]
 """
 from __future__ import annotations
 
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -292,22 +293,6 @@ def anova_clustered(force):
     return r
 
 
-def main():
-    force = "--force" in sys.argv
-    print("R1 / S9 statistics from committed data (no refit, no dispatch re-run)")
-    print("=" * 78)
-    multiplicity(force)
-    selection_regret(force)
-    anova_clustered(force)
-    block_bootstrap(force)
-    print("=" * 78)
-    print("DONE")
-
-
-if __name__ == "__main__":
-    main()
-
-
 # ------------------------------- block bootstrap (paired)
 def block_bootstrap_paired(force):
     """The paper's claim is about PAIRED differences, so test those, not marginal intervals.
@@ -380,5 +365,21 @@ def block_bootstrap_paired(force):
     return r
 
 
-if __name__ == "__main__" and "--paired" in sys.argv:
-    block_bootstrap_paired("--force" in sys.argv)
+def main():
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
+    print("R1 / S9 statistics from committed data (no refit, no dispatch re-run)")
+    print("=" * 78)
+    multiplicity(force)
+    selection_regret(force)
+    anova_clustered(force)
+    block_bootstrap(force)
+    # The paired bootstrap runs unconditionally, so the documented command
+    # (`python r1/r1_s9_stats.py`, as reproduce.sh invokes it) regenerates
+    # r1_s9_blockboot_paired.csv. "--paired" is kept as a no-op alias.
+    block_bootstrap_paired(force)
+    print("=" * 78)
+    print("DONE")
+
+
+if __name__ == "__main__":
+    main()

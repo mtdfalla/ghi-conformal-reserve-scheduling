@@ -4,7 +4,7 @@ For each test year Y: train on years <= Y-2, calibrate on Y-1, test on Y (realis
 rolling deployment). Measures whether conformal coverage holds year-to-year for
 marginal ICP, Mondrian (regime), and ACI (online, day-reset). h=1 (5-min), 90%.
 
-Run from 03_code: python3 _j6_drift.py <test_year>   (2019..2024)
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout): python3 _j6_drift.py <test_year>   (2019..2024)
 Caches /tmp/j6out/drift_{year}.json (skips if present).
 """
 import sys, json, os, time, warnings; warnings.filterwarnings("ignore")

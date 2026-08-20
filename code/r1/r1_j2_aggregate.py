@@ -1,6 +1,6 @@
 """Final pass, aggregation — turns the per-horizon JSONs into the r1_ tables and figures.
 
-Run from 03_code:  python3 r1/r1_j2_aggregate.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_j2_aggregate.py
 
 Writes (all under 04_results, all `r1_`-prefixed; no Phase-6 file is touched):
   tables/r1_j2_interval_metrics.csv   every method x variant x horizon x nominal x scope

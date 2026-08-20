@@ -9,13 +9,15 @@ Consumes the per-observation dumps written by `r1_j2_delayed.py` and produces:
       * HAC lag = the median number of daytime observations per day, which is the
         honest bandwidth for 5-minute data whose losses are correlated all day.
       The second is always the more conservative of the two and is what we quote.
+      The long-run variance uses a Newey-West (Bartlett) kernel at the stated
+      bandwidth, and the HLN correction uses the true forecast horizon h.
 
   (2) Paired day-block bootstrap confidence intervals (B = 10,000, resampling whole
       days) on: CRPS levels, CRPS differences, PICP, and per-regime ACE. The
       day-block bootstrap is the primary evidence: it makes no assumption about the
       autocorrelation structure and respects the diurnal blocking.
 
-Usage (from 03_code):  python3 r1/r1_j2_stats.py [B]
+Usage (from the code directory, 03_code/ or code/):  python3 r1/r1_j2_stats.py [B]
 Writes  04_results/tables/r1_j2_stats.csv          (DM tests, CRPS CIs, differences)
         04_results/tables/r1_j2_coverage_ci.csv    (PICP / ACE CIs per method x scope)
 """
@@ -33,18 +35,22 @@ QMETHODS = ["icp", "icp_norm", "mondrian", "cqr", "mondrian_cqr"]
 
 
 # ------------------------------------------------------------------ DM test
-def dm_test(d, hac_lag):
+def dm_test(d, hac_lag, h):
     """Paired DM on a loss differential d = loss_A - loss_B (negative => A better).
-    HLN small-sample correction with `hac_lag` autocovariances (lag 0 = none)."""
+    Long-run variance by a Newey-West (Bartlett-kernel) estimator with `hac_lag`
+    autocovariances, which is positive semi-definite by construction (an untruncated
+    rectangular sum is not, and can go negative). The Harvey-Leybourne-Newbold
+    small-sample correction is applied with the TRUE forecast horizon `h`, not the
+    HAC bandwidth."""
     d = np.asarray(d, float); n = len(d); dbar = d.mean()
     var = np.mean((d - dbar) ** 2)
     L = int(max(hac_lag, 0))
     for k in range(1, L + 1):
         ck = np.mean((d[k:] - dbar) * (d[:-k] - dbar))
-        var += 2.0 * ck
+        var += 2.0 * (1.0 - k / (L + 1.0)) * ck   # Bartlett weight
     if var <= 0 or n < 3:
         return np.nan, np.nan
-    hh = L + 1                                    # forecast horizon implied by the lag
+    hh = int(max(h, 1))                           # the forecast horizon, in steps
     DM = dbar / np.sqrt(var / n)
     corr = (n + 1 - 2 * hh + hh * (hh - 1) / n) / n
     if corr <= 0:
@@ -116,8 +122,8 @@ for f in files:
             for j in range(i + 1, len(keys)):
                 A, Bk = keys[i], keys[j]
                 dv = crps[A] - crps[Bk]
-                dm1, p1 = dm_test(dv[mask], h_steps - 1)
-                dm2, p2 = dm_test(dv[mask], hac_day)
+                dm1, p1 = dm_test(dv[mask], h_steps - 1, h_steps)
+                dm2, p2 = dm_test(dv[mask], hac_day, h_steps)
                 _, _, _, bd = boot.mean_ci(dv, mask)
                 dlo, dhi = pct(bd, 2.5), pct(bd, 97.5)
                 sig = "yes" if (dlo > 0) == (dhi > 0) else "no"
@@ -133,7 +139,7 @@ for f in files:
             A, Bk = f"{m}|rearranged", f"{m}|static"
             if A in crps and Bk in crps:
                 dv = crps[A] - crps[Bk]
-                dm2, p2 = dm_test(dv[mask], hac_day)
+                dm2, p2 = dm_test(dv[mask], hac_day, h_steps)
                 _, _, _, bd = boot.mean_ci(dv, mask)
                 dlo, dhi = pct(bd, 2.5), pct(bd, 97.5)
                 rows_stats.append(dict(site=site, horizon_min=hmin, scope=scope,

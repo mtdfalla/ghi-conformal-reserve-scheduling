@@ -1,9 +1,9 @@
 site,regime,count,pct_of_all_daytime,pct_of_classified
-yulara,clear,227714,52.49,55.28
-yulara,transitional,151789,34.99,36.85
-yulara,cloudy,32460,7.48,7.88
-yulara,unclassified,21882,5.04,
-dkasc,clear,135769,54.53,55.85
-dkasc,transitional,86065,34.57,35.41
-dkasc,cloudy,21245,8.53,8.74
-dkasc,unclassified,5909,2.37,
+yulara,clear,227714,52.4874,55.2754
+yulara,transitional,151789,34.9869,36.8453
+yulara,cloudy,32460,7.4819,7.8793
+yulara,unclassified,21882,5.0437,
+dkasc,clear,135769,54.5283,55.8539
+dkasc,transitional,86065,34.5659,35.4062
+dkasc,cloudy,21245,8.5325,8.74
+dkasc,unclassified,5909,2.3732,

@@ -15,7 +15,7 @@ monotone non-decreasing envelope. Residual PV scatter beyond f(G) is treated as
 non-forecastable operational noise and is excluded - this biases every policy
 (deterministic, ICP, Mondrian, Mondrian-CQR, oracle) identically.
 
-Run from 03_code:  python3 r1/r1_build_ghi_pv_map.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_build_ghi_pv_map.py
 Writes /tmp/ghi_pv_map.npz and 04_results/metrics/r1_ghi_pv_fit.json
 """
 import sys, os, json; sys.path.insert(0, "utils")

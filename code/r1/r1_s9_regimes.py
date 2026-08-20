@@ -21,6 +21,7 @@ Usage (from the repository root):  python3 code/r1/r1_s9_regimes.py [--force]
 """
 from __future__ import annotations
 
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -66,10 +67,10 @@ def split_for(reg: pd.DataFrame, label: str):
     for r in ORDER:
         c = int((classified["regime"] == r).sum())
         rows.append(dict(site=label, regime=r, count=c,
-                         pct_of_all_daytime=round(100 * c / n_day, 2),
-                         pct_of_classified=round(100 * c / len(classified), 2)))
+                         pct_of_all_daytime=round(100 * c / n_day, 4),
+                         pct_of_classified=round(100 * c / len(classified), 4)))
     rows.append(dict(site=label, regime="unclassified", count=unclass,
-                     pct_of_all_daytime=round(100 * unclass / n_day, 2),
+                     pct_of_all_daytime=round(100 * unclass / n_day, 4),
                      pct_of_classified=np.nan))
     d = pd.DataFrame(rows)
     print(f"  [{label}] daytime rows {n_day:,}; unclassified {unclass:,} "
@@ -80,7 +81,7 @@ def split_for(reg: pd.DataFrame, label: str):
 
 
 def main():
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     print("regime split on one stated denominator")
     print("=" * 78)
 
@@ -104,9 +105,14 @@ def main():
     vc = (cls_y["regime"].value_counts(normalize=True).reindex(ORDER) * 100)
     axes[0].bar(ORDER, vc.values, color=[COLORS[o] for o in ORDER])
     for i, v in enumerate(vc.values):
-        # half-up to one decimal, so the bar label, the prose and the table cannot disagree
-        # by a binary-rounding artefact (36.85 formats as "36.8" under %.1f).
-        lab = Decimal(str(round(float(v), 2))).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
+        # ROUND ONCE, from the counts, half-up to one decimal. The earlier form rounded to
+        # two decimals FIRST and then to one, which is a double rounding: Yulara's
+        # transitional share 36.8453 became 36.85 and then 36.9, so the printed triple summed
+        # to 100.1 per cent against the denominator the text itself states. Rounding once
+        # gives 55.3 / 36.8 / 7.9, which sums to 100.0. The %.1f format is not used because
+        # it is round-half-to-even on the binary double; Decimal half-up on the exact
+        # decimal string is what a reader assumes and what the number-checker uses.
+        lab = Decimal(str(float(v))).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
         axes[0].text(i, v + 0.5, f"{lab}%", ha="center", fontsize=12)
     axes[0].set_ylabel("% of classified daytime steps", fontsize=12)
     axes[0].tick_params(labelsize=12)

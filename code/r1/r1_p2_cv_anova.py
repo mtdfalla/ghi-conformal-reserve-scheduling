@@ -19,11 +19,12 @@ OUTPUTS
     04_results/tables/r1_p2_anova.csv              F and p per term per horizon
     04_results/metrics/r1_p2_cv_anova.json         headline ranges for the text
 
-Run from 03_code:  python3 r1/r1_p2_cv_anova.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_p2_cv_anova.py
 """
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 import warnings
@@ -32,7 +33,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 REPO = Path(__file__).resolve().parents[2]
-CODE = REPO / "03_code"
+CODE = Path(__file__).resolve().parents[1]   # 03_code/ in the working tree, code/ in a release checkout
 sys.path.insert(0, str(CODE / "utils"))
 sys.path.insert(0, str(CODE / "evaluation"))
 
@@ -64,7 +65,7 @@ def guarded(path: Path, force: bool = False) -> Path:
 
 
 def main() -> None:
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     t0 = time.time()
     planned = [CFG.TAB / f"{R1_PREFIX}p2_cv_perday_errors.csv",
                CFG.TAB / f"{R1_PREFIX}p2_cv_summary_by_year.csv",

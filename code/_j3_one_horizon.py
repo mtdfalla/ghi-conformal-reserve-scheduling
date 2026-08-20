@@ -4,7 +4,7 @@ Mirrors the Yulara J2 path on DKASC: GBM in kt-space, train 2020-22 / calib 2023
 test 2024; conformal methods icp/mondrian/cqr/mondrian_cqr/aci; metrics by horizon
 & regime; plus a load-independent reserve newsvendor (value captured) in GHI space.
 
-Run from 03_code: python3 _j3_one_horizon.py <h_steps>  (1,3,6,12)
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout): python3 _j3_one_horizon.py <h_steps>  (1,3,6,12)
 Caches /tmp/asp_base.parquet; writes /tmp/j3out/h{h}.json.
 """
 import sys, json, time, os, warnings; warnings.filterwarnings("ignore")
@@ -16,7 +16,7 @@ from sklearn.ensemble import HistGradientBoostingRegressor as HGB
 
 h = int(sys.argv[1]); COVS = [0.80, 0.90, 0.95]; GAMMA = 0.05
 rec = lambda kt, cs: np.clip(np.clip(kt, 0, 1.5) * cs, 0, None)
-REG = CFG.BASE / "02_data" / "DKASC" / "regime_labels" / "asp_regimes_5min.parquet"
+REG = CFG.DATA_DKASC / "regime_labels" / "asp_regimes_5min.parquet"   # layout-aware (02_data/ or data/)
 BASEP = "/tmp/asp_base.parquet"
 
 def build_base():

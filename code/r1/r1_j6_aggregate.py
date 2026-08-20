@@ -13,7 +13,7 @@ which this project forbids. This wrapper does the same aggregation and writes `r
 instead, leaving every first-pass file byte-for-byte intact, and prints the earlier values
 beside the regenerated ones so the change is visible rather than silent.
 
-Run the underlying jobs first (from 03_code):
+Run the underlying jobs first (from the code directory, code/ or code/):
     for y in 2019 2020 2021 2022 2023 2024; do python3 _j6_drift.py $y; done
     python3 _j6_ablations.py calib
     for s in full no_roll lags_only minimal; do python3 _j6_ablations.py feat $s; done
@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import glob
 import json
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -72,7 +73,7 @@ def compare(label, old: pd.DataFrame, new: pd.DataFrame, keys, cols):
 
 
 def main():
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
 
     # ---------------- drift ----------------
     rows = []

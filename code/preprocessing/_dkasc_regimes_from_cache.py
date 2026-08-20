@@ -1,6 +1,6 @@
 """Fast DKASC causal regime build from cached per-year weather parquets (/tmp/aspw).
 Identical logic to dkasc_prepare.py (causal trailing window + train-only clear-sky
-scalar) but reads the small cache instead of the 200 MB CSVs. Run from 03_code."""
+scalar) but reads the small cache instead of the 200 MB CSVs. Run from the code directory (03_code/ or code/)."""
 import sys, json, glob
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "utils"))

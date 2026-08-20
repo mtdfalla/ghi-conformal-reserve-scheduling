@@ -6,7 +6,7 @@ Writes 04_results/tables/r1_j5_*.csv, r1_j3_dispatch.csv
        04_results/metrics/r1_j5_summary.json
        04_results/tables/r1_j5_daily_costs.npz
 
-Run from 03_code:  python3 r1/r1_j5_aggregate.py
+Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_j5_aggregate.py
 """
 import sys, os, json, glob; sys.path.insert(0, "utils")
 import numpy as np, pandas as pd, config as CFG

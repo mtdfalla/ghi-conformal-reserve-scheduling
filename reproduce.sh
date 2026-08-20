@@ -11,17 +11,118 @@
 set -e
 cd "$(dirname "$0")/code"
 
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
+# Rebuild mode: the final-pass (r1_) scripts refuse to overwrite their own shipped
+# outputs unless forced, which is the right default for interactive use but would
+# stop a full reproduction at the first regenerated file. Reproduction is exactly
+# the case where overwriting those outputs is intended, so it is enabled here.
+# Unset this to keep the overwrite guards active.
+export R1_REBUILD=1
+
 STAGE="${1:-all}"
 
 if [ "$STAGE" != "r1" ]; then
 
 echo "[1/8] preprocessing (clean + clear-sky + regimes)"
-python preprocessing/p2_clean.py
+# --legacy-gapfill reproduces the shipped article artifacts bit-for-bit: it applies
+# the pre-guard interpolation (first 6 steps of a gap of any length are filled).
+# The guarded cleaner (no flag) is the documented default for NEW work; the two
+# modes must never be mixed within one run. See data/README.md.
+python preprocessing/p2_clean.py --legacy-gapfill
 python preprocessing/p3_clearsky_regimes.py
 python preprocessing/dkasc_prepare.py
 
 echo "[2/8] point benchmark"
 python run_phase2_baselines.py   # deep models optional: see models/HOW_TO_RUN_DEEP_MODEL.md
+
+# Build the shared Yulara feature-frame cache that the per-horizon scripts of
+# phases 3-7 read. It was previously built only by hand (or by phase 8a), so a
+# clean run died at phase 3. Idempotent: skipped when already present.
+python - <<'PYEOF'
+import os, sys
+sys.path.insert(0, "utils")
+if not os.path.exists("/tmp/base.parquet"):
+    import datasets as D
+    D.build_base().to_parquet("/tmp/base.parquet")
+    print("built /tmp/base.parquet")
+PYEOF
+
+# Build the shared Yulara feature-frame cache that the per-horizon scripts of
+# phases 3-7 read. It was previously built only by hand (or by phase 8a), so a
+# clean run died at phase 3. Idempotent: skipped when already present.
+python - <<'PYEOF'
+import os, sys
+sys.path.insert(0, "utils")
+if not os.path.exists("/tmp/base.parquet"):
+    import datasets as D
+    D.build_base().to_parquet("/tmp/base.parquet")
+    print("built /tmp/base.parquet")
+PYEOF
+
+# Build the shared Yulara feature-frame cache that the per-horizon scripts of
+# phases 3-7 read. It was previously built only by hand (or by phase 8a), so a
+# clean run died at phase 3. Idempotent: skipped when already present.
+python - <<'PYEOF'
+import os, sys
+sys.path.insert(0, "utils")
+if not os.path.exists("/tmp/base.parquet"):
+    import datasets as D
+    D.build_base().to_parquet("/tmp/base.parquet")
+    print("built /tmp/base.parquet")
+PYEOF
+
+# Build the shared Yulara feature-frame cache that the per-horizon scripts of
+# phases 3-7 read. It was previously built only by hand (or by phase 8a), so a
+# clean run died at phase 3. Idempotent: skipped when already present.
+python - <<'PYEOF'
+import os, sys
+sys.path.insert(0, "utils")
+if not os.path.exists("/tmp/base.parquet"):
+    import datasets as D
+    D.build_base().to_parquet("/tmp/base.parquet")
+    print("built /tmp/base.parquet")
+PYEOF
 
 echo "[3/8] multi-horizon conformal (J2)"
 for h in 1 3 6 12; do python _j2_fit.py "$h"; python _j2_one_horizon.py "$h"; done
@@ -34,6 +135,27 @@ python _j3_aggregate.py
 echo "[5/8] multivariate feature study (J4)"
 for h in 1 3 6 12; do python _j4_one_horizon.py "$h"; done
 python _j4_aggregate.py
+
+# Build the GHI->PV plant map the dispatch layer reads at import. It was
+# previously built only by phase 8a, so the first-pass dispatch of phase 6
+# could not run in a clean layout. Deterministic from the cleaned 2023 records;
+# safe to re-run.
+python r1/r1_build_ghi_pv_map.py > /dev/null
+echo "built /tmp/ghi_pv_map.npz"
+
+# Build the GHI->PV plant map the dispatch layer reads at import. It was
+# previously built only by phase 8a, so the first-pass dispatch of phase 6
+# could not run in a clean layout. Deterministic from the cleaned 2023 records;
+# safe to re-run.
+python r1/r1_build_ghi_pv_map.py > /dev/null
+echo "built /tmp/ghi_pv_map.npz"
+
+# Build the GHI->PV plant map the dispatch layer reads at import. It was
+# previously built only by phase 8a, so the first-pass dispatch of phase 6
+# could not run in a clean layout. Deterministic from the cleaned 2023 records;
+# safe to re-run.
+python r1/r1_build_ghi_pv_map.py > /dev/null
+echo "built /tmp/ghi_pv_map.npz"
 
 echo "[6/8] reserve scheduling + CVaR (J5)"
 for h in 1 6; do python _j5_fit.py "$h"; python dispatch/dispatch_soc.py "$h"; done

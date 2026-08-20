@@ -26,6 +26,7 @@ Usage (from the repository root):  python3 code/r1/r1_s9_causal_rescore.py [--fo
 """
 from __future__ import annotations
 
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -111,7 +112,7 @@ def score_block(y, pt, qc_lo, qc_hi, qt_lo, qt_hi, yc, pc, csc, cst, gc, gt, mas
 
 
 def main():
-    force = "--force" in sys.argv
+    force = "--force" in sys.argv or os.environ.get("R1_REBUILD") == "1"   # reproduce.sh sets R1_REBUILD=1
     print("exposure of the interpolated-input contamination, measured")
     print("=" * 92)
     out, expo = [], []
