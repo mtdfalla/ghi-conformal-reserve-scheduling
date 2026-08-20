@@ -3,17 +3,17 @@ models" claim, run against the POST-CAUSAL GBM only.
 
 WHY THIS FILE EXISTS
 --------------------
-the first-pass table asserts GBM is significantly more accurate than the compact GRU and
+The first-pass Table 2 asserted GBM is significantly more accurate than the compact GRU and
 GRU-TCN "at all horizons (p from 2.6e-38 to 1.2e-10)". Those tests were run against
-PRE- GBM predictions (`02_data/interim/p2_test_pred_h*.parquet`). forbids
-reusing them: comparing pre-causal GBM to post-causal deep predictions would
+the superseded first-pass GBM predictions (`02_data/interim/p2_test_pred_h*.parquet`).
+Reusing them is forbidden: comparing first-pass GBM to final-pass deep predictions would
 reintroduce exactly the inconsistency the final pass exists to remove.
 
 This file therefore reads ONLY:
-    04_results/tables/r1_p2_point_pred_h{h}.parquet        post-causal GBM ( a)
-    04_results/tables/r1_p2_deep_pred_h{h}_full.parquet    run C (primary)
-    04_results/tables/r1_p2_deep_pred_h{h}.parquet         run A (secondary)
-and refuses to open the pre- interim files at all.
+    results/tables/r1_p2_point_pred_h{h}.parquet        post-causal GBM (final pass)
+    results/tables/r1_p2_deep_pred_h{h}_full.parquet    deep RUN C  (primary)
+    results/tables/r1_p2_deep_pred_h{h}.parquet         deep RUN A  (secondary)
+and refuses to open the superseded first-pass interim files at all.
 
 RUN C IS PRIMARY. Run A is the smaller-budget point on the same curve and is
 reported alongside; quoting run A while run C sits on disk would be selective
@@ -25,7 +25,7 @@ The classical frame (`datasets.make_xy`) and the deep windower
 (`deep_gru_tcn.build_windows`) do not admit exactly the same test instants:
 make_xy needs kt at lags {0..6, 9, 12} plus 6-step rolling statistics and a non-null
 base GHI, while build_windows needs 12 contiguous non-null kt. Each model's headline
-Table 2 row is therefore computed on its own valid set (as the deep run did), but every
+Table 2 row is therefore computed on its own valid set (as the deep runs were), but every
 PAIRED test here runs on the INTERSECTION of timestamps, and the intersection size
 is reported in every row so the reader can see what was compared.
 
@@ -39,12 +39,12 @@ TESTS (the same two the interval layer used in S3, for consistency)
       the difference in RMSE. Assumes nothing about the autocorrelation structure.
 
 OUTPUTS (r1_-prefixed, nothing overwritten)
-    04_results/tables/r1_p2_deep_vs_gbm.csv      one row per (run, horizon, pair)
-    04_results/tables/r1_p2_common_support.csv   RMSE/MAE/R2 of all three models on
+    results/tables/r1_p2_deep_vs_gbm.csv      one row per (run, horizon, pair)
+    results/tables/r1_p2_common_support.csv   RMSE/MAE/R2 of all three models on
                                                  the common index, per horizon+run
-    04_results/metrics/r1_p2_deep_vs_gbm.json    settings + provenance
+    results/metrics/r1_p2_deep_vs_gbm.json    settings + provenance
 
-Run from the code directory (03_code/ in the working tree, code/ in a release checkout):  python3 r1/r1_p2_deep_vs_gbm.py
+Run from the code directory:  python3 r1/r1_p2_deep_vs_gbm.py
 Requires r1_p2_point_causal.py to have run first.
 """
 from __future__ import annotations
@@ -60,7 +60,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 REPO = Path(__file__).resolve().parents[2]
-CODE = Path(__file__).resolve().parents[1]   # 03_code/ in the working tree, code/ in a release checkout
+CODE = Path(__file__).resolve().parents[1]   # the code directory, in either layout
 sys.path.insert(0, str(CODE / "utils"))
 sys.path.insert(0, str(CODE / "evaluation"))
 
@@ -75,7 +75,7 @@ B_BOOT = 10_000
 SEED = 42
 R1_PREFIX = "r1_"
 
-FORBIDDEN = "p2_test_pred_h"   # the pre- GBM predictions. Never opened here.
+FORBIDDEN = "p2_test_pred_h"   # the superseded first-pass GBM predictions. Never opened here.
 
 
 class WriteGuard(Exception):
@@ -93,7 +93,7 @@ def guarded(path: Path, force: bool = False) -> Path:
 
 def read_pred(path: Path) -> pd.DataFrame:
     if FORBIDDEN in path.name:
-        raise SystemExit(f"REFUSING to read {path.name}: pre- GBM predictions.")
+        raise SystemExit(f"REFUSING to read {path.name}: superseded first-pass GBM predictions.")
     if not path.exists():
         raise SystemExit(f"Missing input: {path}")
     return pd.read_parquet(path)
@@ -107,11 +107,12 @@ def dm_hln(d: np.ndarray, hac_lag: int, h_forecast: int) -> tuple[float, float]:
     so the same differential feeds the bootstrap."""
     n = len(d)
     dbar = float(d.mean())
-    var = float(np.mean((d - dbar) ** 2))
+    x = d - dbar
+    var = float(np.dot(x, x)) / n
     L = max(hac_lag, 1)
     for k in range(1, L):
-        ck = float(np.mean((d[k:] - dbar) * (d[:-k] - dbar)))
-        var += 2 * (1.0 - k / L) * ck        # Bartlett weight: PSD by construction
+        ck = float(np.dot(x[k:], x[:-k])) / n    # common 1/n denominator: the exact
+        var += 2 * (1.0 - k / L) * ck            # finite-sample-PSD Bartlett form
     if var <= 0 or n < 3:
         return float("nan"), float("nan")
     hh = int(max(h_forecast, 1))             # HLN uses the TRUE forecast horizon
@@ -145,7 +146,8 @@ def day_block_bootstrap(y, pa, pb, days, B=B_BOOT, seed=SEED):
     draws = np.sqrt(sse_a[pick].sum(axis=1) / n_b) - np.sqrt(sse_b[pick].sum(axis=1) / n_b)
     lo, hi = np.percentile(draws, [2.5, 97.5])
     # two-sided bootstrap p: proportion of draws on the other side of zero, doubled
-    p = 2 * min((draws <= 0).mean(), (draws >= 0).mean())
+    # floored at 1/(B+1): a resampling p of exactly zero is not interpretable
+    p = max(2 * min((draws <= 0).mean(), (draws >= 0).mean()), 1.0 / (B + 1))
     return obs, float(lo), float(hi), float(min(p, 1.0)), n_days
 
 
@@ -187,7 +189,7 @@ def main() -> None:
             y = g["y_ghi"].values.astype(float)
             days = pd.DatetimeIndex(common).normalize().values
             med_obs_per_day = int(np.median(pd.Series(1, index=pd.DatetimeIndex(common))
-.groupby(pd.DatetimeIndex(common).normalize()).sum()))
+                                            .groupby(pd.DatetimeIndex(common).normalize()).sum()))
             preds = {"gbm": g["gbm"].values.astype(float),
                      "gru": d["pred_gru"].values.astype(float),
                      "gru_tcn": d["pred_gru_tcn"].values.astype(float)}
@@ -231,13 +233,13 @@ def main() -> None:
     sup.to_csv(guarded(CFG.TAB / f"{R1_PREFIX}p2_common_support.csv", force), index=False)
 
     json.dump(dict(
-        run_id="(b) paired DM + day-block bootstrap, deep vs post-causal GBM",
+        run_id="paired DM + day-block bootstrap, deep vs post-causal GBM",
         finished_utc=pd.Timestamp.utcnow().isoformat(),
         elapsed_s=round(time.time() - t0, 1),
         B_bootstrap=B_BOOT, seed=SEED,
         primary_run="C_full (run C, 30 epochs, all training windows)",
         secondary_run="A (15 epochs, 150,000 windows)",
-        forbidden_inputs=["02_data/interim/p2_test_pred_h*.parquet (pre-)"],
+        forbidden_inputs=["the first-pass interim GBM predictions, p2_test_pred_h*.parquet"],
         note="Headline Table 2 rows are each model on its own valid set; every paired "
              "test here is on the intersection, whose size is in n_common.",
         python=platform.python_version(), numpy=np.__version__, pandas=pd.__version__,

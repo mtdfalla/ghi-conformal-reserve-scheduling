@@ -4,8 +4,8 @@ Consumes the per-observation dumps written by `r1_j2_delayed.py` and produces:
 
   (1) Paired Diebold-Mariano tests on the CRPS (mean pinball-loss) differential,
       with the Harvey-Leybourne-Newbold small-sample correction, reported at
-      * HAC lag h-1  (the textbook choice for an h-step forecast, and the one the
-        a fair reader would ask for), and
+      * HAC lag h-1  (the textbook choice for an h-step forecast, and the one a
+        fair reader would ask for), and
       * HAC lag = the median number of daytime observations per day, which is the
         honest bandwidth for 5-minute data whose losses are correlated all day.
       The second is always the more conservative of the two and is what we quote.
@@ -17,9 +17,9 @@ Consumes the per-observation dumps written by `r1_j2_delayed.py` and produces:
       day-block bootstrap is the primary evidence: it makes no assumption about the
       autocorrelation structure and respects the diurnal blocking.
 
-Usage (from the code directory, 03_code/ or code/):  python3 r1/r1_j2_stats.py [B]
-Writes  04_results/tables/r1_j2_stats.csv          (DM tests, CRPS CIs, differences)
-        04_results/tables/r1_j2_coverage_ci.csv    (PICP / ACE CIs per method x scope)
+Usage (from the code directory):  python3 r1/r1_j2_stats.py [B]
+Writes  results/tables/r1_j2_stats.csv          (DM tests, CRPS CIs, differences)
+        results/tables/r1_j2_coverage_ci.csv    (PICP / ACE CIs per method x scope)
 """
 import sys, os, glob, json, time, warnings; warnings.filterwarnings("ignore")
 sys.path.insert(0, "utils")
@@ -43,11 +43,12 @@ def dm_test(d, hac_lag, h):
     small-sample correction is applied with the TRUE forecast horizon `h`, not the
     HAC bandwidth."""
     d = np.asarray(d, float); n = len(d); dbar = d.mean()
-    var = np.mean((d - dbar) ** 2)
+    x = d - dbar
+    var = float(np.dot(x, x)) / n
     L = int(max(hac_lag, 0))
     for k in range(1, L + 1):
-        ck = np.mean((d[k:] - dbar) * (d[:-k] - dbar))
-        var += 2.0 * (1.0 - k / (L + 1.0)) * ck   # Bartlett weight
+        ck = float(np.dot(x[k:], x[:-k])) / n     # common 1/n denominator: the exact
+        var += 2.0 * (1.0 - k / (L + 1.0)) * ck   # finite-sample-PSD Bartlett form
     if var <= 0 or n < 3:
         return np.nan, np.nan
     hh = int(max(h, 1))                           # the forecast horizon, in steps
@@ -134,7 +135,7 @@ for f in files:
                                        ci_lo=round(dlo, 4), ci_hi=round(dhi, 4),
                                        dm_stat=round(dm2, 3), dm_p_hac_h=round(p1, 6),
                                        dm_p_hac_day=round(p2, 6), significant_95=sig))
-        # rearranged vs static ( effect on CRPS)
+        # rearranged vs static (its effect on CRPS)
         for m in ["cqr", "mondrian_cqr"]:
             A, Bk = f"{m}|rearranged", f"{m}|static"
             if A in crps and Bk in crps:

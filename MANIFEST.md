@@ -21,7 +21,7 @@ in every case the file the named script writes.
 | **Table 1** | Structured gap analysis of the recent literature | assembled by hand from the cited sources | — | — |
 | **Table 2** | Dataset summary and weather-regime composition | `code/r1/r1_s9_regimes.py` | `results/tables/r1_s9_regime_distribution.csv` | `788cf8589c1671b81be850f5ec972c44c7f89345e4b7c824c9a22e9f89605b46` |
 | **Table 3** | Point-forecast error on test 2024 | `code/r1/r1_p2_table2_build.py` | `results/tables/r1_p2_table2.csv` | `d1a9f83297f4bbc74f1eca5385ea97014dd489efd5976a8ae85c0af0aa055c83` |
-| **Table 4** | Boosted model against the compact deep baselines, paired tests | `code/r1/r1_p2_deep_vs_gbm.py` | `results/tables/r1_p2_deep_vs_gbm.csv` | `7740e4aa6fb1f9b392b93c2edd9065739ba2035a14b7ceecdff37b9be7cf42f4` |
+| **Table 4** | Boosted model against the compact deep baselines, paired tests | `code/r1/r1_p2_deep_vs_gbm.py` | `results/tables/r1_p2_deep_vs_gbm.csv` | `85905ccea222dd7972a693e15d83bcd1e60ca77d915c6788c29e3168f8c9fb9b` |
 | **Table 5** | Per-regime coverage and sharpness at 90 % nominal | `code/r1/r1_j2_aggregate.py` | `results/tables/r1_j2_interval_metrics.csv` | `af1b429109ff4b8984cac461544841ab4c8160cb3e7bb1240b3382013462f174` |
 | **Table 6** | Adaptive conformal coverage, anticipative against delayed feedback | `code/r1/r1_j2_aggregate.py` | `results/tables/r1_j2_aci_delayed.csv` | `86f4b65b66a3ee81cda424e560fb40b7be6b5fa577326d1c128c074e66cb7b90` |
 | **Table 7** | External site, mirror of Table 8 | `code/r1/r1_s9_dkasc_mirror.py` | `results/tables/r1_s9_dkasc_mirror.csv` | `d368eeba8546a4cac86876faf366207c80ff7ef6b98b0c511746d7f9bc0993cf` |
@@ -118,7 +118,7 @@ b37c095e80d93935d555d075e5dc8f01c5acd554ee44dd6c884b5585cef1ef31  results/tables
 b52a49680b9b63d7a341fe31dbe7191d8979f789eedef12fc87b358f8c214400  results/tables/r1_j2_crps.csv
 af1b429109ff4b8984cac461544841ab4c8160cb3e7bb1240b3382013462f174  results/tables/r1_j2_interval_metrics.csv
 ead7b8b51dfefefe5f2213ed2f5284bdf071583a4bbea432490e33b5c220e131  results/tables/r1_j2_reliability.csv
-1852663ef775a54262f18102fb42d10f7ac61d75dda3a0f62afb8ab393237a3c  results/tables/r1_j2_stats.csv
+0edaad1053d2bbb46f96a46d8b3f895e507d1473a18d9eac9270d3c311396e46  results/tables/r1_j2_stats.csv
 99b4eb75ae2f1cddc6d49d9318939eac9c2f4a0e0cdf8a246014e39e0e68f227  results/tables/r1_j3_dispatch.csv
 51832d81cdd265d588809b652111ef13ce86dd0e7e6b7f68e91ca532f57c9615  results/tables/r1_j3_point_causal.csv
 4ba1a762da1304ccc4f48e294b86bf5b1106b83b1d98b6bf0f7e4e60a256611e  results/tables/r1_j5_battery.csv
@@ -151,7 +151,7 @@ d938c162ee5b0c9aee34af0fb0175bce03e072f38d08d1f9b908c7375c35527d  results/tables
 1990864edd5d66e5ddb7f5d690e984f419cd8a4465e0572349478ca1a1939b79  results/tables/r1_p2_deep_pred_h3_full.parquet
 35da0086b15f5fb0fd791a97a29180aa28d16e18edbb14f009b1b08a487f5807  results/tables/r1_p2_deep_pred_h6.parquet
 fca4b62977f31124f2b48d32e9ab4d78d01bd157b6fad8615838990c91527b47  results/tables/r1_p2_deep_pred_h6_full.parquet
-7740e4aa6fb1f9b392b93c2edd9065739ba2035a14b7ceecdff37b9be7cf42f4  results/tables/r1_p2_deep_vs_gbm.csv
+85905ccea222dd7972a693e15d83bcd1e60ca77d915c6788c29e3168f8c9fb9b  results/tables/r1_p2_deep_vs_gbm.csv
 5f9428075bb2d1e750d8ef585c4a7bc16f1cbc02017d2c7396b4b7b8be21afeb  results/tables/r1_p2_point_causal.csv
 1e77c4b28e990cbc14c3571ab4d1213d264631485199cfa30969800636d7bfbf  results/tables/r1_p2_point_causal_by_regime.csv
 d0025dbcd905cf53ae0e0f21c7746e18f75a3734678116739cf3cfe60736558f  results/tables/r1_p2_point_dm_classical.csv
@@ -162,7 +162,7 @@ d1a9f83297f4bbc74f1eca5385ea97014dd489efd5976a8ae85c0af0aa055c83  results/tables
 4a788930845f2f5da566cf9ef63868f2d6150aea11bc7b3085099cee14551d7c  results/tables/r1_s9_causal_exposure.csv
 616886729b9d9ad794d7a0644233f6851822c6e8fb1477a00f6d267c815c17e6  results/tables/r1_s9_causal_rescore.csv
 d368eeba8546a4cac86876faf366207c80ff7ef6b98b0c511746d7f9bc0993cf  results/tables/r1_s9_dkasc_mirror.csv
-46dba664c74863c4abd04862f256caa15062dee968a3eafd4512a1d4fdfa7eba  results/tables/r1_s9_multiplicity.csv
+55a0781ab09dbf7455659eed3fc9449b0d0c57e8318c5c9c44eb7fbe820d8472  results/tables/r1_s9_multiplicity.csv
 788cf8589c1671b81be850f5ec972c44c7f89345e4b7c824c9a22e9f89605b46  results/tables/r1_s9_regime_distribution.csv
 974592b83506f94c4bae1f724f856aa7c72b42fe77b9c163cbdde08628a1151f  results/tables/r1_s9_selection_regret.csv
 dabba86059b8abd083bc98f682ae883e3930c8d62b4d4031e121b361008f496e  results/metrics/2026-06-22-clean-manifest.json
@@ -191,7 +191,7 @@ e1abbd89395854e65f5dcd54fea69a661cc0ed8f0191774d63ebc9f86bb3bd9b  results/metric
 accb050ecafebcb0ee9f322f444f9804e7a126ecfa5f36b49a4e9f015d68e214  results/metrics/r1_p2_cv_anova.json
 32bac576e67e26ba8e57b1c58dc0028abd20a948908486e490de4175e6d94fca  results/metrics/r1_p2_deep_causal_full_provenance.json
 3fa82af5765abcf92b32571ed8447cbf8e43557c3d2edfaba3518f0cc49ea9ab  results/metrics/r1_p2_deep_causal_provenance.json
-192e1b2a0d35feba4a981b1c732537e99e2e1ec6d032e6345498f6697c27e534  results/metrics/r1_p2_deep_vs_gbm.json
+c8998997dc89848c58d3b39f3996d6af818eb4d93e11aa59a6500598e5c094a5  results/metrics/r1_p2_deep_vs_gbm.json
 abab8982285f71976fe008e1aef3a4ac7d93ceedbd3af109151d8c00b45360ab  results/metrics/r1_p2_point_causal.json
 55e0b6821c0a1499155efd328d0b5720d5b4992480a311399a0282dead10cd31  results/metrics/r1_s10_runlength_guard.json
 ed90135b0a2d1d6d61d9551aff5d8f52a76f059352913dcc7391a64a181650b8  results/figures/j2_aci_gamma_sensitivity.png
@@ -279,6 +279,9 @@ of rows carrying no interpolated issue-time input, and
 `code/r1/r1_s10_verify_runlength_guard.py` reproduces the cell counts from the shipped
 artifacts and proves the guard on constructed series. Re-running the pipeline from raw
 data with the guard in place therefore yields slightly different absolute levels and
-the same conclusions. This provenance is recorded here rather than in the article:
-the article discloses the interpolation rule and the measured exposure, but says
-nothing about the run-length guard, which was added after the reported runs.
+the same conclusions. The article's reproducibility statement names the mode:
+`reproduce.sh` reproduces the shipped artifacts by running
+`p2_clean.py --legacy-gapfill`, which re-applies the exact pre-guard fill; the guarded
+cleaner (no flag) is the default for new analyses, and the two preprocessing modes
+must never be mixed within one run. `p2_clean.py` records the mode it ran in
+(`gapfill_mode`) in its quality JSON, so any output tree declares its own provenance.

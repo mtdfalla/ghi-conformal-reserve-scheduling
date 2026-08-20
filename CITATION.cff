@@ -13,10 +13,7 @@ repository-code: "https://github.com/mtdfalla/ghi-conformal-reserve-scheduling"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.20956895
-    description: "Concept DOI - resolves to the latest archived version of this software."
-  - type: doi
-    value: 10.5281/zenodo.21970201
-    description: "Version DOI of the first archived release."
+    description: "Concept DOI - always resolves to the latest archived version of this software. Per-version DOIs are listed on that Zenodo record."
 license: MIT
 keywords:
   - solar forecasting

@@ -103,7 +103,7 @@ decision_vc_primary,yulara,5,VC_mean,icp,mondrian_cqr,-0.034,0.0022,0.0022,,
 decision_vc_primary,yulara,15,VC_mean,icp,mondrian_cqr,-0.1982,0.0001,0.0008,,
 decision_vc_primary,yulara,30,VC_mean,icp,mondrian_cqr,-0.221,0.0001,0.0008,,
 decision_vc_primary,yulara,60,VC_mean,icp,mondrian_cqr,-0.1286,0.0001,0.0008,,
-interval_crps_yulara_all,yulara,60,CRPS,,,0.4088,0.484674,1.0,icp,icp_norm
+interval_crps_yulara_all,yulara,60,CRPS,,,0.4088,0.48459,1.0,icp,icp_norm
 interval_crps_yulara_all,yulara,60,CRPS,,,5.1577,0.0,0.0,icp,mondrian
 interval_crps_yulara_all,yulara,60,CRPS,,,9.6165,0.0,0.0,icp,cqr
 interval_crps_yulara_all,yulara,60,CRPS,,,9.6726,0.0,0.0,icp,mondrian_cqr
@@ -112,8 +112,8 @@ interval_crps_yulara_all,yulara,60,CRPS,,,9.2077,0.0,0.0,icp_norm,cqr
 interval_crps_yulara_all,yulara,60,CRPS,,,9.2638,0.0,0.0,icp_norm,mondrian_cqr
 interval_crps_yulara_all,yulara,60,CRPS,,,4.4587,0.0,0.0,mondrian,cqr
 interval_crps_yulara_all,yulara,60,CRPS,,,4.5149,0.0,0.0,mondrian,mondrian_cqr
-interval_crps_yulara_all,yulara,60,CRPS,,,0.0562,0.000523,0.002615,cqr,mondrian_cqr
-interval_crps_yulara_all,yulara,5,CRPS,,,-0.1169,0.727818,1.0,icp,icp_norm
+interval_crps_yulara_all,yulara,60,CRPS,,,0.0562,0.000522,0.00261,cqr,mondrian_cqr
+interval_crps_yulara_all,yulara,5,CRPS,,,-0.1169,0.727768,1.0,icp,icp_norm
 interval_crps_yulara_all,yulara,5,CRPS,,,3.9879,0.0,0.0,icp,mondrian
 interval_crps_yulara_all,yulara,5,CRPS,,,6.3064,0.0,0.0,icp,cqr
 interval_crps_yulara_all,yulara,5,CRPS,,,6.3567,0.0,0.0,icp,mondrian_cqr
@@ -123,7 +123,7 @@ interval_crps_yulara_all,yulara,5,CRPS,,,6.4736,0.0,0.0,icp_norm,mondrian_cqr
 interval_crps_yulara_all,yulara,5,CRPS,,,2.3185,0.0,0.0,mondrian,cqr
 interval_crps_yulara_all,yulara,5,CRPS,,,2.3688,0.0,0.0,mondrian,mondrian_cqr
 interval_crps_yulara_all,yulara,5,CRPS,,,0.0503,0.0,0.0,cqr,mondrian_cqr
-interval_crps_yulara_all,yulara,15,CRPS,,,0.2086,0.640681,1.0,icp,icp_norm
+interval_crps_yulara_all,yulara,15,CRPS,,,0.2086,0.640619,1.0,icp,icp_norm
 interval_crps_yulara_all,yulara,15,CRPS,,,5.2532,0.0,0.0,icp,mondrian
 interval_crps_yulara_all,yulara,15,CRPS,,,8.8496,0.0,0.0,icp,cqr
 interval_crps_yulara_all,yulara,15,CRPS,,,8.9137,0.0,0.0,icp,mondrian_cqr
@@ -133,7 +133,7 @@ interval_crps_yulara_all,yulara,15,CRPS,,,8.7051,0.0,0.0,icp_norm,mondrian_cqr
 interval_crps_yulara_all,yulara,15,CRPS,,,3.5964,0.0,0.0,mondrian,cqr
 interval_crps_yulara_all,yulara,15,CRPS,,,3.6605,0.0,0.0,mondrian,mondrian_cqr
 interval_crps_yulara_all,yulara,15,CRPS,,,0.0641,0.0,0.0,cqr,mondrian_cqr
-interval_crps_yulara_all,yulara,30,CRPS,,,0.44,0.403097,1.0,icp,icp_norm
+interval_crps_yulara_all,yulara,30,CRPS,,,0.44,0.403008,1.0,icp,icp_norm
 interval_crps_yulara_all,yulara,30,CRPS,,,5.4798,0.0,0.0,icp,mondrian
 interval_crps_yulara_all,yulara,30,CRPS,,,9.6484,0.0,0.0,icp,cqr
 interval_crps_yulara_all,yulara,30,CRPS,,,9.7089,0.0,0.0,icp,mondrian_cqr

@@ -30,12 +30,15 @@ traced to the code that produced it.
 The `r1_` prefix simply marks the second run; it carries no other meaning.
 
 **The article reports the final pass.** Every conformal, dispatch and point-forecast number
-in the article comes from an `r1_`-prefixed file produced by `code/r1/`. The one exception is
-the two ablation tables in the robustness section, which come from the first-pass `j6_*`
-files; the article says so where it reports them.
+in the article comes from an `r1_`-prefixed file produced by `code/r1/`. The robustness
+layer - both ablation tables, the drift summaries and the drift figure - was likewise
+regenerated in the final pass (`results/**/r1_j6_*`). The exceptions are Figures 7 and 8
+of the article, first-pass exhibits the article identifies as such (Sections X-E and
+VIII); no reported number is read from either.
 
-What the final pass changed, in one line each: it re-runs the point-forecast benchmark on a
-strictly causal feature frame; it applies the *h*-step feedback delay that an online adaptive
+What the final pass changed, in one line each: it re-runs the point-forecast benchmark on
+the revised feature frame (the remaining interpolated-input exposure is disclosed in the
+article and measured by `code/r1/r1_s9_causal_rescore.py`); it applies the *h*-step feedback delay that an online adaptive
 method must obey at horizons beyond one step; it selects the reserve level on data that
 exclude the test year; and it adds paired significance tests to every ranked claim. Each is
 described in the module docstring of the script that implements it.
@@ -110,6 +113,10 @@ bash reproduce.sh          # the full pipeline, first pass then final pass
 bash reproduce.sh r1       # the final pass only
 ```
 
+`reproduce.sh` runs the preprocessing in `--legacy-gapfill` mode, which reproduces the
+shipped article artifacts bit-for-bit; the guarded cleaner (no flag) is the default for
+new analyses, and the two modes must never be mixed in one run (see `data/README.md`).
+
 The individual steps, and which are optional, are in [`REPRODUCE.md`](REPRODUCE.md). All
 scripts are config-driven via `code/utils/config.py`; outputs are written to `results/`.
 
@@ -131,11 +138,13 @@ scripts are config-driven via `code/utils/config.py`; outputs are written to `re
 - **Conditional calibration is the finding.** Marginal conformal prediction is
   near-calibrated on average but transitional-regime coverage is only **0.713** against a
   0.90 target. Regime-conditional and adaptive methods restore per-regime and temporal
-  calibration, and **Mondrian-CQR is the only method tested whose transitional-regime
-  coverage error is statistically indistinguishable from zero**.
+  calibration, and **Mondrian-CQR is the only method tested whose 95 % confidence
+  interval for transitional-regime coverage error contains zero**.
 - **Sharpness is a secondary, honestly-sized claim.** Mondrian-CQR's CRPS advantage over CQR
   is statistically significant but **0.17 %–0.26 %**. It is reported with its
-  Diebold–Mariano *p*-value, not as a bare "lowest CRPS".
+  Diebold–Mariano *p*-value, not as a bare "lowest CRPS". Throughout the article and this
+  repository, "CRPS" denotes the seven-level WIS-form proxy the article defines in
+  Section VII-A; the convention is declared there once and used consistently.
 - **Decision value, with the reserve level selected without the test year.** Regime-aware
   uncertainty captures **96.0 %** of the achievable expected-cost saving and **90.4 %** of
   the tail-risk (CVaR) saving at 5 min, against **92.6 %** and **76.3 %** for marginal
