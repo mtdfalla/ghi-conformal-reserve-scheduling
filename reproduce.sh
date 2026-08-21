@@ -119,4 +119,4 @@ python r1/r1_s9_causal_rescore.py
 #     withholds, against the shipped data.
 python r1/r1_s10_verify_runlength_guard.py
 
-echo "Done. See../results/ for tables and figures."
+echo "Done. See ../results/ for tables and figures."
